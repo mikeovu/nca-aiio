@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCA-AIIO Study Hub</title>
+  <meta name="description" content="Study hub for the NVIDIA-Certified Associate: AI Infrastructure and Operations exam.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="NCA-AIIO Study Hub home">
+        <picture>
+          <source srcset="assets/nvidia-logo-white.svg" media="(prefers-color-scheme: dark)">
+          <img src="assets/nvidia-logo.svg" alt="NVIDIA" width="131" height="24">
+        </picture>
+        <span class="brand-text">NCA-AIIO Study Hub</span>
+      </a>
+    </div>
+    <nav class="topics" aria-label="Certification study topics">
+      <a href="essential-ai-knowledge.html"><span class="num">1</span>Essential AI Knowledge</a>
+      <a href="ai-infrastructure.html"><span class="num">2</span>AI Infrastructure</a>
+      <a href="ai-operations.html"><span class="num">3</span>AI Operations</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">NVIDIA-Certified Associate</p>
+      <h1>AI Infrastructure and Operations study hub</h1>
+      <p class="lede">The official NCA-AIIO exam blueprint, one page per topic: the exam objectives plus the recommended course units and readings from NVIDIA's study guide. 23 readings, checked November 1, 2026.</p>
+    </section>
+    <section>
+      <h2>Exam topics by weight</h2>
+      <p class="note">AI Infrastructure and Essential AI Knowledge are 78% of the exam together.</p>
+      <div class="cards">
+      <a class="card" href="essential-ai-knowledge.html">
+        <span class="card-num">1</span>
+        <span class="card-title">Essential AI Knowledge</span>
+        <span class="weight"><span class="weight-bar" style="width:95%"></span></span>
+        <span class="card-meta"><strong>38%</strong> of exam · 8 objectives · 7 readings</span>
+      </a>
+      <a class="card" href="ai-infrastructure.html">
+        <span class="card-num">2</span>
+        <span class="card-title">AI Infrastructure</span>
+        <span class="weight"><span class="weight-bar" style="width:100%"></span></span>
+        <span class="card-meta"><strong>40%</strong> of exam · 10 objectives · 7 readings</span>
+      </a>
+      <a class="card" href="ai-operations.html">
+        <span class="card-num">3</span>
+        <span class="card-title">AI Operations</span>
+        <span class="weight"><span class="weight-bar" style="width:55%"></span></span>
+        <span class="card-meta"><strong>22%</strong> of exam · 4 objectives · 9 readings</span>
+      </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Personal study hub for the NVIDIA-Certified Associate: AI Infrastructure and Operations exam. Not affiliated with or endorsed by NVIDIA.
+    Links come from the official exam study guide and were checked on November 1, 2026.</p>
+  </footer>
+  <script>document.querySelector('.topics [aria-current]')?.scrollIntoView({block: 'nearest', inline: 'center'});</script>
+</body>
+</html>
