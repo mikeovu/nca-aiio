@@ -192,7 +192,3 @@ footer p { margin: 0; font-size: 13px; color: var(--muted); max-width: 760px; }
   .links a { flex-direction: column; gap: 4px; }
   .lede { font-size: 16px; }
 }
-
-/* Course units */
-.units { margin: 12px 0 0; padding: 14px 16px 14px 34px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--muted); font-size: 15px; }
-.units li + li { margin-top: 4px; }

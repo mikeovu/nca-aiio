@@ -1,6 +1,6 @@
 # NCA-AIIO Study Hub
 
-A static GitHub Pages site for studying for the **NVIDIA-Certified Associate: AI Infrastructure and Operations (NCA-AIIO)** exam. There's one page per exam blueprint topic. Each page lists the topic's exam objectives and the recommended course units and readings from NVIDIA's official exam study guide.
+A static GitHub Pages site for studying for the **NVIDIA-Certified Associate: AI Infrastructure and Operations (NCA-AIIO)** exam. There's one page per exam blueprint topic. Each page lists the topic's exam objectives, downloadable unit summaries from the recommended course (stored in `reading/`), and the readings from NVIDIA's official exam study guide.
 
 Only links that could be confirmed live when last checked (November 1, 2026) are included.
 
