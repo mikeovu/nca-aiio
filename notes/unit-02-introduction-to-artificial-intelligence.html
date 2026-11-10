@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 2: Introduction to Artificial Intelligence · NCA-AIIO Study Hub</title>
+  <meta name="description" content="NCA-AIIO study notes and summary PDF for Unit 2: Introduction to Artificial Intelligence.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="../index.html" aria-label="NCA-AIIO Study Hub home">
+        <picture>
+          <source srcset="../assets/nvidia-logo-white.svg" media="(prefers-color-scheme: dark)">
+          <img src="../assets/nvidia-logo.svg" alt="NVIDIA" width="131" height="24">
+        </picture>
+        <span class="brand-text">NCA-AIIO Study Hub</span>
+      </a>
+    </div>
+    <nav class="topics" aria-label="Certification study topics">
+      <a href="../essential-ai-knowledge.html"><span class="num">1</span>Essential AI Knowledge</a>
+      <a href="../ai-infrastructure.html"><span class="num">2</span>AI Infrastructure</a>
+      <a href="../ai-operations.html"><span class="num">3</span>AI Operations</a>
+      <a href="../study-notes.html" aria-current="page"><span class="num"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M2 2.5C2 1.7 2.7 1 3.5 1H14v11H3.5a.5.5 0 0 0 0 1H14v2H3.5A1.5 1.5 0 0 1 2 13.5z"/></svg></span>Study Notes</a>
+    </nav>
+  </header>
+  <main>
+    <p class="crumbs"><a href="../study-notes.html">Study Notes</a> / Unit 2</p>
+    <section class="hero">
+      <p class="eyebrow">Unit 2 of 14</p>
+      <h1>Introduction to Artificial Intelligence</h1>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
+      <p class="chips"><a class="chip" href="../essential-ai-knowledge.html">Topic 1 · Essential AI Knowledge</a></p>
+    </section>
+    <section>
+      <h2>Unit summary</h2>
+      <ul class="links">
+        <li><a href="../reading/Unit%2002%20-%20Introduction%20to%20Artificial%20Inteligence%20-%20Summary.pdf" download="NCA-AIIO Unit 02 - Introduction to Artificial Intelligence - Summary.pdf"><span class="title">Unit 2 summary: Introduction to Artificial Intelligence</span><span class="meta">264 KB<span class="tag">PDF</span></span></a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Notes</h2>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-evolution-of-ai">1. Evolution of AI</a></li><li><a href="#2-the-ai-workflow-4-steps">2. The AI Workflow (4 steps)</a></li><li><a href="#3-how-neural-networks-work">3. How Neural Networks Work</a></li><li><a href="#4-who-uses-ai-and-what-gets-in-their-way">4. Who Uses AI and What Gets in Their Way</a></li><li><a href="#5-nvidias-answer-the-end-to-end-ai-software-stack">5. NVIDIA's Answer: the End-to-End AI Software Stack</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <article class="prose">
+<h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
+<ol>
+<li>Describe key milestones in the evolution of AI.</li>
+<li>Picture a typical AI workflow and the main steps in each phase.</li>
+<li>Describe at a high level how neural networks work.</li>
+<li>Identify common challenges enterprises face when adopting AI.</li>
+<li>Explain the value of NVIDIA's end-to-end software stack for running AI in production.</li>
+</ol>
+<hr />
+<h2 id="1-evolution-of-ai">1. Evolution of AI</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Era</th>
+<th>When</th>
+<th>What it is</th>
+<th>What made it possible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI</strong></td>
+<td>1950s →</td>
+<td>A broad field: computers doing things that need human-level intelligence</td>
+<td>Early on it was limited to games (Tic-Tac-Toe, Checkers) and had few practical uses</td>
+</tr>
+<tr>
+<td><strong>Machine Learning (ML)</strong></td>
+<td>1980s →</td>
+<td>Uses <strong>statistical techniques</strong> to build a model from observed data</td>
+<td>Relies on <strong>human-defined classifiers / feature extractors</strong>, e.g. linear regression, or <strong>bag-of-words</strong>, which made <strong>email spam filters</strong> possible</td>
+</tr>
+<tr>
+<td><strong>Deep Learning (DL)</strong></td>
+<td>~2010 →</td>
+<td>Uses <strong>deep neural networks (DNNs)</strong>, which <strong>automate feature extraction</strong> by learning from large amounts of data</td>
+<td>Three things: <strong>better hardware</strong>, <strong>large datasets</strong> (from smartphones, webcams, social media and sensors, i.e. "big data"), and <strong>better training algorithms</strong></td>
+</tr>
+<tr>
+<td><strong>Generative AI / LLMs</strong></td>
+<td>Within about a decade of DNNs</td>
+<td>Systems that seem surprisingly human-like</td>
+<td>Used for chatbots, virtual assistants, content generation and translation</td>
+</tr>
+<tr>
+<td><strong>Agentic AI</strong></td>
+<td>Now</td>
+<td>Autonomous <strong>AI agents</strong> that <strong>reason, plan and act</strong> with little or no human input. They can work together as <strong>multi-agent systems</strong> on problems that span several domains</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Physical AI</strong></td>
+<td>Now</td>
+<td>Machines (e.g. robots) that <strong>perceive, understand and interact with the physical world</strong> by combining AI with <strong>sensors and actuators</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>How the terms relate: <strong>AI ⊃ ML ⊃ DL</strong>, and <strong>Generative AI</strong> builds on neural networks.</p>
+<ul>
+<li><strong>ML</strong> trains a model on large datasets with statistical methods so it can predict outcomes from new data.</li>
+<li><strong>DL</strong> is the most popular ML technique today. It uses artificial neural networks and <strong>shines for vision and speech</strong>.</li>
+<li><strong>Generative AI</strong> learns patterns from training data with neural networks and <strong>creates new content</strong> that looks human-made.</li>
+</ul>
+<hr />
+<h2 id="2-the-ai-workflow-4-steps">2. The AI Workflow (4 steps)</h2>
+<p>The same thing is also called the <em>ML workflow</em> or <em>data science workflow</em>. It's the process data scientists, ML engineers and AI practitioners follow to develop, train, deploy and maintain models.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step</th>
+<th>What happens</th>
+<th>Key facts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Data preparation</strong></td>
+<td>Collect, clean and pre-process raw data</td>
+<td>Data <strong>quality, diversity and relevance</strong> matter <strong>as much as size</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Model training</strong></td>
+<td>An ML/DL model learns patterns from a <strong>labeled dataset</strong>, often over many iterations</td>
+<td><strong>The most compute-intensive step.</strong> It benefits the most from extra hardware, more than inference does. It often uses <strong>mixed precision (FP8, FP16)</strong> to run faster while keeping accuracy</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Model optimization</strong></td>
+<td>Fine-tune the model for accuracy, efficiency and fit to the use case</td>
+<td>An iterative loop: evaluate, adjust, and repeat until it meets the deployment criteria</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Inference / deployment</strong></td>
+<td>The trained model makes predictions or generates output from <strong>new, unseen data</strong> in production</td>
+<td>Usually the <strong>core of the AI application</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="example-imageme-radiology-clinic-detecting-fractures-and-tumors">Example: "ImageMe" radiology clinic (detecting fractures and tumors)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>NVIDIA / ecosystem tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data prep</td>
+<td><strong>RAPIDS</strong></td>
+<td>An open-source suite of <strong>GPU-accelerated Python libraries</strong> for analytics and data prep</td>
+</tr>
+<tr>
+<td>Data prep</td>
+<td><strong>RAPIDS Accelerator for Apache Spark</strong></td>
+<td>A plug-in that <strong>automatically intercepts and GPU-accelerates</strong> Spark operations it can speed up. Everything else keeps running on the CPU</td>
+</tr>
+<tr>
+<td>Training</td>
+<td><strong>PyTorch, TensorFlow</strong></td>
+<td>GPU-accelerated frameworks for training at scale, now integrated with RAPIDS</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td><strong>NVIDIA TensorRT</strong></td>
+<td>A <strong>deep learning inference optimizer</strong> that tunes a trained model so it's ready to deploy and scale</td>
+</tr>
+<tr>
+<td>Inference</td>
+<td><strong>NVIDIA Triton Inference Server</strong></td>
+<td><strong>Open-source</strong> software that <strong>standardizes model deployment and execution</strong> and handles IT/DevOps concerns such as <strong>load balancing</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Memory hook: <strong>RAPIDS → PyTorch/TensorFlow → TensorRT → Triton</strong> = prep → train → optimize → serve.</p>
+</blockquote>
+<hr />
+<h2 id="3-how-neural-networks-work">3. How Neural Networks Work</h2>
+<h3 id="biological-inspiration">Biological inspiration</h3>
+<p>Geoffrey Hinton ("godfather of deep learning") held that AI works best when it computes <strong>the way the brain does</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Biological neuron part</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dendrites</strong></td>
+<td>Receiving antennas. They pick up signals from neighboring neurons' terminal buttons</td>
+</tr>
+<tr>
+<td><strong>Cell nucleus</strong></td>
+<td>Processes the signal</td>
+</tr>
+<tr>
+<td><strong>Axon</strong></td>
+<td>A long branch that carries the electrical impulse</td>
+</tr>
+<tr>
+<td><strong>Synapse</strong></td>
+<td>A bridge that passes the impulse on to the next neuron's dendrites</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Artificial neurons</strong> (also called <strong>nodes</strong> or <strong>perceptrons</strong>) copy this behavior.</p>
+<h3 id="structure-of-a-dnn">Structure of a DNN</h3>
+<ul>
+<li><strong>Input layer</strong>, then <strong>hidden layers</strong>, then <strong>output layer</strong>. Connections show which nodes pass results to which.</li>
+<li>It's called <strong>"deep"</strong> because it has <strong>many hidden layers</strong>.</li>
+<li>The <strong>design of the network</strong> decides what task it suits. Image classification models look very different from speech recognition models. They differ in:</li>
+<li>number of layers</li>
+<li>nodes per layer</li>
+<li>the algorithm in each node</li>
+<li>how nodes are connected</li>
+<li>Pre-built models exist for classification, object recognition, segmentation and more. They often need <strong>modifying to reach high accuracy</strong> on a specific dataset.</li>
+</ul>
+<h3 id="deep-learning-workflow-cats-vs-dogs-example">Deep learning workflow (cats vs. dogs example)</h3>
+<ol>
+<li><strong>Build a training dataset</strong>: several thousand <strong>labeled</strong> images. It must be <strong>representative</strong>, covering many breeds, poses and environments.</li>
+<li><strong>Pick an untrained DNN</strong> for the task (detection, classification or segmentation) and data type (image, text, audio or video). For images this would be a <strong>CNN such as AlexNet</strong>.
+   - AlexNet's nodes run <strong>simple, generalized algorithms</strong>. That is the <strong>key advantage of DL over earlier ML</strong>, which needed specialists to hand-build custom feature extractors for each dataset and task.</li>
+<li><strong>Train it with a deep learning framework.</strong> The framework feeds the images through the network.
+   - Each output node reports a confidence score. Sorted from most to least confident, these scores make up the <strong>confidence vector</strong>.
+   - The framework compares the guess with the <strong>label</strong>. A <strong>correct</strong> guess <strong>strengthens the weights</strong> of the connections that led to it. A <strong>wrong</strong> guess <strong>reduces</strong> those weights.
+   - After <strong>one pass</strong> through the dataset, the model is right only a bit more than half the time, barely better than a coin flip. It needs <strong>many more rounds</strong> to become accurate.</li>
+<li><strong>Limits and retraining</strong>: if the model sees a raccoon, it gives cat and dog similar confidence. To add a raccoon class:
+   - add a <strong>third output node</strong> (change the topology)
+   - add thousands of raccoon images
+   - <strong>retrain</strong></li>
+<li><strong>Optimize for inference</strong>: a trained model no longer needs the flexibility it had during training. Two common optimizations are:
+   - <strong>layer fusion</strong>, which reduces memory and communication overhead
+   - <strong>pruning</strong> nodes that contribute little</li>
+<li><strong>Deploy</strong> the model in an application, where it infers on images it hasn't seen before.</li>
+</ol>
+<h3 id="training-vs-inference">Training vs. inference</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Training</th>
+<th>Inference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Learn patterns from labeled data</td>
+<td>Predict on new, unseen data</td>
+</tr>
+<tr>
+<td>Compute</td>
+<td><strong>Heaviest</strong>. Benefits most from more hardware</td>
+<td>Lighter. The model is optimized first (fusion, pruning, TensorRT)</td>
+</tr>
+<tr>
+<td>Model state</td>
+<td>Flexible: weights keep being adjusted</td>
+<td>Fixed, optimized for speed</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-who-uses-ai-and-what-gets-in-their-way">4. Who Uses AI and What Gets in Their Way</h2>
+<h3 id="stakeholders-in-an-ai-data-center">Stakeholders in an AI data center</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>What they want</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI practitioners</strong></td>
+<td>An agile, <strong>cloud-native</strong> platform that keeps up with new AI, with the accuracy and performance to deploy faster</td>
+</tr>
+<tr>
+<td><strong>Enterprise IT</strong></td>
+<td>Infrastructure that meets AI demands. AI is a new, fast-changing, often open-source workload landing on <strong>legacy infrastructure and technical debt</strong></td>
+</tr>
+<tr>
+<td><strong>Line-of-business managers</strong></td>
+<td>More models in production sooner, with <strong>efficient use of infrastructure investments</strong></td>
+</tr>
+<tr>
+<td><strong>Leaders</strong></td>
+<td>The fastest <strong>ROI</strong> and data-driven results from AI spending</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="challenges-in-adopting-ai">Challenges in adopting AI</h3>
+<ol>
+<li><strong>Exploding model sizes and complexity</strong>: models need more and more compute and energy, which hurts <strong>affordability, sustainability and access for smaller organizations</strong>.</li>
+<li><strong>Versatility for rich experiences</strong>: one application, such as recommendations, voice assistants or contact centers, may need <strong>several different models</strong> deployed together.</li>
+<li><strong>Performance and scalability</strong>: training and customizing is intense and iterative, so <strong>end-to-end performance</strong> matters for each step and for each full iteration.</li>
+</ol>
+<p>Getting AI into production takes three things:</p>
+<ul>
+<li><strong>tools for the full AI lifecycle</strong></li>
+<li><strong>compute infrastructure</strong></li>
+<li><strong>a robust support model</strong> for data scientists, engineers, developers and operators</li>
+</ul>
+<hr />
+<h2 id="5-nvidias-answer-the-end-to-end-ai-software-stack">5. NVIDIA's Answer: the End-to-End AI Software Stack</h2>
+<ul>
+<li><strong>For practitioners</strong>: top-tier development tools, frameworks and <strong>pre-trained models</strong>.</li>
+<li><strong>For IT</strong>: management and <strong>orchestration</strong> with performance, <strong>high availability</strong> and <strong>security</strong>.</li>
+<li><strong>Covers the full pipeline</strong>: data prep, then training, then inference, then scaling.</li>
+<li><strong>Faster time to production</strong> with AI workflows and pre-trained models for specific business outcomes:</li>
+<li>intelligent virtual assistants</li>
+<li><strong>digital fingerprinting</strong> (real-time cybersecurity threat detection)</li>
+<li>recommender systems for retail</li>
+<li><strong>Optimized and certified to deploy anywhere</strong>: public cloud, data center and edge. This <strong>lowers the risk of moving from pilot to production</strong> when environments differ.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Machine learning (ML)</strong>: statistical models learned from data, using human-defined feature extractors.</li>
+<li><strong>Deep learning (DL)</strong>: ML with deep neural networks that learn their own features from large datasets.</li>
+<li><strong>DNN</strong>: a deep neural network, i.e. a network with many hidden layers.</li>
+<li><strong>Perceptron / node</strong>: an artificial neuron.</li>
+<li><strong>CNN</strong>: a convolutional neural network, used for images (e.g. <strong>AlexNet</strong>).</li>
+<li><strong>Confidence vector</strong>: the output-node scores sorted from most to least confident.</li>
+<li><strong>Weights</strong>: connection strengths that training adjusts up or down.</li>
+<li><strong>Mixed precision (FP8/FP16)</strong>: lower-precision formats that make training more efficient while keeping accuracy.</li>
+<li><strong>Layer fusion / pruning</strong>: optimizations applied after training to speed up inference.</li>
+<li><strong>Agentic AI</strong>: autonomous agents that reason, plan and act, sometimes in multi-agent systems.</li>
+<li><strong>Physical AI</strong>: AI plus sensors and actuators, acting in the real world.</li>
+<li><strong>RAPIDS</strong>: GPU-accelerated Python libraries for data science and data prep.</li>
+<li><strong>TensorRT</strong>: NVIDIA's inference optimizer.</li>
+<li><strong>Triton Inference Server</strong>: NVIDIA's open-source model serving software. It handles deployment and load balancing.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>Training is the most compute-intensive step</strong> of the AI workflow, more than inference.</li>
+<li><strong>DL took off around 2010</strong> because of three things: <strong>hardware, big datasets and better algorithms</strong>.</li>
+<li><strong>ML uses hand-built feature extractors. DL learns them automatically.</strong> This is the key difference.</li>
+<li>Match the tool to the step: <strong>RAPIDS</strong> = data prep, <strong>TensorRT</strong> = optimize, <strong>Triton</strong> = serve/inference.</li>
+<li>The <strong>RAPIDS Accelerator for Spark</strong> sends GPU-friendly operations to the GPU, and the rest stay on the CPU.</li>
+<li><strong>Data quality, diversity and relevance</strong> matter as much as dataset size.</li>
+<li>Adding a new class means <strong>changing the output layer and retraining</strong>.</li>
+<li>Know the <strong>three adoption challenges</strong>: model size/complexity, versatility (multiple models), and performance/scalability.</li>
+</ul>
+      </article>
+    </section>
+    <nav class="pager" aria-label="Units">
+      <a class="prev" href="unit-01-ai-transformation-across-industries.html"><span>← Unit 1</span>AI Transformation Across Industries</a>
+      <a class="next" href="unit-03-generative-ai-and-beyond.html"><span>Unit 3 →</span>Generative AI and Beyond</a>
+    </nav>
+  </main>
+  <footer>
+    <p>Mike Vu's personal study hub for the NVIDIA-Certified Associate: AI Infrastructure and Operations exam. Not affiliated with or endorsed by NVIDIA.
+    Links come from the official exam study guide and were checked on November 1, 2026. Unit summaries come from the AI Infrastructure and Operations Fundamentals course.</p>
+  </footer>
+  <script>document.querySelector('.topics [aria-current]')?.scrollIntoView({block: 'nearest', inline: 'center'});</script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 3: Generative AI and Beyond · NCA-AIIO Study Hub</title>
+  <meta name="description" content="NCA-AIIO study notes and summary PDF for Unit 3: Generative AI and Beyond.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="../index.html" aria-label="NCA-AIIO Study Hub home">
+        <picture>
+          <source srcset="../assets/nvidia-logo-white.svg" media="(prefers-color-scheme: dark)">
+          <img src="../assets/nvidia-logo.svg" alt="NVIDIA" width="131" height="24">
+        </picture>
+        <span class="brand-text">NCA-AIIO Study Hub</span>
+      </a>
+    </div>
+    <nav class="topics" aria-label="Certification study topics">
+      <a href="../essential-ai-knowledge.html"><span class="num">1</span>Essential AI Knowledge</a>
+      <a href="../ai-infrastructure.html"><span class="num">2</span>AI Infrastructure</a>
+      <a href="../ai-operations.html"><span class="num">3</span>AI Operations</a>
+      <a href="../study-notes.html" aria-current="page"><span class="num"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M2 2.5C2 1.7 2.7 1 3.5 1H14v11H3.5a.5.5 0 0 0 0 1H14v2H3.5A1.5 1.5 0 0 1 2 13.5z"/></svg></span>Study Notes</a>
+    </nav>
+  </header>
+  <main>
+    <p class="crumbs"><a href="../study-notes.html">Study Notes</a> / Unit 3</p>
+    <section class="hero">
+      <p class="eyebrow">Unit 3 of 14</p>
+      <h1>Generative AI and Beyond</h1>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
+      <p class="chips"><a class="chip" href="../essential-ai-knowledge.html">Topic 1 · Essential AI Knowledge</a></p>
+    </section>
+    <section>
+      <h2>Unit summary</h2>
+      <ul class="links">
+        <li><a href="../reading/Unit%2003%20-%20Generative%20AI%20and%20Beyond%20-%20Summary%20V2.pdf" download="NCA-AIIO Unit 03 - Generative AI and Beyond - Summary.pdf"><span class="title">Unit 3 summary: Generative AI and Beyond</span><span class="meta">613 KB<span class="tag">PDF</span></span></a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Notes</h2>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-what-generative-ai-is">1. What Generative AI Is</a></li><li><a href="#2-foundation-models">2. Foundation Models</a></li><li><a href="#3-how-llms-work">3. How LLMs Work</a></li><li><a href="#4-challenges-and-risks">4. Challenges and Risks</a></li><li><a href="#5-generative-ai-in-the-enterprise">5. Generative AI in the Enterprise</a></li><li><a href="#6-getting-started-5-steps-for-enterprises">6. Getting Started: 5 Steps for Enterprises</a></li><li><a href="#7-building-a-generative-ai-app-the-llm-workflow">7. Building a Generative AI App: the LLM Workflow</a></li><li><a href="#8-the-nvidia-generative-ai-platform">8. The NVIDIA Generative AI Platform</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <article class="prose">
+<h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
+<ol>
+<li>Explain what generative AI is and how the technology works.</li>
+<li>Discuss generative AI market trends and the challenges in this space.</li>
+<li>Describe the steps enterprises take to unlock new business opportunities with generative AI.</li>
+</ol>
+<hr />
+<h2 id="1-what-generative-ai-is">1. What Generative AI Is</h2>
+<ul>
+<li><strong>Generative AI</strong> is a <strong>subset of AI</strong> that <strong>creates new data or content</strong>, such as text, images and multimedia, from patterns learned in a dataset.</li>
+<li><strong>What sets it apart is versatility.</strong> It goes well beyond text and chat: it can generate realistic <strong>images, video, music, even whole virtual environments</strong>.</li>
+</ul>
+<h3 id="use-cases-by-industry">Use cases by industry</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>Generative AI use cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Finance</strong></td>
+<td>Fraud detection, personalized banking, investment insights</td>
+</tr>
+<tr>
+<td><strong>Healthcare</strong></td>
+<td>Molecule simulation, <strong>drug discovery</strong>, clinical trial data analysis</td>
+</tr>
+<tr>
+<td><strong>Retail</strong></td>
+<td>Personalized shopping, automated catalog descriptions, automatic price optimization</td>
+</tr>
+<tr>
+<td><strong>Manufacturing</strong></td>
+<td>Factory simulation, product design, <strong>predictive maintenance</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2-foundation-models">2. Foundation Models</h2>
+<ul>
+<li><strong>Foundation models</strong> are the <strong>base that generative AI systems are built from</strong>. They provide the starting framework for language structure, semantics and context.</li>
+<li>They're <strong>neural networks trained on massive <em>unlabeled</em> datasets</strong>, and they handle many jobs: generating text and images, summarizing, translating and more.</li>
+<li><strong>Key breakthrough:</strong> they can use <strong>unsupervised or semi-supervised learning</strong>. The model finds patterns and structure on its own, so it <strong>doesn't need labeled data</strong>.</li>
+<li><strong>Unlabeled data</strong> is raw text, images, audio or video with no predefined categories, labels or annotations. It's <strong>abundant and diverse</strong>, coming from the internet, social media and proprietary datasets.</li>
+</ul>
+<h3 id="example-foundation-models">Example foundation models</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DALL-E</strong></td>
+<td>Realistic images from text descriptions. Also image captioning, editing and manipulation</td>
+</tr>
+<tr>
+<td><strong>Edify</strong></td>
+<td>A <strong>diffusion model</strong> that makes photorealistic images from any text prompt</td>
+</tr>
+<tr>
+<td><strong>Llama 2</strong></td>
+<td>Diverse, high-quality natural-language text for content creation, language understanding and conversational AI</td>
+</tr>
+<tr>
+<td><strong>NVIDIA GPT</strong></td>
+<td>A family of <strong>production-ready LLMs</strong> you can tune for enterprise apps: product descriptions, customer Q&amp;A, writing code</td>
+</tr>
+<tr>
+<td><strong>GPT-4</strong></td>
+<td>Human-like text and content, images and music, plus conversational Q&amp;A</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="3-how-llms-work">3. How LLMs Work</h2>
+<ul>
+<li><strong>LLMs</strong> are a turning point. They learn <strong>context</strong>, <strong>infer intent</strong>, can be <strong>independently creative</strong>, and can be <strong>fine-tuned</strong> for many different tasks.</li>
+<li>They're built on a neural network architecture called the <strong>transformer</strong>.</li>
+<li><strong>Two stages:</strong> <strong>pre-training</strong> on huge text datasets, then <strong>fine-tuning</strong> for specific tasks.</li>
+<li><strong>Goal of a language model: predict the next word</strong> given the words that come before it. This works for human languages and for programming languages.</li>
+</ul>
+<h3 id="generating-text-step-by-step">Generating text, step by step</h3>
+<ol>
+<li>The user gives a <strong>prompt</strong>, e.g. "Write a review about an Italian restaurant I visited and enjoyed."</li>
+<li>The prompt is broken into <strong>tokens</strong>, which are fed into the model.</li>
+<li>The model <strong>predicts the next word</strong> from the tokens so far, then feeds it back in. It generates <strong>one word at a time</strong>.</li>
+<li>This repeats until the user stops or the model reaches a <strong>predetermined stopping point</strong>.</li>
+</ol>
+<h3 id="key-mechanics">Key mechanics</h3>
+<ul>
+<li><strong>Tokens</strong> are the <strong>smallest units of meaning</strong>: words, characters, sub-words or other symbols.</li>
+<li><strong>Self-attention</strong> is how the transformer understands <strong>relationships between tokens and concepts</strong>. It assigns each token a <strong>score, called a weight</strong>, to capture how strongly items relate.</li>
+</ul>
+<h3 id="why-gpus">Why GPUs</h3>
+<ul>
+<li>Generative AI is full of <strong>complex math and heavy computation</strong>.</li>
+<li>GPUs excel at <strong>parallel processing, matrix operations, memory capacity and memory bandwidth</strong>.</li>
+<li>The result is <strong>faster training <em>and</em> inference than CPUs</strong>, the ability to <strong>work with large-scale models</strong>, and support for <strong>real-time applications</strong>.</li>
+<li>Example: <strong>ChatGPT was trained on 10,000 NVIDIA GPUs for weeks.</strong></li>
+</ul>
+<hr />
+<h2 id="4-challenges-and-risks">4. Challenges and Risks</h2>
+<p>Adoption involves <strong>technical, ethical and regulatory</strong> issues. <strong>Guardrails</strong>, meaning rules, mitigate inappropriate outcomes.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>What to watch for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data privacy</strong></td>
+<td>Watch <strong>healthcare and finance</strong> use cases closely to prevent leaks of money-related or sensitive data</td>
+</tr>
+<tr>
+<td><strong>IP rights and copyright</strong></td>
+<td>Platforms should mitigate infringement of creators' work</td>
+</tr>
+<tr>
+<td><strong>Bias, errors and limitations</strong></td>
+<td>Models are as biased as people, because they're <strong>trained on our own biases</strong></td>
+</tr>
+<tr>
+<td><strong>Ethical implications</strong></td>
+<td>It's unclear <strong>who is responsible</strong> for harmful output: the developers, the users or the technology</td>
+</tr>
+<tr>
+<td><strong>Malevolent activities</strong></td>
+<td>Bad actors can use it too, e.g. <strong>fraudulent scams</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="5-generative-ai-in-the-enterprise">5. Generative AI in the Enterprise</h2>
+<ul>
+<li>Enterprises that used <strong>traditional AI</strong> for <strong>classification, named entity recognition (NER) and NLP</strong> are <strong>gradually moving those tasks to LLMs</strong>.</li>
+</ul>
+<h3 id="generative-ai-vs-traditional-ai">Generative AI vs. traditional AI</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Generative AI</th>
+<th>Traditional AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Does</td>
+<td><strong>Produces new content</strong> from learned patterns</td>
+<td><strong>Detects patterns, makes decisions</strong>, analytics, <strong>classifies data, detects fraud</strong></td>
+</tr>
+<tr>
+<td>Compute</td>
+<td>Heavy</td>
+<td><strong>Less compute-intensive</strong></td>
+</tr>
+<tr>
+<td>Relationship</td>
+<td><strong>Complementary, not mutually exclusive</strong></td>
+<td>Still the right fit for many use cases</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="the-customization-spectrum-from-least-to-most-investment">The customization spectrum (from least to most investment)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What the enterprise does</th>
+<th>Investment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Generative AI as a service</strong> (the largest group, e.g. ChatGPT)</td>
+<td>Writes a prompt and gets a response. If the answer is poor, they <strong>refine the prompt</strong>. <strong>The model doesn't change</strong></td>
+<td>Lowest</td>
+</tr>
+<tr>
+<td><strong>Moderate customization</strong></td>
+<td>Adds parameters to an existing <strong>pre-trained model</strong> and <strong>slightly tunes it</strong></td>
+<td>Needs infrastructure expertise and investment</td>
+</tr>
+<tr>
+<td><strong>Extensive customization</strong></td>
+<td><strong>Builds its own foundation model</strong>, with extensive fine-tuning</td>
+<td>Most infrastructure and AI expertise</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Building a foundation model from scratch</strong> takes huge amounts of data and compute, so it's <strong>very costly</strong>. It's usually done by <strong>big tech, research institutions and well-funded startups</strong>.</li>
+<li><strong>Customizing a pre-trained model</strong> needs <strong>less data, fewer resources and less expertise</strong>. You feed it domain-specific data and tasks and adjust its parameters, which still requires knowing the model's capabilities, data format and evaluation metrics.</li>
+<li><strong>The most common choice:</strong> take an <strong>existing foundation model and fine-tune it</strong>, because it's more cost-effective.</li>
+</ul>
+<h3 id="why-building-custom-llms-is-hard">Why building custom LLMs is hard</h3>
+<ol>
+<li><strong>Data:</strong> you need massive, diverse, high-quality data, and the <strong>collection, curation, storage and management</strong> that go with it.</li>
+<li><strong>Compute:</strong> training at this scale needs <strong>large, expensive infrastructure</strong>.</li>
+<li><strong>Software:</strong> you need tools for both <strong>training and inference</strong>, from algorithm development to accelerating inference on <strong>distributed infrastructure</strong>.</li>
+<li><strong>Expertise:</strong> you need teams skilled in AI, ML and data science, who are <strong>hard to find and keep</strong>.</li>
+</ol>
+<hr />
+<h2 id="6-getting-started-5-steps-for-enterprises">6. Getting Started: 5 Steps for Enterprises</h2>
+<ol>
+<li><strong>Identify the business opportunity.</strong> Pick use cases with <strong>big business impact</strong> that your <strong>unique data</strong> can improve.</li>
+<li><strong>Build out domain and AI teams.</strong> Pair internal people with <strong>partner and application-provider AI expertise</strong> to form an interdisciplinary team.</li>
+<li><strong>Analyze data for training and customization.</strong> <strong>Acquire, refine and protect</strong> the data.</li>
+<li><strong>Invest in accelerated infrastructure.</strong> Assess current infrastructure, architecture and operating model, including <strong>cost and energy consumption</strong>.</li>
+<li><strong>Develop a plan for responsible AI.</strong> Use tools and best practices so models act ethically.</li>
+</ol>
+<blockquote>
+<p>In short, deploying generative AI isn't only about technology. It means aligning <strong>business goals, team capabilities, data strategy, infrastructure readiness and responsible AI</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="7-building-a-generative-ai-app-the-llm-workflow">7. Building a Generative AI App: the LLM Workflow</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Phase</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Data acquisition</strong></td>
+<td>Collect data from public datasets, web scraping, user-generated content or proprietary data. It must be <strong>diverse and representative</strong> of the target domain</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Data curation</strong></td>
+<td><strong>Clean, filter and organize</strong> the data</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Pre-training</strong></td>
+<td>Expose the model to a <strong>vast text corpus</strong> so it learns language patterns. This usually <strong>starts from a foundation model</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Customization</strong></td>
+<td>Adapt the generic model to a <strong>specific task or domain</strong> for better accuracy, efficiency and effectiveness</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Model evaluation</strong></td>
+<td>Measure how well the model learned and how accurately it predicts on <strong>unseen data</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Inference</strong></td>
+<td>Deploy the model to turn input into output such as classifications, predictions or recommendations</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Guardrails</strong></td>
+<td>Add these for <strong>ethical, safe, responsible use</strong>, reducing misuse and misinterpretation of generated text</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="8-the-nvidia-generative-ai-platform">8. The NVIDIA Generative AI Platform</h2>
+<p>It rests on three things: <strong>robust hardware</strong>, <strong>versatile software</strong> and <strong>enterprise-grade support</strong>. Together they make a production-ready way to build <strong>custom LLMs</strong> for language, multimodal, healthcare, life sciences and visual content.</p>
+<p>Think of it as a <strong>pyramid, from top to bottom</strong>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NVIDIA AI Foundations</strong> (top)</td>
+<td>Tools and services for customizing enterprise generative AI:<br>• <strong>NeMo</strong>: text / language<br>• <strong>Picasso</strong>: visual content<br>• <strong>BioNeMo</strong>: biology</td>
+</tr>
+<tr>
+<td><strong>NVIDIA AI Enterprise</strong> (middle)</td>
+<td>A <strong>software suite</strong> that streamlines development and deployment of <strong>generative AI, computer vision and speech AI</strong>, so teams spend less time on maintenance and tuning</td>
+</tr>
+<tr>
+<td><strong>Accelerated compute infrastructure</strong> (base)</td>
+<td>Flexible. Runs <strong>anywhere: cloud or on-premises</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Generative AI</strong>: AI that creates new content (text, images, video, music, virtual environments) from learned patterns.</li>
+<li><strong>Foundation model</strong>: a large neural network pre-trained on massive unlabeled data that serves as the base for many tasks.</li>
+<li><strong>Unsupervised / semi-supervised learning</strong>: learning patterns without labels, or with only a few.</li>
+<li><strong>LLM</strong>: a large language model, a transformer-based model that predicts the next token.</li>
+<li><strong>Transformer</strong>: the neural network architecture behind LLMs. It uses self-attention.</li>
+<li><strong>Self-attention</strong>: assigns weights between tokens to model how they relate.</li>
+<li><strong>Token</strong>: the smallest unit of meaning: a word, sub-word, character or symbol.</li>
+<li><strong>Prompt</strong>: the user's input that starts generation.</li>
+<li><strong>Pre-training vs. fine-tuning / customization</strong>: general learning on huge data vs. adapting the model to a specific domain or task.</li>
+<li><strong>Diffusion model</strong>: a type of image-generation model, e.g. Edify.</li>
+<li><strong>Guardrails</strong>: rules that keep model output safe, ethical and appropriate.</li>
+<li><strong>NeMo / Picasso / BioNeMo</strong>: NVIDIA AI Foundations services for language / visual / biology.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>Foundation models train on <em>unlabeled</em> data</strong> with unsupervised or semi-supervised learning. Contrast this with Unit 2's labeled-data training.</li>
+<li><strong>An LLM's core job is to predict the next word/token.</strong> Know that the <strong>transformer</strong> and <strong>self-attention</strong> are the mechanism behind it.</li>
+<li><strong>GPUs speed up both training and inference</strong> because of parallelism, matrix math, memory capacity and bandwidth.</li>
+<li><strong>Generative and traditional AI are complementary.</strong> Traditional AI is <strong>less compute-intensive</strong> and still fits many use cases.</li>
+<li><strong>Customization spectrum:</strong> as a service (prompt only, model unchanged), then moderate (tune a pre-trained model), then extensive (build your own foundation model). <strong>Fine-tuning an existing model is the cost-effective norm.</strong></li>
+<li><strong>The 4 barriers to custom LLMs:</strong> data, compute, software and expertise.</li>
+<li><strong>The 5 enterprise steps:</strong> opportunity, teams, data, infrastructure, responsible AI.</li>
+<li><strong>The NVIDIA stack from top to bottom:</strong> AI Foundations (NeMo, Picasso, BioNeMo), then <strong>AI Enterprise</strong>, then accelerated infrastructure (cloud or on-prem).</li>
+</ul>
+      </article>
+    </section>
+    <nav class="pager" aria-label="Units">
+      <a class="prev" href="unit-02-introduction-to-artificial-intelligence.html"><span>← Unit 2</span>Introduction to Artificial Intelligence</a>
+      <a class="next" href="unit-04-accelerating-ai-with-gpus.html"><span>Unit 4 →</span>Accelerating AI with GPUs</a>
+    </nav>
+  </main>
+  <footer>
+    <p>Mike Vu's personal study hub for the NVIDIA-Certified Associate: AI Infrastructure and Operations exam. Not affiliated with or endorsed by NVIDIA.
+    Links come from the official exam study guide and were checked on November 1, 2026. Unit summaries come from the AI Infrastructure and Operations Fundamentals course.</p>
+  </footer>
+  <script>document.querySelector('.topics [aria-current]')?.scrollIntoView({block: 'nearest', inline: 'center'});</script>
+</body>
+</html>
