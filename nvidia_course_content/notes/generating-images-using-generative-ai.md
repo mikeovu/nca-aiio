@@ -58,7 +58,7 @@ By default, one run returns **4 images** within seconds.
 ---
 
 ## Key Terms
-- **Text to image**: generating an image from a written prompt.
+- [**Text to image**](https://build.nvidia.com/explore/visual-design): generating an image from a written prompt.
 - **Negative prompt**: words describing what the image should *not* contain.
 - **Seed**: the number that sets the starting point of the random generation. Fixing it makes results reproducible.
 - **Prompt weight**: how closely output sticks to the prompt, traded off against creativity.
@@ -70,3 +70,11 @@ By default, one run returns **4 images** within seconds.
 - **Prompt weight: low means creative, high means literal.** About **7.5** balances the two.
 - **Negative prompts exclude content.** **Inpainting needs a mask.**
 - The Getty Images model was **trained on NVIDIA Edify** and outputs **4K** images.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [Visual Design models on build.nvidia.com](https://build.nvidia.com/explore/visual-design): where the demo's image-generation models live.
+- [Try NVIDIA NIM APIs](https://build.nvidia.com/): the hosted model catalog the demo starts from.

@@ -79,13 +79,13 @@ Applies to **DGX H100, H200 and B200**. It has **three networks**:
 ---
 
 ## Key Terms
-- **Reference architecture**: a documented, best-practice system design to build from.
-- **DGX BasePOD**: up to 8 DGX systems + NVIDIA networking + Base Command + AI Enterprise + partner storage.
-- **DGX SuperPOD**: AI-factory-scale infrastructure built from **scalable units**.
-- **Scalable unit (SU)**: the modular building block of a SuperPOD.
-- **Base Command**: NVIDIA's software that ties BasePOD together and manages it.
-- **BMC**: baseboard management controller, out-of-band management that works even when the system is off.
-- **NDR / HDR**: InfiniBand speeds, 400 / 200 Gb/s.
+- [**Reference architecture**](https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html): a documented, best-practice system design to build from.
+- [**DGX BasePOD**](https://www.nvidia.com/en-us/data-center/dgx-basepod/): up to 8 DGX systems + NVIDIA networking + Base Command + AI Enterprise + partner storage.
+- [**DGX SuperPOD**](https://www.nvidia.com/en-us/data-center/dgx-superpod/): AI-factory-scale infrastructure built from **scalable units**.
+- [**Scalable unit (SU)**](https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/index.html): the modular building block of a SuperPOD.
+- [**Base Command**](https://www.nvidia.com/en-us/data-center/base-command-manager/): NVIDIA's software that ties BasePOD together and manages it.
+- [**BMC**](https://docs.nvidia.com/dgx/dgxh100-user-guide/bmc.html): baseboard management controller, out-of-band management that works even when the system is off.
+- [**NDR / HDR**](https://www.nvidia.com/en-us/networking/products/infiniband/): InfiniBand speeds, 400 / 200 Gb/s.
 
 ## Exam Tips
 - **Reference architecture benefits:** solves problems, can be tailored, saves time and cost, improves quality by reducing complexity.
@@ -94,3 +94,17 @@ Applies to **DGX H100, H200 and B200**. It has **three networks**:
 - **DGX B200 does 72 PF FP8. DGX H100 and H200 do 32 PF FP8.** Each has **8 GPUs**.
 - **InfiniBand carries compute traffic. Ethernet carries storage and management.** Out-of-band management goes through the **BMC's 1 GbE port**.
 - **Match switch to role:** QM9700 (NDR IB compute), QM8700 (HDR IB, A100), SN5600 (GPU fabric Ethernet), SN4600 (in-band and storage), SN2201 (out-of-band).
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [DGX BasePOD](https://www.nvidia.com/en-us/data-center/dgx-basepod/): product overview.
+- [DGX BasePOD Reference Architecture](https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html): the full reference design document.
+- [DGX SuperPOD](https://www.nvidia.com/en-us/data-center/dgx-superpod/): product overview.
+- [DGX SuperPOD Reference Architecture (H100)](https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/index.html): scalable units and network design.
+- [NVIDIA Base Command Manager](https://www.nvidia.com/en-us/data-center/base-command-manager/): cluster management software.
+- [DGX B200](https://www.nvidia.com/en-us/data-center/dgx-b200/): Blackwell DGX system.
+- [Using the BMC (DGX H100/H200)](https://docs.nvidia.com/dgx/dgxh100-user-guide/bmc.html): out-of-band management.
+- [NVIDIA InfiniBand](https://www.nvidia.com/en-us/networking/products/infiniband/): NDR and HDR InfiniBand.

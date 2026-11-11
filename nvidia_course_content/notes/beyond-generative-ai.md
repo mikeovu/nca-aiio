@@ -134,14 +134,14 @@ Model performance improves with **model size, training data and compute**.
 
 ## Key Terms
 - **Perception AI**: AI that recognizes patterns and makes predictions. It began with **AlexNet (2012)**.
-- **Agentic AI**: autonomous agents that reason, plan, use tools and act, with memory and self-critique.
-- **Orchestration agent**: the top-level agent that coordinates the downstream specialist agents.
-- **Data flywheel**: interaction or production data fed back to keep improving the model.
-- **Physical AI**: models that output the **next best action** from sensor input, for robots and vehicles.
-- **Digital twin**: a live virtual copy of a physical system, kept updated with real data.
-- **Three-computer solution**: training supercomputer + simulation computer + robot runtime computer.
-- **Scaling laws**: pre-training, post-training and **test-time ("long thinking")**.
-- **AI factory**: purpose-built, full-stack infrastructure that turns data and models into intelligence at scale.
+- [**Agentic AI**](https://www.nvidia.com/en-us/glossary/ai-agents/): autonomous agents that reason, plan, use tools and act, with memory and self-critique.
+- [**Orchestration agent**](https://www.nvidia.com/en-us/glossary/ai-agents/): the top-level agent that coordinates the downstream specialist agents.
+- [**Data flywheel**](https://www.nvidia.com/en-us/glossary/data-flywheel/): interaction or production data fed back to keep improving the model.
+- [**Physical AI**](https://www.nvidia.com/en-us/glossary/generative-physical-ai/): models that output the **next best action** from sensor input, for robots and vehicles.
+- [**Digital twin**](https://www.nvidia.com/en-us/glossary/digital-twin/): a live virtual copy of a physical system, kept updated with real data.
+- [**Three-computer solution**](https://blogs.nvidia.com/blog/three-computers-robotics/): training supercomputer + simulation computer + robot runtime computer.
+- [**Scaling laws**](https://blogs.nvidia.com/blog/ai-scaling-laws/): pre-training, post-training and **test-time ("long thinking")**.
+- [**AI factory**](https://www.nvidia.com/en-us/glossary/ai-factory/): purpose-built, full-stack infrastructure that turns data and models into intelligence at scale.
 
 ## Exam Tips
 - Know the order: **Perception (AlexNet 2012) → Generative (Transformer 2017, ChatGPT 2022) → Agentic → Physical.**
@@ -151,3 +151,19 @@ Model performance improves with **model size, training data and compute**.
 - **Three scaling laws:** pre-training, post-training, test-time.
 - **Inference demand is driven by** bigger models, reasoning (long thinking) and larger context windows.
 - **AI factory stack:** compute + networking (InfiniBand / Ethernet) + software, all validated together.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [What Are Autonomous AI Agents?](https://www.nvidia.com/en-us/glossary/ai-agents/): NVIDIA glossary entry on agentic AI.
+- [What Is AI Reasoning?](https://www.nvidia.com/en-us/glossary/ai-reasoning/): NVIDIA glossary entry.
+- [Data Flywheel](https://www.nvidia.com/en-us/glossary/data-flywheel/): NVIDIA glossary entry.
+- [What Is Physical AI?](https://www.nvidia.com/en-us/glossary/generative-physical-ai/): NVIDIA glossary entry.
+- [Three Computers for Robotics](https://blogs.nvidia.com/blog/three-computers-robotics/): NVIDIA blog on training, simulation and runtime computers.
+- [What Is a Digital Twin?](https://www.nvidia.com/en-us/glossary/digital-twin/): NVIDIA glossary entry.
+- [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/): platform for digital twins and simulation.
+- [NVIDIA Cosmos](https://www.nvidia.com/en-us/ai/cosmos/): world foundation models for physical AI.
+- [How Scaling Laws Drive Smarter AI](https://blogs.nvidia.com/blog/ai-scaling-laws/): NVIDIA blog on pre-training, post-training and test-time scaling.
+- [What Is an AI Factory?](https://www.nvidia.com/en-us/glossary/ai-factory/): NVIDIA glossary entry.

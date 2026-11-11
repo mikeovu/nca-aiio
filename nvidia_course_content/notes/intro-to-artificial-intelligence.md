@@ -142,20 +142,20 @@ Getting AI into production takes three things:
 ---
 
 ## Key Terms
-- **Machine learning (ML)**: statistical models learned from data, using human-defined feature extractors.
-- **Deep learning (DL)**: ML with deep neural networks that learn their own features from large datasets.
-- **DNN**: a deep neural network, i.e. a network with many hidden layers.
+- [**Machine learning (ML)**](https://www.nvidia.com/en-us/glossary/machine-learning/): statistical models learned from data, using human-defined feature extractors.
+- [**Deep learning (DL)**](https://www.nvidia.com/en-us/glossary/deep-learning/): ML with deep neural networks that learn their own features from large datasets.
+- [**DNN**](https://www.nvidia.com/en-us/glossary/deep-learning/): a deep neural network, i.e. a network with many hidden layers.
 - **Perceptron / node**: an artificial neuron.
-- **CNN**: a convolutional neural network, used for images (e.g. **AlexNet**).
+- [**CNN**](https://www.nvidia.com/en-us/glossary/convolutional-neural-network/): a convolutional neural network, used for images (e.g. **AlexNet**).
 - **Confidence vector**: the output-node scores sorted from most to least confident.
 - **Weights**: connection strengths that training adjusts up or down.
-- **Mixed precision (FP8/FP16)**: lower-precision formats that make training more efficient while keeping accuracy.
-- **Layer fusion / pruning**: optimizations applied after training to speed up inference.
-- **Agentic AI**: autonomous agents that reason, plan and act, sometimes in multi-agent systems.
-- **Physical AI**: AI plus sensors and actuators, acting in the real world.
-- **RAPIDS**: GPU-accelerated Python libraries for data science and data prep.
-- **TensorRT**: NVIDIA's inference optimizer.
-- **Triton Inference Server**: NVIDIA's open-source model serving software. It handles deployment and load balancing.
+- [**Mixed precision (FP8/FP16)**](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html): lower-precision formats that make training more efficient while keeping accuracy.
+- [**Layer fusion / pruning**](https://docs.nvidia.com/deeplearning/tensorrt/latest/index.html): optimizations applied after training to speed up inference.
+- [**Agentic AI**](https://www.nvidia.com/en-us/glossary/ai-agents/): autonomous agents that reason, plan and act, sometimes in multi-agent systems.
+- [**Physical AI**](https://www.nvidia.com/en-us/glossary/generative-physical-ai/): AI plus sensors and actuators, acting in the real world.
+- [**RAPIDS**](https://developer.nvidia.com/topics/ai/data-science/cuda-x-for-data-science): GPU-accelerated Python libraries for data science and data prep.
+- [**TensorRT**](https://developer.nvidia.com/tensorrt): NVIDIA's inference optimizer.
+- [**Triton Inference Server**](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html): NVIDIA's open-source model serving software. It handles deployment and load balancing.
 
 ## Exam Tips
 - **Training is the most compute-intensive step** of the AI workflow, more than inference.
@@ -166,3 +166,17 @@ Getting AI into production takes three things:
 - **Data quality, diversity and relevance** matter as much as dataset size.
 - Adding a new class means **changing the output layer and retraining**.
 - Know the **three adoption challenges**: model size/complexity, versatility (multiple models), and performance/scalability.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [What Is Machine Learning?](https://www.nvidia.com/en-us/glossary/machine-learning/): NVIDIA glossary entry on ML.
+- [What Is Deep Learning?](https://www.nvidia.com/en-us/glossary/deep-learning/): NVIDIA glossary entry on DL and neural networks.
+- [Deep Learning Training vs. Inference](https://blogs.nvidia.com/blog/difference-deep-learning-training-inference-ai/): NVIDIA blog explaining the two phases.
+- [CUDA-X Data Science Libraries (RAPIDS)](https://developer.nvidia.com/topics/ai/data-science/cuda-x-for-data-science): GPU-accelerated data prep and analytics.
+- [cuDF Plugin for Apache Spark](https://docs.nvidia.com/cudf-spark/latest/): user guide for the RAPIDS Accelerator for Apache Spark.
+- [Train With Mixed Precision](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html): NVIDIA docs on FP16/mixed-precision training.
+- [NVIDIA TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/latest/index.html): inference optimizer documentation.
+- [NVIDIA Triton Inference Server](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html): model serving documentation.

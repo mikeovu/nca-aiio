@@ -64,15 +64,15 @@
 ---
 
 ## Key Terms
-- **Scale up vs. scale out**: NVLink inside a node or rack vs. InfiniBand or Ethernet between nodes.
+- [**Scale up vs. scale out**](https://www.nvidia.com/en-us/data-center/nvlink/): NVLink inside a node or rack vs. InfiniBand or Ethernet between nodes.
 - **East-west / north-south**: server-to-server traffic / traffic in and out of the data center.
-- **Spectrum-X**: NVIDIA's AI Ethernet platform (Spectrum-4 switch + BlueField-3).
-- **RoCE Adaptive Routing / Congestion Control**: NVIDIA's dynamic load balancing / injection-rate limiting.
-- **Quantum-X800**: NVIDIA's 800 Gb/s InfiniBand platform.
-- **SHARP**: in-network computing that runs collective operations inside the switch.
-- **UFM**: Unified Fabric Manager, which manages InfiniBand fabrics.
-- **SuperNIC**: ConnectX-8, an 800 Gb/s NIC for IB or Ethernet.
-- **Co-packaged optics**: optics built into the switch package instead of pluggable modules.
+- [**Spectrum-X**](https://www.nvidia.com/en-us/networking/spectrumx/): NVIDIA's AI Ethernet platform (Spectrum-4 switch + BlueField-3).
+- [**RoCE Adaptive Routing / Congestion Control**](https://www.nvidia.com/en-us/networking/spectrumx/): NVIDIA's dynamic load balancing / injection-rate limiting.
+- [**Quantum-X800**](https://www.nvidia.com/en-us/networking/products/infiniband/quantum-x800/): NVIDIA's 800 Gb/s InfiniBand platform.
+- [**SHARP**](https://networking-docs.nvidia.com/sharpum/3130): in-network computing that runs collective operations inside the switch.
+- [**UFM**](https://www.nvidia.com/en-us/networking/infiniband/ufm/): Unified Fabric Manager, which manages InfiniBand fabrics.
+- [**SuperNIC**](https://www.nvidia.com/en-us/networking/products/ethernet/supernic/): ConnectX-8, an 800 Gb/s NIC for IB or Ethernet.
+- [**Co-packaged optics**](https://www.nvidia.com/en-us/networking/products/silicon-photonics/): optics built into the switch package instead of pluggable modules.
 - **Fat-tree**: a non-blocking multi-level switch topology.
 
 ## Exam Tips
@@ -81,3 +81,17 @@
 - **Adaptive routing balances load dynamically using switch queue and port state. Congestion control limits injection rate at hot ports.**
 - **Quantum-X800 = 144 × 800 Gb/s + SHARPv4 + UFM.** The **ConnectX-8 SuperNIC** does 800 Gb/s on IB *or* Ethernet over **PCIe Gen6**.
 - **Co-packaged optics give 3.5× power efficiency, 10× resiliency and 1.3× faster deployment.**
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/): scale-up interconnect.
+- [Spectrum-X Ethernet Platform](https://www.nvidia.com/en-us/networking/spectrumx/): Spectrum-4 + BlueField-3, RoCE adaptive routing and congestion control.
+- [Quantum-X800 InfiniBand](https://www.nvidia.com/en-us/networking/products/infiniband/quantum-x800/): 800 Gb/s InfiniBand platform.
+- [SHARP Documentation](https://networking-docs.nvidia.com/sharpum/3130): in-network computing for collectives.
+- [Unified Fabric Manager (UFM)](https://www.nvidia.com/en-us/networking/infiniband/ufm/): InfiniBand fabric management.
+- [Ethernet SuperNICs](https://www.nvidia.com/en-us/networking/products/ethernet/supernic/): ConnectX-8 SuperNIC.
+- [Silicon Photonics Networking](https://www.nvidia.com/en-us/networking/products/silicon-photonics/): co-packaged optics switches.
+- [BlueField Networking Platform](https://www.nvidia.com/en-us/networking/products/data-processing-unit/): DPUs for north-south traffic.

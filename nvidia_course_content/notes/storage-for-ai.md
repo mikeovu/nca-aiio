@@ -106,7 +106,7 @@ They're **fully integrated, tested and ready to deploy**, which **shortens time 
 - **POSIX**: the standard interface for file operations (open, read, seek, close).
 - **Parallel file system**: files are split into chunks across many storage nodes, accessed through a custom client.
 - **Object storage**: key-value blobs in buckets, accessed through a REST API (S3, GCS, Azure Blob).
-- **Validated storage partner**: a vendor whose storage is tested with DGX SuperPOD and BasePOD.
+- [**Validated storage partner**](https://www.nvidia.com/en-us/data-center/dgx-superpod/): a vendor whose storage is tested with DGX SuperPOD and BasePOD.
 - **Multi-tier storage**: fast tiers near compute, a slow data lake as the archive.
 
 ## Exam Tips
@@ -117,3 +117,13 @@ They're **fully integrated, tested and ready to deploy**, which **shortens time 
 - **Local storage is fast but not shared**, so data has to be duplicated.
 - **Write performance grows in importance with model size.** Training many models at once multiplies demand.
 - **Validated partners work with DGX SuperPOD and BasePOD.** Know NFS partners (**NetApp, Pure, Dell EMC**) and parallel partners (**DDN, IBM, WEKA**).
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [GPUDirect Storage](https://docs.nvidia.com/gpudirect-storage/index.html): direct path from storage to GPU memory.
+- [DGX SuperPOD](https://www.nvidia.com/en-us/data-center/dgx-superpod/): includes validated partner storage.
+- [DGX BasePOD](https://www.nvidia.com/en-us/data-center/dgx-basepod/): includes partner storage options.
+- [BlueField Networking Platform](https://www.nvidia.com/en-us/networking/products/data-processing-unit/): storage offload, including NVMe-oF.

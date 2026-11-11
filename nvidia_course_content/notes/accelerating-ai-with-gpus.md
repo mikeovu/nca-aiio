@@ -98,13 +98,13 @@
 ---
 
 ## Key Terms
-- **GPU**: a highly parallel processor, originally for graphics, now the engine of accelerated computing.
+- [**GPU**](https://developer.nvidia.com/cuda): a highly parallel processor, originally for graphics, now the engine of accelerated computing.
 - **Core**: the processing element. CPUs have a few powerful ones. GPUs have thousands of simple ones.
-- **Latency hiding**: oversubscribing threads so the GPU computes while other threads wait on memory.
-- **Register file**: on-chip storage for thread state. It's what lets the GPU switch threads at no cost.
-- **Bandwidth-bound**: limited by how fast data moves, not by math throughput.
-- **PCIe / SXM / MXM**: GPU form factors. **NVLink** is NVIDIA's high-speed GPU interconnect.
-- **DGX / HGX / MGX**: an integrated system / a platform for partner servers / a modular reference design.
+- [**Latency hiding**](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html): oversubscribing threads so the GPU computes while other threads wait on memory.
+- [**Register file**](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html): on-chip storage for thread state. It's what lets the GPU switch threads at no cost.
+- [**Bandwidth-bound**](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html): limited by how fast data moves, not by math throughput.
+- [**PCIe / SXM / MXM**](https://www.nvidia.com/en-us/data-center/h100/): GPU form factors. **NVLink** is NVIDIA's high-speed GPU interconnect.
+- [**DGX / HGX / MGX**](https://www.nvidia.com/en-us/data-center/dgx-platform/): an integrated system / a platform for partner servers / a modular reference design.
 - **Moore's Law slowing**: the reason accelerated computing is needed.
 
 ## Exam Tips
@@ -114,3 +114,16 @@
 - **Offload flow:** CPU→GPU copy over **PCIe**, run the kernel, copy results back. **NVLink** is the faster path.
 - **Data centers are about 2% of global energy, heading to 5% by 2030.** They're power-limited, so accelerated computing is the answer.
 - Know the system names: **DGX** (turnkey), **HGX** (partner building block), **MGX** (modular), **H100 PCIe**.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [CUDA Platform](https://developer.nvidia.com/cuda): NVIDIA's GPU computing platform.
+- [CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html): threads, scheduling and the GPU memory hierarchy.
+- [CUDA Best Practices Guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html): memory bandwidth and data-transfer optimization.
+- [NVIDIA H100 GPU](https://www.nvidia.com/en-us/data-center/h100/): specs, including PCIe and SXM form factors.
+- [NVIDIA DGX Platform](https://www.nvidia.com/en-us/data-center/dgx-platform/): integrated DGX systems.
+- [NVIDIA HGX Platform](https://www.nvidia.com/en-us/data-center/hgx/): the HGX building block for partner servers.
+- [NVIDIA MGX](https://www.nvidia.com/en-us/data-center/products/mgx/): modular server reference design.

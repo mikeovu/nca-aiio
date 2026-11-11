@@ -220,6 +220,9 @@ section + section { margin-top: 40px; }
 .prose li > ul, .prose li > ol { margin: 4px 0 0; }
 .prose hr { display: none; }
 .prose strong { font-weight: 650; }
+.prose a { color: var(--green-ink); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--green-ink) 40%, transparent); text-underline-offset: 3px; }
+.prose a:hover { text-decoration-color: currentColor; }
+.prose a strong { color: inherit; }
 .prose blockquote {
   margin: 0 0 14px;
   padding: 10px 16px;

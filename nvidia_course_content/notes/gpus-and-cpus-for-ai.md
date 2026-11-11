@@ -59,13 +59,13 @@
 ---
 
 ## Key Terms
-- **MIG (Multi-Instance GPU)**: splits one GPU into up to 7 isolated instances.
-- **Transformer Engine**: hardware and software in Hopper and Blackwell that speed up transformer models.
-- **Tensor Cores**: specialized units for deep learning math.
-- **Confidential Computing**: processing data in an encrypted, isolated environment on the GPU.
-- **NVLink-C2C**: a coherent chip-to-chip link between Grace and the GPU.
-- **Superchip**: CPU and GPU (or CPU and CPU) packaged together with NVLink-C2C.
-- **MoE (mixture of experts)**: a model architecture the Blackwell Transformer Engine speeds up.
+- [**MIG (Multi-Instance GPU)**](https://www.nvidia.com/en-us/technologies/multi-instance-gpu/): splits one GPU into up to 7 isolated instances.
+- [**Transformer Engine**](https://docs.nvidia.com/deeplearning/transformer-engine/): hardware and software in Hopper and Blackwell that speed up transformer models.
+- [**Tensor Cores**](https://www.nvidia.com/en-us/data-center/tensor-cores/): specialized units for deep learning math.
+- [**Confidential Computing**](https://www.nvidia.com/en-us/data-center/solutions/confidential-computing/): processing data in an encrypted, isolated environment on the GPU.
+- [**NVLink-C2C**](https://www.nvidia.com/en-us/data-center/nvlink-c2c/): a coherent chip-to-chip link between Grace and the GPU.
+- [**Superchip**](https://www.nvidia.com/en-us/data-center/grace-hopper-superchip/): CPU and GPU (or CPU and CPU) packaged together with NVLink-C2C.
+- [**MoE (mixture of experts)**](https://www.nvidia.com/en-us/glossary/mixture-of-experts/): a model architecture the Blackwell Transformer Engine speeds up.
 
 ## Exam Tips
 - **Architecture to product:** Blackwell → **B200**, Hopper → **H100**, Ada Lovelace → **L40S**, Grace → the **Arm CPU**.
@@ -74,3 +74,22 @@
 - **GH200 = Grace + H100. GB200 = Grace + 2× B200.** Both use **NVLink-C2C** for **coherent unified memory**.
 - **Grace targets HPC, memory-bound workloads and energy-efficient hyperscale.**
 - **L40S fits mixed workloads:** generative AI plus graphics, rendering and video.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [Blackwell Architecture](https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/): B200 and the second-generation Transformer Engine.
+- [Hopper Architecture](https://www.nvidia.com/en-us/data-center/technologies/hopper-architecture/): H100 overview.
+- [NVIDIA Hopper Architecture In-Depth](https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/): technical deep dive on H100.
+- [Ada Lovelace Architecture](https://www.nvidia.com/en-us/technologies/ada-architecture/): architecture behind the L40S.
+- [NVIDIA L40S](https://www.nvidia.com/en-us/data-center/l40s/): data center GPU for AI and graphics.
+- [Grace CPU](https://www.nvidia.com/en-us/data-center/grace-cpu/): NVIDIA's Arm-based data center CPU.
+- [Grace Hopper Superchip](https://www.nvidia.com/en-us/data-center/grace-hopper-superchip/): GH200.
+- [GB200 NVL72](https://www.nvidia.com/en-us/data-center/gb200-nvl72/): Grace Blackwell rack-scale system.
+- [Multi-Instance GPU (MIG)](https://www.nvidia.com/en-us/technologies/multi-instance-gpu/): GPU partitioning overview.
+- [MIG User Guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/latest/index.html): how to configure MIG instances.
+- [Transformer Engine Docs](https://docs.nvidia.com/deeplearning/transformer-engine/): library for FP8 transformer acceleration.
+- [Confidential Computing](https://www.nvidia.com/en-us/data-center/solutions/confidential-computing/): GPU confidential computing.
+- [What Is Mixture of Experts?](https://www.nvidia.com/en-us/glossary/mixture-of-experts/): NVIDIA glossary entry.

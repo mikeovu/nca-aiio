@@ -64,12 +64,12 @@
 
 ## Key Terms
 - **Data center**: a physical or cloud facility built from compute, storage and networking, plus power and cooling.
-- **Cluster**: compute, storage and management nodes networked together.
-- **Distributed computing**: many interconnected nodes working together on one job.
-- **Reference architecture**: a documented, recommended best-practice design.
+- [**Cluster**](https://www.nvidia.com/en-us/data-center/base-command-manager/): compute, storage and management nodes networked together.
+- [**Distributed computing**](https://developer.nvidia.com/nccl): many interconnected nodes working together on one job.
+- [**Reference architecture**](https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html): a documented, recommended best-practice design.
 - **Direct liquid cooling**: cooling with liquid at the heat source. It's more efficient than air.
-- **Container orchestration**: automated deployment, scaling and load balancing of containers.
-- **Job scheduling**: assigning jobs in a queue to available resources.
+- [**Container orchestration**](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html): automated deployment, scaling and load balancing of containers.
+- [**Job scheduling**](https://www.nvidia.com/en-us/software/run-ai/): assigning jobs in a queue to available resources.
 
 ## Exam Tips
 - **The 3 pillars of a data center are compute, storage and networking**, with power and cooling supporting them.
@@ -78,3 +78,14 @@
 - **Liquid cooling benefits:** better heat transfer, less airflow, targeted cooling, waste-heat reuse.
 - **Match each role to its challenge:** IT admins (provisioning), data scientists (workload management), line-of-business owners (resource monitoring).
 - **Orchestration manages containers. Scheduling assigns jobs to resources.** They're often used together.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [NVIDIA Base Command Manager](https://www.nvidia.com/en-us/data-center/base-command-manager/): cluster provisioning and management.
+- [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html): GPUs in Kubernetes container orchestration.
+- [NVIDIA Run:ai](https://www.nvidia.com/en-us/software/run-ai/): GPU workload scheduling and orchestration.
+- [NVIDIA Collective Communications Library (NCCL)](https://developer.nvidia.com/nccl): multi-GPU and multi-node communication.
+- [DGX BasePOD Reference Architecture](https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html): an example AI data center design.

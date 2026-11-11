@@ -42,7 +42,7 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-virtual-gpu-vgpu">1. Virtual GPU (vGPU)</a></li><li><a href="#2-deep-learning-recap">2. Deep Learning Recap</a></li><li><a href="#3-the-ai-workflow-and-its-tools">3. The AI Workflow and Its Tools</a></li><li><a href="#4-frameworks">4. Frameworks</a></li><li><a href="#5-the-deep-learning-software-stack-bottom-to-top">5. The Deep Learning Software Stack (bottom to top)</a></li><li><a href="#6-two-ways-to-build-an-ai-platform">6. Two Ways to Build an AI Platform</a></li><li><a href="#7-ngc-catalog">7. NGC Catalog</a></li><li><a href="#8-nvidia-ai-enterprise">8. NVIDIA AI Enterprise</a></li><li><a href="#9-workloads-vs-workflows-and-blueprints">9. Workloads vs. Workflows, and Blueprints</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-virtual-gpu-vgpu">1. Virtual GPU (vGPU)</a></li><li><a href="#2-deep-learning-recap">2. Deep Learning Recap</a></li><li><a href="#3-the-ai-workflow-and-its-tools">3. The AI Workflow and Its Tools</a></li><li><a href="#4-frameworks">4. Frameworks</a></li><li><a href="#5-the-deep-learning-software-stack-bottom-to-top">5. The Deep Learning Software Stack (bottom to top)</a></li><li><a href="#6-two-ways-to-build-an-ai-platform">6. Two Ways to Build an AI Platform</a></li><li><a href="#7-ngc-catalog">7. NGC Catalog</a></li><li><a href="#8-nvidia-ai-enterprise">8. NVIDIA AI Enterprise</a></li><li><a href="#9-workloads-vs-workflows-and-blueprints">9. Workloads vs. Workflows, and Blueprints</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li><li><a href="#nvidia-documentation">NVIDIA Documentation</a></li></ul></nav>
       <article class="prose">
 <h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
 <ol>
@@ -276,16 +276,16 @@
 <hr />
 <h2 id="key-terms">Key Terms</h2>
 <ul>
-<li><strong>vGPU</strong>: a GPU virtualized and shared across VMs (vPC/vApps for knowledge workers, RTX vWS for professionals).</li>
-<li><strong>vGPU Manager (VIB)</strong>: the host software that assigns <strong>vGPU profiles</strong> to VMs.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/virtual-solutions/"><strong>vGPU</strong></a>: a GPU virtualized and shared across VMs (vPC/vApps for knowledge workers, RTX vWS for professionals).</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/vgpu/index.html"><strong>vGPU Manager (VIB)</strong></a>: the host software that assigns <strong>vGPU profiles</strong> to VMs.</li>
 <li><strong>Framework</strong>: a high-level library or tool for building models (PyTorch, TensorFlow, scikit-learn).</li>
-<li><strong>CUDA / CUDA-X</strong>: NVIDIA's parallel programming model and its acceleration libraries.</li>
-<li><strong>NGC</strong>: NVIDIA's catalog of GPU-optimized containers, pre-trained models, Helm charts and collections.</li>
-<li><strong>Model resume</strong>: the training details and accuracy card for an NGC model.</li>
-<li><strong>NVIDIA AI Enterprise</strong>: a supported, certified software suite (application + infrastructure software).</li>
-<li><strong>NIM / NeMo</strong>: inference microservices / a framework for building and customizing generative AI.</li>
-<li><strong>AI workflow / Blueprint</strong>: a pre-packaged reference solution for a specific use case.</li>
-<li><strong>TAO Toolkit</strong>: NVIDIA's toolkit for training and fine-tuning models. <strong>Riva / DeepStream</strong>: SDKs for speech / video analytics.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda/cuda-x-libraries"><strong>CUDA / CUDA-X</strong></a>: NVIDIA's parallel programming model and its acceleration libraries.</li>
+<li><a target="_blank" rel="noopener" href="https://catalog.ngc.nvidia.com/"><strong>NGC</strong></a>: NVIDIA's catalog of GPU-optimized containers, pre-trained models, Helm charts and collections.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/ngc/index.html"><strong>Model resume</strong></a>: the training details and accuracy card for an NGC model.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/"><strong>NVIDIA AI Enterprise</strong></a>: a supported, certified software suite (application + infrastructure software).</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/nim"><strong>NIM / NeMo</strong></a>: inference microservices / a framework for building and customizing generative AI.</li>
+<li><a target="_blank" rel="noopener" href="https://build.nvidia.com/blueprints"><strong>AI workflow / Blueprint</strong></a>: a pre-packaged reference solution for a specific use case.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/tao-toolkit"><strong>TAO Toolkit</strong></a>: NVIDIA's toolkit for training and fine-tuning models. <strong>Riva / DeepStream</strong>: SDKs for speech / video analytics.</li>
 </ul>
 <h2 id="exam-tips">Exam Tips</h2>
 <ul>
@@ -297,6 +297,23 @@
 <li><strong>NVIDIA AI Enterprise vs. DIY:</strong> enterprise support, testing and certification, and <strong>past, current and future GPU</strong> support.</li>
 <li><strong>AI Enterprise has two kinds of software:</strong> application (NIM, NeMo) and infrastructure (drivers, K8s operators).</li>
 <li><strong>A workload already exists and gets accelerated. A workflow is a pre-built recipe. Blueprints are reference workflows.</strong></li>
+</ul>
+<hr />
+<h2 id="nvidia-documentation">NVIDIA Documentation</h2>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/virtual-solutions/">NVIDIA Virtual GPU Solutions</a>: vPC, vApps and RTX vWS.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/vgpu/index.html">NVIDIA vGPU Software Docs</a>: vGPU Manager, profiles and deployment.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda/cuda-x-libraries">CUDA-X Libraries</a>: GPU-accelerated libraries built on CUDA.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html">NVIDIA Container Toolkit</a>: running GPU containers with Docker and other runtimes.</li>
+<li><a target="_blank" rel="noopener" href="https://catalog.ngc.nvidia.com/">NGC Catalog</a>: containers, pre-trained models, Helm charts and collections.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/ngc/index.html">NGC Documentation</a>: using the NGC catalog.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/ai-enterprise/index.html">NVIDIA AI Enterprise Docs</a>: the supported enterprise software suite.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/nim">NVIDIA NIM</a>: inference microservices.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html">NVIDIA NeMo Framework</a>: building and customizing generative AI models.</li>
+<li><a target="_blank" rel="noopener" href="https://build.nvidia.com/blueprints">NVIDIA Blueprints</a>: reference AI workflows.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/tao-toolkit">TAO Toolkit</a>: training and fine-tuning toolkit.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/isaac/lab">Isaac Lab</a>: robot learning framework built on Isaac Sim.</li>
 </ul>
       </article>
     </section>

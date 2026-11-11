@@ -61,12 +61,12 @@
 ---
 
 ## Key Terms
-- **Full-stack acceleration**: optimizing hardware, software and frameworks together.
+- [**Full-stack acceleration**](https://www.nvidia.com/en-us/technologies/cuda-x/): optimizing hardware, software and frameworks together.
 - **Data center as the unit of computing**: applications span the whole data center.
-- **CUDA / DOCA**: programming models for GPUs / DPUs.
-- **CUDA-X**: NVIDIA's GPU acceleration libraries.
-- **Riva / DRIVE / Merlin**: domain frameworks for conversational AI / autonomous vehicles / recommenders.
-- **Jetson**: NVIDIA's platform for edge AI.
+- [**CUDA / DOCA**](https://developer.nvidia.com/cuda/toolkit): programming models for GPUs / DPUs.
+- [**CUDA-X**](https://developer.nvidia.com/cuda/cuda-x-libraries): NVIDIA's GPU acceleration libraries.
+- [**Riva / DRIVE / Merlin**](https://developer.nvidia.com/topics/ai/generative-ai/riva): domain frameworks for conversational AI / autonomous vehicles / recommenders.
+- [**Jetson**](https://developer.nvidia.com/embedded-computing): NVIDIA's platform for edge AI.
 
 ## Exam Tips
 - **The three pillars are CPU (general, single-thread), GPU (parallel acceleration) and DPU (infrastructure: networking, security, storage).**
@@ -74,3 +74,17 @@
 - **The data center is the new unit of computing**, which is why acceleration is full-stack.
 - **The three ways to consume AI compute are cloud, OEM and DGX.**
 - **Jetson is for the edge.**
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [CUDA-X](https://www.nvidia.com/en-us/technologies/cuda-x/): NVIDIA's full-stack acceleration libraries.
+- [CUDA Toolkit](https://developer.nvidia.com/cuda/toolkit): GPU programming model.
+- [DOCA Software Framework](https://developer.nvidia.com/networking/doca): DPU programming model.
+- [Riva](https://developer.nvidia.com/topics/ai/generative-ai/riva): conversational and speech AI framework.
+- [NVIDIA DRIVE](https://developer.nvidia.com/drive): autonomous vehicle platform.
+- [NVIDIA Merlin](https://developer.nvidia.com/merlin): recommender system framework.
+- [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing): edge AI platform.
+- [NVIDIA DGX Platform](https://www.nvidia.com/en-us/data-center/dgx-platform/): purpose-built DGX systems.

@@ -137,16 +137,16 @@ The software for both approaches comes from **NGC and the Enterprise Catalog**.
 ---
 
 ## Key Terms
-- **vGPU**: a GPU virtualized and shared across VMs (vPC/vApps for knowledge workers, RTX vWS for professionals).
-- **vGPU Manager (VIB)**: the host software that assigns **vGPU profiles** to VMs.
+- [**vGPU**](https://www.nvidia.com/en-us/data-center/virtual-solutions/): a GPU virtualized and shared across VMs (vPC/vApps for knowledge workers, RTX vWS for professionals).
+- [**vGPU Manager (VIB)**](https://docs.nvidia.com/vgpu/index.html): the host software that assigns **vGPU profiles** to VMs.
 - **Framework**: a high-level library or tool for building models (PyTorch, TensorFlow, scikit-learn).
-- **CUDA / CUDA-X**: NVIDIA's parallel programming model and its acceleration libraries.
-- **NGC**: NVIDIA's catalog of GPU-optimized containers, pre-trained models, Helm charts and collections.
-- **Model resume**: the training details and accuracy card for an NGC model.
-- **NVIDIA AI Enterprise**: a supported, certified software suite (application + infrastructure software).
-- **NIM / NeMo**: inference microservices / a framework for building and customizing generative AI.
-- **AI workflow / Blueprint**: a pre-packaged reference solution for a specific use case.
-- **TAO Toolkit**: NVIDIA's toolkit for training and fine-tuning models. **Riva / DeepStream**: SDKs for speech / video analytics.
+- [**CUDA / CUDA-X**](https://developer.nvidia.com/cuda/cuda-x-libraries): NVIDIA's parallel programming model and its acceleration libraries.
+- [**NGC**](https://catalog.ngc.nvidia.com/): NVIDIA's catalog of GPU-optimized containers, pre-trained models, Helm charts and collections.
+- [**Model resume**](https://docs.nvidia.com/ngc/index.html): the training details and accuracy card for an NGC model.
+- [**NVIDIA AI Enterprise**](https://www.nvidia.com/en-us/data-center/products/ai-enterprise/): a supported, certified software suite (application + infrastructure software).
+- [**NIM / NeMo**](https://developer.nvidia.com/nim): inference microservices / a framework for building and customizing generative AI.
+- [**AI workflow / Blueprint**](https://build.nvidia.com/blueprints): a pre-packaged reference solution for a specific use case.
+- [**TAO Toolkit**](https://developer.nvidia.com/tao-toolkit): NVIDIA's toolkit for training and fine-tuning models. **Riva / DeepStream**: SDKs for speech / video analytics.
 
 ## Exam Tips
 - **Old VDI was slow because the CPU did the graphics.** **vGPU** fixes that by sharing a GPU across VMs.
@@ -157,3 +157,21 @@ The software for both approaches comes from **NGC and the Enterprise Catalog**.
 - **NVIDIA AI Enterprise vs. DIY:** enterprise support, testing and certification, and **past, current and future GPU** support.
 - **AI Enterprise has two kinds of software:** application (NIM, NeMo) and infrastructure (drivers, K8s operators).
 - **A workload already exists and gets accelerated. A workflow is a pre-built recipe. Blueprints are reference workflows.**
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [NVIDIA Virtual GPU Solutions](https://www.nvidia.com/en-us/data-center/virtual-solutions/): vPC, vApps and RTX vWS.
+- [NVIDIA vGPU Software Docs](https://docs.nvidia.com/vgpu/index.html): vGPU Manager, profiles and deployment.
+- [CUDA-X Libraries](https://developer.nvidia.com/cuda/cuda-x-libraries): GPU-accelerated libraries built on CUDA.
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html): running GPU containers with Docker and other runtimes.
+- [NGC Catalog](https://catalog.ngc.nvidia.com/): containers, pre-trained models, Helm charts and collections.
+- [NGC Documentation](https://docs.nvidia.com/ngc/index.html): using the NGC catalog.
+- [NVIDIA AI Enterprise Docs](https://docs.nvidia.com/ai-enterprise/index.html): the supported enterprise software suite.
+- [NVIDIA NIM](https://developer.nvidia.com/nim): inference microservices.
+- [NVIDIA NeMo Framework](https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html): building and customizing generative AI models.
+- [NVIDIA Blueprints](https://build.nvidia.com/blueprints): reference AI workflows.
+- [TAO Toolkit](https://developer.nvidia.com/tao-toolkit): training and fine-tuning toolkit.
+- [Isaac Lab](https://developer.nvidia.com/isaac/lab): robot learning framework built on Isaac Sim.

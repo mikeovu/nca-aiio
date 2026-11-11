@@ -42,7 +42,7 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <nav class="toc" aria-label="On this page"><ul><li><a href="#1-what-a-reference-architecture-is">1. What a Reference Architecture Is</a></li><li><a href="#2-dgx-basepod">2. DGX BasePOD</a></li><li><a href="#3-dgx-superpod">3. DGX SuperPOD</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#1-what-a-reference-architecture-is">1. What a Reference Architecture Is</a></li><li><a href="#2-dgx-basepod">2. DGX BasePOD</a></li><li><a href="#3-dgx-superpod">3. DGX SuperPOD</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li><li><a href="#nvidia-documentation">NVIDIA Documentation</a></li></ul></nav>
       <article class="prose">
 <h2 id="1-what-a-reference-architecture-is">1. What a Reference Architecture Is</h2>
 <ul>
@@ -173,13 +173,13 @@
 <hr />
 <h2 id="key-terms">Key Terms</h2>
 <ul>
-<li><strong>Reference architecture</strong>: a documented, best-practice system design to build from.</li>
-<li><strong>DGX BasePOD</strong>: up to 8 DGX systems + NVIDIA networking + Base Command + AI Enterprise + partner storage.</li>
-<li><strong>DGX SuperPOD</strong>: AI-factory-scale infrastructure built from <strong>scalable units</strong>.</li>
-<li><strong>Scalable unit (SU)</strong>: the modular building block of a SuperPOD.</li>
-<li><strong>Base Command</strong>: NVIDIA's software that ties BasePOD together and manages it.</li>
-<li><strong>BMC</strong>: baseboard management controller, out-of-band management that works even when the system is off.</li>
-<li><strong>NDR / HDR</strong>: InfiniBand speeds, 400 / 200 Gb/s.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html"><strong>Reference architecture</strong></a>: a documented, best-practice system design to build from.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-basepod/"><strong>DGX BasePOD</strong></a>: up to 8 DGX systems + NVIDIA networking + Base Command + AI Enterprise + partner storage.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-superpod/"><strong>DGX SuperPOD</strong></a>: AI-factory-scale infrastructure built from <strong>scalable units</strong>.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/index.html"><strong>Scalable unit (SU)</strong></a>: the modular building block of a SuperPOD.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/base-command-manager/"><strong>Base Command</strong></a>: NVIDIA's software that ties BasePOD together and manages it.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx/dgxh100-user-guide/bmc.html"><strong>BMC</strong></a>: baseboard management controller, out-of-band management that works even when the system is off.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/networking/products/infiniband/"><strong>NDR / HDR</strong></a>: InfiniBand speeds, 400 / 200 Gb/s.</li>
 </ul>
 <h2 id="exam-tips">Exam Tips</h2>
 <ul>
@@ -189,6 +189,19 @@
 <li><strong>DGX B200 does 72 PF FP8. DGX H100 and H200 do 32 PF FP8.</strong> Each has <strong>8 GPUs</strong>.</li>
 <li><strong>InfiniBand carries compute traffic. Ethernet carries storage and management.</strong> Out-of-band management goes through the <strong>BMC's 1 GbE port</strong>.</li>
 <li><strong>Match switch to role:</strong> QM9700 (NDR IB compute), QM8700 (HDR IB, A100), SN5600 (GPU fabric Ethernet), SN4600 (in-band and storage), SN2201 (out-of-band).</li>
+</ul>
+<hr />
+<h2 id="nvidia-documentation">NVIDIA Documentation</h2>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-basepod/">DGX BasePOD</a>: product overview.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html">DGX BasePOD Reference Architecture</a>: the full reference design document.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-superpod/">DGX SuperPOD</a>: product overview.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/index.html">DGX SuperPOD Reference Architecture (H100)</a>: scalable units and network design.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/base-command-manager/">NVIDIA Base Command Manager</a>: cluster management software.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-b200/">DGX B200</a>: Blackwell DGX system.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx/dgxh100-user-guide/bmc.html">Using the BMC (DGX H100/H200)</a>: out-of-band management.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/networking/products/infiniband/">NVIDIA InfiniBand</a>: NDR and HDR InfiniBand.</li>
 </ul>
       </article>
     </section>

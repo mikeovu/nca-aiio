@@ -61,15 +61,27 @@
 ---
 
 ## Key Terms
-- **Compute / storage / in-band / out-of-band networks**: the four networks in an AI data center.
-- **Out-of-band (OOB)**: management access that works even when the server OS is down (power, console, sensors).
+- [**Compute / storage / in-band / out-of-band networks**](https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/index.html): the four networks in an AI data center.
+- [**Out-of-band (OOB)**](https://docs.nvidia.com/dgx/dgxh100-user-guide/bmc.html): management access that works even when the server OS is down (power, console, sensors).
 - **North-south vs. east-west**: traffic in and out of the data center vs. server-to-server traffic inside it.
-- **RDMA**: remote direct memory access, which needs a lossless network.
+- [**RDMA**](https://developer.nvidia.com/gpudirect): remote direct memory access, which needs a lossless network.
 - **Jitter / tail latency**: variation in delay / the slowest responses. Both slow down an entire AI cluster.
-- **AI factory vs. AI cloud**: a single tenant running giant jobs vs. many tenants running smaller jobs.
+- [**AI factory vs. AI cloud**](https://www.nvidia.com/en-us/glossary/ai-factory/): a single tenant running giant jobs vs. many tenants running smaller jobs.
 
 ## Exam Tips
 - **Know the four networks:** compute, storage, **in-band** (SSH, DNS, scheduling, NFS home, NGC) and **out-of-band** (power, serial console, sensors, works when the server is offline).
 - **Traditional networks use TCP and tolerate jitter. AI networks use RDMA, are lossless and low-jitter.**
 - **In an AI cluster, the slowest node or link sets the pace.** The key metric is **job completion time**.
 - **AI factories run on NVLink + InfiniBand. AI clouds run on Ethernet**, which now needs to be AI-optimized.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [DGX SuperPOD Reference Architecture](https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/index.html): compute, storage and management network design.
+- [Using the BMC (DGX H100/H200)](https://docs.nvidia.com/dgx/dgxh100-user-guide/bmc.html): out-of-band management.
+- [GPUDirect](https://developer.nvidia.com/gpudirect): RDMA and direct GPU data paths.
+- [NVIDIA InfiniBand](https://www.nvidia.com/en-us/networking/products/infiniband/): InfiniBand for AI factories.
+- [Spectrum-X Ethernet](https://www.nvidia.com/en-us/networking/spectrumx/): AI-optimized Ethernet for AI clouds.
+- [What Is an AI Factory?](https://www.nvidia.com/en-us/glossary/ai-factory/): NVIDIA glossary entry.

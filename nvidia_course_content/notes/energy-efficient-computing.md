@@ -136,3 +136,15 @@ These have to be **coordinated continuously**.
 - **Rear-door exchangers go with slab floors. Cold-aisle containment goes with raised floors.**
 - **Power: provision before deploying, use redundant feeds, validate per rack, label breakers.**
 - **Liquid cooling targets PUE below 1.2.**
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [NVIDIA Sustainability](https://www.nvidia.com/en-us/sustainability/): NVIDIA's energy-efficiency and sustainability work.
+- [DGX H100/H200 User Guide](https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html): system specs, including power and environment.
+- [NVIDIA PhysicsNeMo (formerly Modulus)](https://developer.nvidia.com/physicsnemo): physics-informed neural networks used for heat-sink design.
+- [Spectrum Ethernet Platform](https://www.nvidia.com/en-us/networking/products/ethernet/): Spectrum-4 switch.
+- [Multi-Instance GPU (MIG)](https://www.nvidia.com/en-us/technologies/multi-instance-gpu/): sharing a GPU without adding power.
+- [NVIDIA HGX Platform](https://www.nvidia.com/en-us/data-center/hgx/): HGX H100 systems.

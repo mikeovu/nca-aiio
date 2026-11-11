@@ -61,12 +61,12 @@
 ---
 
 ## Key Terms
-- **InfiniBand (IB)**: a low-latency, high-throughput interconnect standardized by the IBTA.
-- **HCA**: host channel adapter, the InfiniBand NIC.
-- **DMA / RDMA**: direct memory access, local / remote, without the CPU.
+- [**InfiniBand (IB)**](https://www.nvidia.com/en-us/networking/products/infiniband/): a low-latency, high-throughput interconnect standardized by the IBTA.
+- [**HCA**](https://www.nvidia.com/en-us/networking/infiniband-adapters/): host channel adapter, the InfiniBand NIC.
+- [**DMA / RDMA**](https://developer.nvidia.com/gpudirect): direct memory access, local / remote, without the CPU.
 - **OS bypass**: data moves without going through the kernel's TCP/IP stack.
-- **RoCE**: RDMA over Converged Ethernet, an IB header wrapped in UDP over Ethernet.
-- **GPUDirect RDMA**: the NIC reads and writes GPU memory directly, skipping system memory and the CPU.
+- [**RoCE**](https://networking-docs.nvidia.com/mlnxofedswum/24010331/rdma-over-converged-ethernet-roce): RDMA over Converged Ethernet, an IB header wrapped in UDP over Ethernet.
+- [**GPUDirect RDMA**](https://docs.nvidia.com/cuda/gpudirect-rdma/index.html): the NIC reads and writes GPU memory directly, skipping system memory and the CPU.
 
 ## Exam Tips
 - **InfiniBand is the most deployed interconnect for large-scale ML.** Its spec comes from the **IBTA**.
@@ -74,3 +74,15 @@
 - **RoCE = an InfiniBand header in UDP over Ethernet.** It can be **routed across Layer 3**.
 - **GPUDirect RDMA skips the copy into system memory and the CPU**, giving lower latency and less CPU and PCIe load.
 - **Ethernet is general-purpose and backward compatible (up to 400 Gb/s). InfiniBand is purpose-built for top performance.**
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [NVIDIA InfiniBand](https://www.nvidia.com/en-us/networking/products/infiniband/): InfiniBand products and overview.
+- [NVIDIA InfiniBand Adapters](https://www.nvidia.com/en-us/networking/infiniband-adapters/): ConnectX host channel adapters.
+- [RDMA over Converged Ethernet (RoCE)](https://networking-docs.nvidia.com/mlnxofedswum/24010331/rdma-over-converged-ethernet-roce): NVIDIA networking docs on RoCE.
+- [GPUDirect](https://developer.nvidia.com/gpudirect): family of direct GPU data paths.
+- [GPUDirect RDMA Docs](https://docs.nvidia.com/cuda/gpudirect-rdma/index.html): how GPUDirect RDMA works.
+- [Spectrum Ethernet Platform](https://www.nvidia.com/en-us/networking/products/ethernet/): NVIDIA Ethernet switches.

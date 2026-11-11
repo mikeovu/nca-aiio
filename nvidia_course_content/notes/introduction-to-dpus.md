@@ -63,14 +63,14 @@
 ---
 
 ## Key Terms
-- **DPU**: data processing unit, an infrastructure-on-a-chip that offloads, accelerates and isolates.
-- **Data plane / control plane**: packet handling / management logic. Both can run isolated on the DPU.
-- **BlueField-3**: NVIDIA's third-generation DPU, with 400 Gb/s Ethernet or NDR InfiniBand.
-- **DOCA**: the SDK for programming BlueField DPUs.
+- [**DPU**](https://blogs.nvidia.com/blog/whats-a-dpu-data-processing-unit/): data processing unit, an infrastructure-on-a-chip that offloads, accelerates and isolates.
+- [**Data plane / control plane**](https://blogs.nvidia.com/blog/whats-a-dpu-data-processing-unit/): packet handling / management logic. Both can run isolated on the DPU.
+- [**BlueField-3**](https://www.nvidia.com/en-us/networking/products/data-processing-unit/): NVIDIA's third-generation DPU, with 400 Gb/s Ethernet or NDR InfiniBand.
+- [**DOCA**](https://developer.nvidia.com/networking/doca): the SDK for programming BlueField DPUs.
 - **NVMe-oF**: NVMe over Fabrics, network access to NVMe storage.
-- **GPUDirect Storage**: a direct path between storage and GPU memory.
+- [**GPUDirect Storage**](https://docs.nvidia.com/gpudirect-storage/index.html): a direct path between storage and GPU memory.
 - **Zero trust**: security enforced at every server, not just the perimeter.
-- **NVIDIA-Certified System**: a partner server validated with NVIDIA GPUs and networking.
+- [**NVIDIA-Certified System**](https://www.nvidia.com/en-us/data-center/products/certified-systems/): a partner server validated with NVIDIA GPUs and networking.
 
 ## Exam Tips
 - **The DPU mission is offload, accelerate, isolate.** Know what each word means.
@@ -79,3 +79,14 @@
 - **BlueField-3 runs at 400 Gb/s (Ethernet or NDR InfiniBand).** Use cases: CSP and bare-metal clouds, **zero trust / NGFW / micro-segmentation**, **NVMe-oF and GPUDirect Storage**, video streaming.
 - **Certified systems = NVIDIA GPUs and networking on partner servers, tested for performance, manageability, scalability and security.**
 - **Certified security features:** TLS and IPsec offload, secure boot, key management.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [What Is a DPU?](https://blogs.nvidia.com/blog/whats-a-dpu-data-processing-unit/): NVIDIA blog explaining offload, accelerate, isolate.
+- [BlueField Networking Platform](https://www.nvidia.com/en-us/networking/products/data-processing-unit/): BlueField-3 DPU and SuperNIC.
+- [DOCA Software Framework](https://developer.nvidia.com/networking/doca): SDK for BlueField.
+- [GPUDirect Storage](https://docs.nvidia.com/gpudirect-storage/index.html): direct storage-to-GPU data path.
+- [NVIDIA-Certified Systems](https://www.nvidia.com/en-us/data-center/products/certified-systems/): partner servers validated with NVIDIA GPUs and networking.

@@ -71,16 +71,29 @@
 ---
 
 ## Key Terms
-- **Scale up / scale out**: more GPUs per node / more nodes.
-- **NVLink**: NVIDIA's high-speed GPU-to-GPU link, much faster than PCIe.
-- **NVSwitch**: a switch fabric giving full-bandwidth **any-to-any** GPU communication.
-- **All-to-all**: every GPU exchanging data with every other GPU at the same time.
-- **ConnectX-7**: the 400 Gb/s network adapter in DGX H100.
-- **DGX OS**: NVIDIA's optimized, supported Ubuntu for DGX.
-- **NVL72**: a rack-scale system with 72 GPUs linked by NVLink.
+- [**Scale up / scale out**](https://www.nvidia.com/en-us/data-center/nvlink/): more GPUs per node / more nodes.
+- [**NVLink**](https://www.nvidia.com/en-us/data-center/nvlink/): NVIDIA's high-speed GPU-to-GPU link, much faster than PCIe.
+- [**NVSwitch**](https://www.nvidia.com/en-us/data-center/nvlink/): a switch fabric giving full-bandwidth **any-to-any** GPU communication.
+- [**All-to-all**](https://developer.nvidia.com/nccl): every GPU exchanging data with every other GPU at the same time.
+- [**ConnectX-7**](https://www.nvidia.com/en-us/networking/ethernet-adapters/): the 400 Gb/s network adapter in DGX H100.
+- [**DGX OS**](https://docs.nvidia.com/dgx/dgx-os-6-user-guide/index.html): NVIDIA's optimized, supported Ubuntu for DGX.
+- [**NVL72**](https://www.nvidia.com/en-us/data-center/gb300-nvl72/): a rack-scale system with 72 GPUs linked by NVLink.
 
 ## Exam Tips
 - **Scale up means multi-GPU. Scale out means multi-node. Multi-node has better fault tolerance.**
 - **PCIe bottlenecks. NVLink is faster. NVSwitch removes all-to-all bottlenecks and scales past 8 GPUs.**
 - Memorize the **DGX H100** specs: **8× H100, 4 NVSwitches, 10× ConnectX-7 at 400 Gb/s, 2× Xeon (112 cores), 2 TB RAM, 30 TB NVMe, 32 PFLOPS, 8U, DGX OS (Ubuntu)**.
 - **GB300 NVL72 = 36 Grace + 72 Blackwell Ultra, liquid-cooled**, built for **reasoning and test-time scaling**.
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [NVLink and NVLink Switch](https://www.nvidia.com/en-us/data-center/nvlink/): scale-up GPU interconnect.
+- [NCCL](https://developer.nvidia.com/nccl): collective communications, including all-to-all.
+- [DGX H100/H200 User Guide](https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html): hardware overview of the DGX H100.
+- [DGX OS 6 User Guide](https://docs.nvidia.com/dgx/dgx-os-6-user-guide/index.html): DGX's Ubuntu-based OS.
+- [ConnectX Network Adapters](https://www.nvidia.com/en-us/networking/ethernet-adapters/): ConnectX NICs.
+- [GB300 NVL72](https://www.nvidia.com/en-us/data-center/gb300-nvl72/): Blackwell Ultra rack-scale system for reasoning.
+- [RTX PRO 6000 Blackwell Server Edition](https://www.nvidia.com/en-us/data-center/rtx-pro-6000-blackwell-server-edition/): Blackwell GPU for enterprise and visual computing.

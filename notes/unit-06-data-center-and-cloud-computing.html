@@ -42,7 +42,7 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-recap-of-earlier-units">1. Recap of Earlier Units</a></li><li><a href="#2-what-a-data-center-is">2. What a Data Center Is</a></li><li><a href="#3-ai-data-center-infrastructure-6-aspects">3. AI Data Center Infrastructure (6 aspects)</a></li><li><a href="#4-operating-an-ai-data-center">4. Operating an AI Data Center</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-recap-of-earlier-units">1. Recap of Earlier Units</a></li><li><a href="#2-what-a-data-center-is">2. What a Data Center Is</a></li><li><a href="#3-ai-data-center-infrastructure-6-aspects">3. AI Data Center Infrastructure (6 aspects)</a></li><li><a href="#4-operating-an-ai-data-center">4. Operating an AI Data Center</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li><li><a href="#nvidia-documentation">NVIDIA Documentation</a></li></ul></nav>
       <article class="prose">
 <h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
 <ol>
@@ -165,12 +165,12 @@
 <h2 id="key-terms">Key Terms</h2>
 <ul>
 <li><strong>Data center</strong>: a physical or cloud facility built from compute, storage and networking, plus power and cooling.</li>
-<li><strong>Cluster</strong>: compute, storage and management nodes networked together.</li>
-<li><strong>Distributed computing</strong>: many interconnected nodes working together on one job.</li>
-<li><strong>Reference architecture</strong>: a documented, recommended best-practice design.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/base-command-manager/"><strong>Cluster</strong></a>: compute, storage and management nodes networked together.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/nccl"><strong>Distributed computing</strong></a>: many interconnected nodes working together on one job.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html"><strong>Reference architecture</strong></a>: a documented, recommended best-practice design.</li>
 <li><strong>Direct liquid cooling</strong>: cooling with liquid at the heat source. It's more efficient than air.</li>
-<li><strong>Container orchestration</strong>: automated deployment, scaling and load balancing of containers.</li>
-<li><strong>Job scheduling</strong>: assigning jobs in a queue to available resources.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html"><strong>Container orchestration</strong></a>: automated deployment, scaling and load balancing of containers.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/software/run-ai/"><strong>Job scheduling</strong></a>: assigning jobs in a queue to available resources.</li>
 </ul>
 <h2 id="exam-tips">Exam Tips</h2>
 <ul>
@@ -180,6 +180,16 @@
 <li><strong>Liquid cooling benefits:</strong> better heat transfer, less airflow, targeted cooling, waste-heat reuse.</li>
 <li><strong>Match each role to its challenge:</strong> IT admins (provisioning), data scientists (workload management), line-of-business owners (resource monitoring).</li>
 <li><strong>Orchestration manages containers. Scheduling assigns jobs to resources.</strong> They're often used together.</li>
+</ul>
+<hr />
+<h2 id="nvidia-documentation">NVIDIA Documentation</h2>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/base-command-manager/">NVIDIA Base Command Manager</a>: cluster provisioning and management.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html">NVIDIA GPU Operator</a>: GPUs in Kubernetes container orchestration.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/software/run-ai/">NVIDIA Run:ai</a>: GPU workload scheduling and orchestration.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/nccl">NVIDIA Collective Communications Library (NCCL)</a>: multi-GPU and multi-node communication.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/dgx-basepod/reference-architecture-infrastructure-foundation-enterprise-ai/latest/index.html">DGX BasePOD Reference Architecture</a>: an example AI data center design.</li>
 </ul>
       </article>
     </section>

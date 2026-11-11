@@ -42,7 +42,7 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-gpu-history-in-brief">1. GPU History in Brief</a></li><li><a href="#2-gpu-architecture">2. GPU Architecture</a></li><li><a href="#3-why-gpu-computing-took-off">3. Why GPU Computing Took Off</a></li><li><a href="#4-cpu-vs-gpu">4. CPU vs. GPU</a></li><li><a href="#5-gpu-server-systems">5. GPU Server Systems</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-gpu-history-in-brief">1. GPU History in Brief</a></li><li><a href="#2-gpu-architecture">2. GPU Architecture</a></li><li><a href="#3-why-gpu-computing-took-off">3. Why GPU Computing Took Off</a></li><li><a href="#4-cpu-vs-gpu">4. CPU vs. GPU</a></li><li><a href="#5-gpu-server-systems">5. GPU Server Systems</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li><li><a href="#nvidia-documentation">NVIDIA Documentation</a></li></ul></nav>
       <article class="prose">
 <h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
 <ol>
@@ -229,13 +229,13 @@
 <hr />
 <h2 id="key-terms">Key Terms</h2>
 <ul>
-<li><strong>GPU</strong>: a highly parallel processor, originally for graphics, now the engine of accelerated computing.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda"><strong>GPU</strong></a>: a highly parallel processor, originally for graphics, now the engine of accelerated computing.</li>
 <li><strong>Core</strong>: the processing element. CPUs have a few powerful ones. GPUs have thousands of simple ones.</li>
-<li><strong>Latency hiding</strong>: oversubscribing threads so the GPU computes while other threads wait on memory.</li>
-<li><strong>Register file</strong>: on-chip storage for thread state. It's what lets the GPU switch threads at no cost.</li>
-<li><strong>Bandwidth-bound</strong>: limited by how fast data moves, not by math throughput.</li>
-<li><strong>PCIe / SXM / MXM</strong>: GPU form factors. <strong>NVLink</strong> is NVIDIA's high-speed GPU interconnect.</li>
-<li><strong>DGX / HGX / MGX</strong>: an integrated system / a platform for partner servers / a modular reference design.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-programming-guide/index.html"><strong>Latency hiding</strong></a>: oversubscribing threads so the GPU computes while other threads wait on memory.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-programming-guide/index.html"><strong>Register file</strong></a>: on-chip storage for thread state. It's what lets the GPU switch threads at no cost.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html"><strong>Bandwidth-bound</strong></a>: limited by how fast data moves, not by math throughput.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/h100/"><strong>PCIe / SXM / MXM</strong></a>: GPU form factors. <strong>NVLink</strong> is NVIDIA's high-speed GPU interconnect.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-platform/"><strong>DGX / HGX / MGX</strong></a>: an integrated system / a platform for partner servers / a modular reference design.</li>
 <li><strong>Moore's Law slowing</strong>: the reason accelerated computing is needed.</li>
 </ul>
 <h2 id="exam-tips">Exam Tips</h2>
@@ -246,6 +246,18 @@
 <li><strong>Offload flow:</strong> CPU→GPU copy over <strong>PCIe</strong>, run the kernel, copy results back. <strong>NVLink</strong> is the faster path.</li>
 <li><strong>Data centers are about 2% of global energy, heading to 5% by 2030.</strong> They're power-limited, so accelerated computing is the answer.</li>
 <li>Know the system names: <strong>DGX</strong> (turnkey), <strong>HGX</strong> (partner building block), <strong>MGX</strong> (modular), <strong>H100 PCIe</strong>.</li>
+</ul>
+<hr />
+<h2 id="nvidia-documentation">NVIDIA Documentation</h2>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda">CUDA Platform</a>: NVIDIA's GPU computing platform.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-programming-guide/index.html">CUDA Programming Guide</a>: threads, scheduling and the GPU memory hierarchy.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html">CUDA Best Practices Guide</a>: memory bandwidth and data-transfer optimization.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/h100/">NVIDIA H100 GPU</a>: specs, including PCIe and SXM form factors.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-platform/">NVIDIA DGX Platform</a>: integrated DGX systems.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/hgx/">NVIDIA HGX Platform</a>: the HGX building block for partner servers.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/products/mgx/">NVIDIA MGX</a>: modular server reference design.</li>
 </ul>
       </article>
     </section>

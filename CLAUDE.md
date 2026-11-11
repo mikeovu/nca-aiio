@@ -20,6 +20,7 @@ Every push to `main` deploys to GitHub Pages through `.github/workflows/pages.ym
 - `reading/` holds the 14 course unit summary PDFs. Some units are linked from more than one topic page.
 - `study-notes.html` lists all 14 course units. Each unit has a page at `notes/unit-NN-<slug>.html` with that unit's summary PDF, the topic chips, an optional **Notes** section (a `.toc` plus an `article.prose` holding notes converted from Markdown), and prev/next links. A unit built from several course transcripts (Units 3, 7, 8) gets one `article.prose.lesson` per transcript: headings are demoted one level, and IDs are prefixed `lesson-<slug>-`. The `.toc-lessons` contents list groups sections by lesson. Pages in `notes/` use `../` for every asset and link. Unit pages without notes show a `p.empty` placeholder. When you add notes to one, also add the `Notes` tag to its row in `study-notes.html` and update the "Notes are done for N of 14 units" count in the lede.
 - The source Markdown for the notes is in `nvidia_course_content/notes/`, which isn't tracked.
+- In each note, Key Terms link to official NVIDIA pages (nvidia.com, docs/developer/blogs.nvidia.com, build.nvidia.com), and the note ends with an "NVIDIA Documentation" section. Link the final URL after any redirect, and leave a term unlinked when no matching NVIDIA page exists. Don't point a term at a loosely related page. External links in the notes get `target="_blank" rel="noopener"`, like the rest of the site.
 
 ## Things to keep in sync by hand
 

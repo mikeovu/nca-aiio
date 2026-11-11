@@ -157,18 +157,18 @@ Think of it as a **pyramid, from top to bottom**:
 ---
 
 ## Key Terms
-- **Generative AI**: AI that creates new content (text, images, video, music, virtual environments) from learned patterns.
-- **Foundation model**: a large neural network pre-trained on massive unlabeled data that serves as the base for many tasks.
+- [**Generative AI**](https://www.nvidia.com/en-us/glossary/generative-ai/): AI that creates new content (text, images, video, music, virtual environments) from learned patterns.
+- [**Foundation model**](https://blogs.nvidia.com/blog/what-are-foundation-models/): a large neural network pre-trained on massive unlabeled data that serves as the base for many tasks.
 - **Unsupervised / semi-supervised learning**: learning patterns without labels, or with only a few.
-- **LLM**: a large language model, a transformer-based model that predicts the next token.
-- **Transformer**: the neural network architecture behind LLMs. It uses self-attention.
-- **Self-attention**: assigns weights between tokens to model how they relate.
-- **Token**: the smallest unit of meaning: a word, sub-word, character or symbol.
+- [**LLM**](https://www.nvidia.com/en-us/glossary/large-language-models/): a large language model, a transformer-based model that predicts the next token.
+- [**Transformer**](https://blogs.nvidia.com/blog/what-is-a-transformer-model/): the neural network architecture behind LLMs. It uses self-attention.
+- [**Self-attention**](https://blogs.nvidia.com/blog/what-is-a-transformer-model/): assigns weights between tokens to model how they relate.
+- [**Token**](https://blogs.nvidia.com/blog/ai-tokens-explained/): the smallest unit of meaning: a word, sub-word, character or symbol.
 - **Prompt**: the user's input that starts generation.
-- **Pre-training vs. fine-tuning / customization**: general learning on huge data vs. adapting the model to a specific domain or task.
+- [**Pre-training vs. fine-tuning / customization**](https://blogs.nvidia.com/blog/what-is-a-pretrained-ai-model/): general learning on huge data vs. adapting the model to a specific domain or task.
 - **Diffusion model**: a type of image-generation model, e.g. Edify.
-- **Guardrails**: rules that keep model output safe, ethical and appropriate.
-- **NeMo / Picasso / BioNeMo**: NVIDIA AI Foundations services for language / visual / biology.
+- [**Guardrails**](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview): rules that keep model output safe, ethical and appropriate.
+- [**NeMo / Picasso / BioNeMo**](https://www.nvidia.com/en-us/ai-data-science/products/nemo/): NVIDIA AI Foundations services for language / visual / biology.
 
 ## Exam Tips
 - **Foundation models train on *unlabeled* data** with unsupervised or semi-supervised learning. Contrast this with Unit 2's labeled-data training.
@@ -179,3 +179,18 @@ Think of it as a **pyramid, from top to bottom**:
 - **The 4 barriers to custom LLMs:** data, compute, software and expertise.
 - **The 5 enterprise steps:** opportunity, teams, data, infrastructure, responsible AI.
 - **The NVIDIA stack from top to bottom:** AI Foundations (NeMo, Picasso, BioNeMo), then **AI Enterprise**, then accelerated infrastructure (cloud or on-prem).
+
+---
+
+## NVIDIA Documentation
+Official NVIDIA pages for this lesson's main concepts (links checked November 10, 2026).
+
+- [What Is Generative AI?](https://www.nvidia.com/en-us/glossary/generative-ai/): NVIDIA glossary entry.
+- [What Are Large Language Models?](https://www.nvidia.com/en-us/glossary/large-language-models/): NVIDIA glossary entry.
+- [What Are Foundation Models?](https://blogs.nvidia.com/blog/what-are-foundation-models/): NVIDIA blog.
+- [What Is a Transformer Model?](https://blogs.nvidia.com/blog/what-is-a-transformer-model/): NVIDIA blog on transformers and self-attention.
+- [What Are AI Tokens?](https://blogs.nvidia.com/blog/ai-tokens-explained/): NVIDIA blog.
+- [What Is a Pretrained AI Model?](https://blogs.nvidia.com/blog/what-is-a-pretrained-ai-model/): NVIDIA blog on pre-training and fine-tuning.
+- [NVIDIA NeMo](https://www.nvidia.com/en-us/ai-data-science/products/nemo/): NVIDIA's platform for building and customizing generative AI.
+- [NeMo Guardrails](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview): library for adding guardrails to LLM apps.
+- [NVIDIA AI Enterprise](https://www.nvidia.com/en-us/data-center/products/ai-enterprise/): the software layer of the NVIDIA generative AI platform.
