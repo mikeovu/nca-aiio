@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 13 of 14</p>
       <h1>Provisioning, Monitoring and Management</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../ai-operations.html">Topic 3 · AI Operations</a></p>
     </section>
     <section>
@@ -42,7 +42,290 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-three-concepts-for-managing-ai-infrastructure">1. Three Concepts for Managing AI Infrastructure</a></li><li><a href="#2-infrastructure-provisioning">2. Infrastructure Provisioning</a></li><li><a href="#3-resource-management-and-monitoring">3. Resource Management and Monitoring</a></li><li><a href="#4-workload-management-and-monitoring">4. Workload Management and Monitoring</a></li><li><a href="#5-nvidia-base-command-manager-bcm">5. NVIDIA Base Command Manager (BCM)</a></li><li><a href="#6-nvidia-mission-control">6. NVIDIA Mission Control</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li><li><a href="#nvidia-documentation">NVIDIA Documentation</a></li></ul></nav>
+      <article class="prose">
+<h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
+<ol>
+<li>Identify the general concepts of <strong>provisioning, managing and monitoring</strong> AI infrastructure.</li>
+<li>Describe the <strong>value of cluster management tools</strong>.</li>
+<li>Describe the concepts of <strong>ongoing monitoring and maintenance</strong>.</li>
+<li>Identify the <strong>tools</strong> used for provisioning, management and monitoring.</li>
+</ol>
+<hr />
+<h2 id="1-three-concepts-for-managing-ai-infrastructure">1. Three Concepts for Managing AI Infrastructure</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Infrastructure provisioning</strong></td>
+<td><strong>Setting up and configuring hardware</strong>: servers, switches, storage and other cluster parts</td>
+</tr>
+<tr>
+<td><strong>Resource management and monitoring</strong></td>
+<td>Collecting <strong>metrics from cluster resources</strong> to see how the cluster performs, then making updates</td>
+</tr>
+<tr>
+<td><strong>Workload management and monitoring</strong></td>
+<td>Making sure <strong>data scientists and AI practitioners have the tools they need</strong>, and understanding <strong>cluster usage</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2-infrastructure-provisioning">2. Infrastructure Provisioning</h2>
+<ul>
+<li>After hardware is <strong>installed in the data center or procured in the cloud</strong>, it must be provisioned before use.</li>
+<li><strong>New hardware may not have the right software or firmware versions.</strong> The versions needed depend on the <strong>other components in the data center</strong> and the <strong>workload</strong>.</li>
+<li><strong>Steps:</strong><ol>
+<li>Work out the <strong>correct software and firmware versions</strong>.</li>
+<li><strong>Download</strong> them.</li>
+<li><strong>Update the systems.</strong> This covers the <strong>OS, GPU drivers, networking drivers, management tools and applications</strong> on servers, switches and storage, plus <strong>hardware firmware</strong>.</li>
+</ol>
+</li>
+<li><strong>Done when</strong> compute nodes, GPUs, storage and networking are <strong>ready to run workloads</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Provisioning tool</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ansible</strong></td>
+<td><strong>Open-source, command-line IT automation</strong> that configures systems and deploys software</td>
+</tr>
+<tr>
+<td><strong>Terraform</strong></td>
+<td><strong>Infrastructure as code (IaC)</strong>. Defines both <strong>cloud and on-prem</strong> resources</td>
+</tr>
+<tr>
+<td><strong>Foreman</strong></td>
+<td><strong>Open-source</strong> tool for managing servers through their <strong>whole lifecycle</strong>: provisioning, configuration, orchestration and monitoring</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="3-resource-management-and-monitoring">3. Resource Management and Monitoring</h2>
+<ul>
+<li><strong>Management and monitoring go hand in hand.</strong> Monitoring shows which systems need attention <strong>beyond regular maintenance</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Monitor</th>
+<th>Manage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compute nodes</strong></td>
+<td>Overall <strong>system health</strong>, plus <strong>GPU metrics</strong></td>
+<td><strong>Security patches and updates</strong>, <strong>firmware</strong>, <strong>drivers</strong>, <strong>replace failing parts</strong></td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td><strong>Congestion, connection quality, connectivity</strong></td>
+<td><strong>Replace faulty or degraded cables</strong>. Upgrade <strong>topology or bandwidth</strong> as workloads or the cluster grow</td>
+</tr>
+<tr>
+<td><strong>Storage and management nodes</strong></td>
+<td><strong>Disk space</strong>, <strong>management node health</strong></td>
+<td>Keep management software <strong>updated</strong>, make <strong>cloud and on-prem tools work together</strong>, make sure the <strong>right users are authorized</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Monitoring tool</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Redfish</strong></td>
+<td>A <strong>DMTF (Distributed Management Task Force) standard</strong> for <strong>simple, secure management</strong> of servers, networks, storage and other infrastructure</td>
+</tr>
+<tr>
+<td><strong>DCGM Exporter</strong></td>
+<td>Built on the <strong>Go APIs to NVIDIA DCGM (Data Center GPU Manager)</strong>. Gathers <strong>GPU metrics</strong> to understand workload behavior and monitor GPUs in clusters</td>
+</tr>
+<tr>
+<td><strong>Prometheus</strong></td>
+<td><strong>Open-source</strong> system that <strong>collects and stores metrics</strong></td>
+</tr>
+<tr>
+<td><strong>Grafana</strong></td>
+<td><strong>Visualizes time-series data</strong>, used together with Prometheus</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-workload-management-and-monitoring">4. Workload Management and Monitoring</h2>
+<ul>
+<li><strong>Management:</strong><ul>
+<li>Make sure jobs get the <strong>resources they need</strong> (the right number of <strong>GPUs or CPU cores</strong>).</li>
+<li><strong>Schedule jobs</strong> onto compute nodes.</li>
+<li><strong>Stop</strong> problem jobs and <strong>restart</strong> failed ones.</li>
+</ul>
+</li>
+<li><strong>Monitoring:</strong><ul>
+<li><strong>Efficiency of resource use:</strong> are <strong>GPUs and CPUs well utilized</strong>? Are there <strong>memory or storage</strong> issues?</li>
+<li><strong>Job status</strong>, so results can be returned and <strong>resources released</strong> back to the cluster.</li>
+</ul>
+</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Workload tool</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kubernetes</strong></td>
+<td><strong>Open-source container orchestration.</strong> Has <strong>operators</strong> for NVIDIA GPUs, shares metrics with <strong>Prometheus</strong>, and integrates with <strong>advanced schedulers like Run:ai</strong></td>
+</tr>
+<tr>
+<td><strong>Jupyter (JupyterLab)</strong></td>
+<td><strong>Open-source web app</strong> for creating and sharing <strong>computational documents</strong> (code, visualizations). Can run <strong>inside containers</strong></td>
+</tr>
+<tr>
+<td><strong>Slurm</strong></td>
+<td>Created by <strong>SchedMD</strong>. <strong>Resource sharing on large AI and HPC clusters.</strong> Runs <strong>interactive and batch jobs</strong>, <strong>prioritizes jobs</strong>, supports <strong>resource reservations</strong> and <strong>per-job quality of service</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="5-nvidia-base-command-manager-bcm">5. NVIDIA Base Command Manager (BCM)</h2>
+<p><strong>One software system that provisions, manages and monitors an AI data center.</strong></p>
+<ul>
+<li><strong>Infrastructure provisioning</strong>, <strong>user access</strong>, <strong>workload management</strong> and <strong>resource monitoring</strong>.</li>
+<li>Sets up <strong>networking, security and DNS</strong>, and keeps the <strong>cluster consistent</strong>.</li>
+<li><strong>Automates server management and updates</strong>, which <strong>prevents server drift</strong>.</li>
+<li><strong>Deploys Kubernetes, Slurm</strong> and other workload managers, plus streamlined <strong>JupyterLab</strong> setup.</li>
+<li><strong>Built-in job monitoring and metrics</strong> for GPUs and other resources.</li>
+</ul>
+<h3 id="three-value-propositions">Three value propositions</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Value</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Faster time to value</strong></td>
+<td>Simplifies infrastructure bring-up and workload provisioning, so data scientists <strong>get resources quickly</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Less complexity and effort</strong></td>
+<td><strong>Automates management and operations</strong> of accelerated infrastructure</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Agility</strong></td>
+<td>Supports <strong>many workload types</strong> with <strong>dynamic resource allocation</strong> based on business needs</td>
+</tr>
+</tbody>
+</table></div>
+<p>These help the <strong>whole AI team</strong>: IT, data scientists and line-of-business owners.</p>
+<hr />
+<h2 id="6-nvidia-mission-control">6. NVIDIA Mission Control</h2>
+<p><strong>Software that runs AI factory operations</strong>, from developer workloads to infrastructure to <strong>facilities</strong>. It's described as <strong>"a world-class operations team delivered as software."</strong></p>
+<ul>
+<li>Powers <strong>NVIDIA Blackwell data centers</strong>.</li>
+<li><strong>An integrated suite that includes Base Command Manager</strong> plus NVIDIA-run AI functions for <strong>configuration, validation and operations</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Advanced BCM features</strong></td>
+<td><strong>Liquid-cooling integration</strong> and <strong>enhanced provisioning for Grace Blackwell NVL72</strong></td>
+</tr>
+<tr>
+<td><strong>Intelligent Job Restart</strong></td>
+<td><strong>Recovers on its own</strong> from job and hardware failures. <strong>Isolates the problem</strong> and uses <strong>built-in playbooks</strong></td>
+</tr>
+<tr>
+<td><strong>Health validation and diagnosis</strong></td>
+<td>Uses <strong>telemetry</strong>, shown in <strong>customizable dashboards</strong></td>
+</tr>
+<tr>
+<td><strong>Advanced cluster management</strong></td>
+<td>From <strong>provisioning to power optimization</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Who benefits:</strong><ul>
+<li><strong>AI practitioners</strong> get compute, orchestrate workloads, <strong>tune GPU performance</strong>, and don't need to step in manually after hardware failures.</li>
+<li><strong>Enterprise IT</strong> gets <strong>telemetry, dashboards and on-demand health checks</strong>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Provisioning</strong>: setting up and configuring hardware, software and firmware so it's ready for workloads.</li>
+<li><strong>Infrastructure as code (IaC)</strong>: defining infrastructure in code (Terraform).</li>
+<li><strong>Redfish</strong>: DMTF standard for secure infrastructure management.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/dcgm/latest/index.html"><strong>DCGM</strong></a>: NVIDIA Data Center GPU Manager, for GPU management and monitoring.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/dcgm-exporter.html"><strong>DCGM Exporter</strong></a>: exports DCGM GPU metrics (to Prometheus).</li>
+<li><strong>Prometheus / Grafana</strong>: metrics collection and storage / time-series dashboards.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/kubernetes/"><strong>Kubernetes</strong></a>: open-source container orchestration.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/slurm"><strong>Slurm</strong></a>: SchedMD's job scheduler for AI and HPC clusters.</li>
+<li><strong>Server drift</strong>: servers slowly falling out of a consistent configuration. BCM prevents it.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/base-command-manager/"><strong>Base Command Manager (BCM)</strong></a>: NVIDIA's software for provisioning, managing and monitoring AI clusters.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/mission-control/"><strong>Mission Control</strong></a>: NVIDIA's AI factory operations suite, including BCM.</li>
+<li><strong>Intelligent Job Restart</strong>: Mission Control's automatic recovery from job and hardware failures.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>The three concepts are infrastructure provisioning, resource management and monitoring, and workload management and monitoring.</strong></li>
+<li><strong>Match tool to task:</strong><ul>
+<li><strong>Provisioning:</strong> Ansible, Terraform (IaC), Foreman.</li>
+<li><strong>Resource monitoring:</strong> Redfish, DCGM Exporter, Prometheus + Grafana.</li>
+<li><strong>Workloads:</strong> Kubernetes, Jupyter, Slurm.</li>
+</ul>
+</li>
+<li><strong>DCGM Exporter gives GPU metrics. Prometheus stores metrics. Grafana visualizes them.</strong></li>
+<li><strong>BCM</strong> provisions, manages and monitors. It <strong>prevents server drift</strong> and <strong>deploys Kubernetes, Slurm and Jupyter</strong>. Its values are <strong>time to value, less complexity, agility</strong>.</li>
+<li><strong>Mission Control = BCM + AI-driven operations</strong> for Blackwell / <strong>GB NVL72</strong>. It <strong>includes Intelligent Job Restart</strong>, <strong>liquid-cooling</strong> integration and <strong>telemetry dashboards</strong>.</li>
+</ul>
+<hr />
+<h2 id="nvidia-documentation">NVIDIA Documentation</h2>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 11, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/base-command-manager/">NVIDIA Base Command Manager</a>: product overview.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/base-command-manager/index.html">Base Command Manager Documentation</a>: manuals for installing and administering BCM.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/mission-control/">NVIDIA Mission Control</a>: product overview.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/mission-control/index.html">Mission Control Documentation</a>: guides for Mission Control.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/dcgm">NVIDIA DCGM</a>: Data Center GPU Manager overview.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/dcgm/latest/index.html">DCGM Documentation</a>: GPU health, diagnostics and metrics.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/dcgm-exporter.html">DCGM Exporter</a>: exporting GPU metrics to Prometheus.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html">NVIDIA GPU Telemetry</a>: GPU monitoring with DCGM, Prometheus and Grafana.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/slurm">Slurm at NVIDIA</a>: the Slurm workload manager.</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-12-ai-in-the-cloud.html"><span>← Unit 12</span>AI in the Cloud</a>

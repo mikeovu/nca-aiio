@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 14 of 14</p>
       <h1>Orchestration and Job Scheduling</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../essential-ai-knowledge.html">Topic 1 · Essential AI Knowledge</a> <a class="chip" href="../ai-operations.html">Topic 3 · AI Operations</a></p>
     </section>
     <section>
@@ -42,7 +42,259 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#1-orchestration-vs-scheduling">1. Orchestration vs. Scheduling</a></li><li><a href="#2-kubernetes">2. Kubernetes</a></li><li><a href="#3-mlops">3. MLOps</a></li><li><a href="#4-slurm">4. Slurm</a></li><li><a href="#5-nvidia-runai">5. NVIDIA Run:ai</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li><li><a href="#nvidia-documentation">NVIDIA Documentation</a></li></ul></nav>
+      <article class="prose">
+<h2 id="1-orchestration-vs-scheduling">1. Orchestration vs. Scheduling</h2>
+<ul>
+<li><strong>Container orchestration</strong> <strong>automates operations on containers</strong>, based on what the environment needs.</li>
+<li><strong>Scheduling</strong> <strong>assigns workloads to available compute resources</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Orchestration</strong> (e.g. Kubernetes)</th>
+<th><strong>Scheduling</strong> (e.g. Slurm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Based on</td>
+<td><strong>Containers</strong></td>
+<td><strong>Bare metal</strong> (but supports containers)</td>
+</tr>
+<tr>
+<td>Designed for</td>
+<td><strong>Microservices</strong></td>
+<td><strong>High-performance computing</strong></td>
+</tr>
+<tr>
+<td>Inference</td>
+<td><strong>Scales up and down with inference demand</strong></td>
+<td><strong>No inference capabilities</strong></td>
+</tr>
+<tr>
+<td>Advanced features</td>
+<td>Needs extra <strong>meta-schedulers</strong></td>
+<td><strong>Priority and preemption built in</strong></td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Manages <strong>entire workflows and processes</strong></td>
+<td><strong>Assigns tasks and jobs</strong> to resources</td>
+</tr>
+<tr>
+<td>Traffic and placement</td>
+<td><strong>Load balancing</strong> across containers</td>
+<td>Finds the <strong>hosts with the right resources</strong> to run containers</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2-kubernetes">2. Kubernetes</h2>
+<ul>
+<li><strong>Open-source container orchestration</strong> that automates <strong>deployment, scaling and management</strong>.</li>
+<li><strong>Designed by Google</strong>, now maintained by the <strong>Cloud Native Computing Foundation (CNCF)</strong>.</li>
+<li><strong>How a job runs:</strong><ol>
+<li>You define a container-based job, e.g. a <strong>CUDA container that runs <code>nvidia-smi</code> on a node with 1 GPU</strong>.</li>
+<li>The <strong>master (control plane) node</strong> finds a <strong>worker node</strong> that meets the job's criteria and deploys it there.</li>
+<li>The job runs as a <strong>pod</strong> on that worker node.</li>
+</ol>
+</li>
+</ul>
+<h3 id="core-components">Core components</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Node</strong></td>
+<td>A server with defined <strong>CPU, memory, GPU</strong> and other resources. Can be <strong>physical or virtual</strong>, anything that runs an OS</td>
+</tr>
+<tr>
+<td><strong>Cluster</strong></td>
+<td><strong>One or more nodes</strong> that run containerized workloads</td>
+</tr>
+<tr>
+<td><strong>Namespace</strong></td>
+<td>An <strong>isolated environment for multi-tenancy</strong>. Its resources are unique to it, and it can have a <strong>resource quota</strong></td>
+</tr>
+<tr>
+<td><strong>Container</strong></td>
+<td>A <strong>self-contained runtime with its dependencies</strong>, created from <strong>fixed images</strong>. It <strong>only exists while running</strong></td>
+</tr>
+<tr>
+<td><strong>Pod</strong></td>
+<td><strong>One or more containers run as a single application.</strong> Holds the containers, <strong>storage</strong> and a <strong>unique network ID</strong>, plus how to run them</td>
+</tr>
+<tr>
+<td><strong>Persistent volume</strong></td>
+<td>Storage mounted on <strong>all containers in the pod</strong>. <strong>Data survives container restarts.</strong> A pod can have several, and they <strong>exist outside the pod's scope</strong></td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>Handles <strong>networking</strong> and tasks like <strong>deploying pods and creating replicas</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="nvidia-tools-for-gpus-on-kubernetes">NVIDIA tools for GPUs on Kubernetes</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NVIDIA GPU Operator</strong></td>
+<td><strong>Open-source.</strong> <strong>Automates deploying and managing all the NVIDIA software needed to use GPUs on Kubernetes.</strong> Faster time to outcome and an <strong>error-free, automated path to scale</strong></td>
+</tr>
+<tr>
+<td><strong>NVIDIA Network Operator</strong></td>
+<td>Installs <strong>on top of the GPU Operator</strong>. Installs the <strong>host networking components needed for RDMA and GPUDirect</strong> in the cluster, including <strong>GPUDirect RDMA</strong></td>
+</tr>
+<tr>
+<td><strong>MLNX_OFED</strong></td>
+<td>NVIDIA's packaged and tested <strong>networking libraries and drivers</strong>. Supports <strong>RDMA over InfiniBand and Ethernet</strong></td>
+</tr>
+<tr>
+<td><strong>NVIDIA Peer Memory Driver</strong></td>
+<td>Works with the network drivers to provide <strong>RDMA between GPUs and host memory</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="3-mlops">3. MLOps</h2>
+<ul>
+<li><strong>Machine Learning Operations</strong> brings <strong>organized, methodical discipline</strong> to running and deploying AI projects. It's often <strong>used with Kubernetes</strong> and keeps infrastructure <strong>well utilized</strong>.</li>
+<li><strong>What it covers:</strong><ul>
+<li><strong>data preparation</strong></li>
+<li><strong>versioning</strong> of data, models and parameters</li>
+<li><strong>monitoring experiments and results</strong></li>
+<li><strong>deploying models for inference</strong></li>
+<li><strong>monitoring model performance</strong></li>
+</ul>
+</li>
+<li><strong>Benefits:</strong><ul>
+<li>better <strong>user productivity</strong></li>
+<li><strong>faster workflows</strong></li>
+<li><strong>maximum resource utilization</strong></li>
+<li>projects that <strong>scale</strong></li>
+</ul>
+</li>
+<li>NVIDIA works with <strong>many MLOps partners</strong>.</li>
+</ul>
+<hr />
+<h2 id="4-slurm">4. Slurm</h2>
+<ul>
+<li>Created by <strong>SchedMD</strong>. An <strong>open-source cluster management and job scheduling system for Linux clusters</strong>.</li>
+<li><strong>Traits:</strong><ul>
+<li><strong>highly scalable and fault-tolerant</strong></li>
+<li><strong>no kernel modifications</strong> needed</li>
+<li><strong>schedules jobs onto a subset of cluster resources</strong></li>
+<li><strong>excellent for AI training</strong> and highly performant</li>
+<li>tied closely to <strong>Unix and Linux</strong></li>
+<li>easy to integrate with <strong>existing security mechanisms</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="slurm-design">Slurm design</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Slurm controller</strong></td>
+<td>The <strong>central manager</strong> of workloads and cluster resources. <strong>Users send commands here</strong></td>
+</tr>
+<tr>
+<td><strong>Compute nodes</strong></td>
+<td><strong>Run the jobs and return results.</strong> Jobs are placed based on the <strong>resources each job needs</strong></td>
+</tr>
+<tr>
+<td><strong>Database</strong> (optional)</td>
+<td>Tracks <strong>accounting records</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="containers-on-slurm">Containers on Slurm</h3>
+<ul>
+<li><strong>NVIDIA recommends running jobs in containers.</strong></li>
+<li><strong>Enroot</strong> turns containers into <strong>unprivileged sandboxes</strong>.</li>
+<li><strong>Pyxis</strong> <strong>integrates Enroot with Slurm</strong>.</li>
+<li>Together they make sure <strong>containers don't get root access</strong> to the compute nodes.</li>
+</ul>
+<hr />
+<h2 id="5-nvidia-runai">5. NVIDIA Run:ai</h2>
+<ul>
+<li>An <strong>AI workload and GPU orchestration platform</strong>, <strong>built on Kubernetes</strong>. It <strong>maximizes GPU efficiency and utilization</strong>.</li>
+<li><strong>Main capabilities:</strong><ul>
+<li><strong>dynamic resource allocation</strong></li>
+<li><strong>full AI lifecycle support</strong> (build, train, deploy, scale)</li>
+<li><strong>strategic resource management</strong></li>
+</ul>
+</li>
+<li><strong>Results:</strong><ul>
+<li><strong>Lower operating costs</strong> and <strong>shorter development cycles</strong>.</li>
+<li><strong>Higher utilization and less idle time.</strong> GPUs are allocated intelligently.</li>
+<li><strong>A unified management interface</strong> for data scientists, engineers and IT.</li>
+</ul>
+</li>
+<li>Runs across <strong>public and private clouds, hybrid and on-prem</strong>.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Orchestration</strong>: automating container operations for microservices, with autoscaling for inference.</li>
+<li><strong>Scheduling</strong>: assigning jobs to compute resources. HPC-focused, with priority and preemption built in.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/kubernetes/"><strong>Kubernetes</strong></a>: open-source container orchestration from Google, maintained by CNCF.</li>
+<li><strong>Pod</strong>: one or more containers managed as one application, with a unique network ID.</li>
+<li><strong>Namespace</strong>: an isolated multi-tenant environment that can have a resource quota.</li>
+<li><strong>Persistent volume</strong>: pod storage that survives container restarts.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html"><strong>GPU Operator</strong></a>: automates the NVIDIA software stack for GPUs on Kubernetes.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/networking/display/kubernetes2671/index.html"><strong>Network Operator</strong></a>: adds RDMA and GPUDirect networking on top of the GPU Operator.</li>
+<li><a target="_blank" rel="noopener" href="https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/"><strong>MLNX_OFED</strong></a>: NVIDIA networking drivers for RDMA over InfiniBand and Ethernet.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/gpudirect-rdma/index.html"><strong>GPUDirect RDMA</strong></a>: direct data transfer between GPUs and the network, bypassing the CPU.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/mlops/"><strong>MLOps</strong></a>: a discipline for versioning, deploying and monitoring ML.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/slurm"><strong>Slurm</strong></a>: SchedMD's open-source job scheduler for Linux clusters.</li>
+<li><strong>Enroot / Pyxis</strong>: unprivileged container sandboxes / the Slurm plugin that runs them.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/software/run-ai/"><strong>Run:ai</strong></a>: NVIDIA's Kubernetes-based GPU orchestration platform.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>Orchestration (Kubernetes): containers, microservices, inference autoscaling, load balancing.</strong> Needs meta-schedulers for advanced features.</li>
+<li><strong>Scheduling (Slurm): bare metal, HPC, priority and preemption built in, no inference.</strong></li>
+<li><strong>Know the Kubernetes components:</strong> node, cluster, namespace (multi-tenancy + quota), container, pod (unique network ID), persistent volume (survives restarts), service.</li>
+<li><strong>The GPU Operator puts GPUs on Kubernetes. The Network Operator adds RDMA and GPUDirect on top of it.</strong></li>
+<li><strong>Slurm = controller + compute nodes (+ optional accounting database).</strong> Created by SchedMD.</li>
+<li><strong>Enroot + Pyxis = containers on Slurm without root access.</strong></li>
+<li><strong>Run:ai = GPU orchestration on Kubernetes</strong> that maximizes utilization across cloud, hybrid and on-prem.</li>
+</ul>
+<hr />
+<h2 id="nvidia-documentation">NVIDIA Documentation</h2>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 11, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/kubernetes/">What Is Kubernetes?</a>: NVIDIA glossary.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html">NVIDIA GPU Operator</a>: GPUs on Kubernetes.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-operator-rdma.html">GPU Operator: GPUDirect RDMA and GPUDirect Storage</a>: how the GPU Operator and Network Operator work together.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/networking/display/kubernetes2671/index.html">NVIDIA Network Operator</a>: RDMA and GPUDirect networking on Kubernetes.</li>
+<li><a target="_blank" rel="noopener" href="https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/">MLNX_OFED Linux Drivers</a>: NVIDIA InfiniBand and Ethernet drivers.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/index.html">NVIDIA Cloud Native Technologies</a>: containers, Kubernetes and GPU telemetry docs.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/mlops/">What Is MLOps?</a>: NVIDIA glossary.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/slurm">Slurm at NVIDIA</a>: the Slurm workload manager.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/software/run-ai/">NVIDIA Run:ai</a>: product overview.</li>
+<li><a target="_blank" rel="noopener" href="https://run-ai-docs.nvidia.com/">NVIDIA Run:ai Documentation</a>: Run:ai guides.</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-13-provisioning-monitoring-and-management.html"><span>← Unit 13</span>Provisioning, Monitoring and Management</a>

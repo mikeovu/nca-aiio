@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 12 of 14</p>
       <h1>AI in the Cloud</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the unit's 4 course transcripts, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../ai-infrastructure.html">Topic 2 · AI Infrastructure</a></p>
     </section>
     <section>
@@ -41,8 +41,555 @@
       </ul>
     </section>
     <section>
-      <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <h2>Notes <span class="count">4 lessons</span></h2>
+      <nav class="toc toc-lessons" aria-label="On this page"><ul><li class="toc-lesson"><a href="#lesson-introduction-to-ai-in-the-cloud"><span class="lesson-num">Lesson 1</span>Introduction to AI in the Cloud</a><ul><li><a href="#lesson-introduction-to-ai-in-the-cloud-1-why-ai-infrastructure-is-hard">1. Why AI Infrastructure Is Hard</a></li><li><a href="#lesson-introduction-to-ai-in-the-cloud-2-what-ai-in-the-cloud-means">2. What "AI in the Cloud" Means</a></li><li><a href="#lesson-introduction-to-ai-in-the-cloud-3-how-ai-and-cloud-computing-reinforce-each-other">3. How AI and Cloud Computing Reinforce Each Other</a></li><li><a href="#lesson-introduction-to-ai-in-the-cloud-key-terms">Key Terms</a></li><li><a href="#lesson-introduction-to-ai-in-the-cloud-exam-tips">Exam Tips</a></li><li><a href="#lesson-introduction-to-ai-in-the-cloud-nvidia-documentation">NVIDIA Documentation</a></li></ul></li><li class="toc-lesson"><a href="#lesson-ai-use-cases-in-the-cloud"><span class="lesson-num">Lesson 2</span>AI Use Cases in the Cloud</a><ul><li><a href="#lesson-ai-use-cases-in-the-cloud-1-managing-ai-workloads-and-infrastructure-in-the-cloud">1. Managing AI Workloads and Infrastructure in the Cloud</a></li><li><a href="#lesson-ai-use-cases-in-the-cloud-2-the-ai-development-workflow-in-the-cloud">2. The AI Development Workflow in the Cloud</a></li><li><a href="#lesson-ai-use-cases-in-the-cloud-3-common-ai-use-cases-for-the-cloud">3. Common AI Use Cases for the Cloud</a></li><li><a href="#lesson-ai-use-cases-in-the-cloud-key-terms">Key Terms</a></li><li><a href="#lesson-ai-use-cases-in-the-cloud-exam-tips">Exam Tips</a></li><li><a href="#lesson-ai-use-cases-in-the-cloud-nvidia-documentation">NVIDIA Documentation</a></li></ul></li><li class="toc-lesson"><a href="#lesson-ai-in-the-cloud-considerations"><span class="lesson-num">Lesson 3</span>AI in the Cloud Considerations</a><ul><li><a href="#lesson-ai-in-the-cloud-considerations-1-the-ai-maturity-model">1. The AI Maturity Model</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-2-starting-on-premises">2. Starting On-Premises</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-3-starting-in-the-cloud">3. Starting in the Cloud</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-4-cloud-or-on-prem-the-numbers">4. Cloud or On-Prem? The Numbers</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-5-key-considerations-recap">5. Key Considerations Recap</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-key-terms">Key Terms</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-exam-tips">Exam Tips</a></li><li><a href="#lesson-ai-in-the-cloud-considerations-nvidia-documentation">NVIDIA Documentation</a></li></ul></li><li class="toc-lesson"><a href="#lesson-supported-cloud-providers-and-consumption-models"><span class="lesson-num">Lesson 4</span>Supported Cloud Providers and Consumption Models</a><ul><li><a href="#lesson-supported-cloud-providers-and-consumption-models-1-nvidia-works-with-all-major-csps">1. NVIDIA Works With All Major CSPs</a></li><li><a href="#lesson-supported-cloud-providers-and-consumption-models-2-consumption-models-who-manages-what">2. Consumption Models: Who Manages What</a></li><li><a href="#lesson-supported-cloud-providers-and-consumption-models-3-cloud-marketplaces">3. Cloud Marketplaces</a></li><li><a href="#lesson-supported-cloud-providers-and-consumption-models-key-terms">Key Terms</a></li><li><a href="#lesson-supported-cloud-providers-and-consumption-models-exam-tips">Exam Tips</a></li><li><a href="#lesson-supported-cloud-providers-and-consumption-models-nvidia-documentation">NVIDIA Documentation</a></li></ul></li></ul></nav>
+      <article class="prose lesson" id="lesson-introduction-to-ai-in-the-cloud">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 1 of 4</span>Introduction to AI in the Cloud</h2>
+<h3 id="lesson-introduction-to-ai-in-the-cloud-1-why-ai-infrastructure-is-hard">1. Why AI Infrastructure Is Hard</h3>
+<p>Building and running solid AI infrastructure now <strong>decides who succeeds in the AI era</strong>. The transcript names three challenges:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Why it hurts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Design complexity</strong></td>
+<td>Sophisticated models need <strong>more powerful hardware and specialized software</strong>, which can cause <strong>unpredictable performance and scaling problems</strong></td>
+</tr>
+<tr>
+<td><strong>Deployment time</strong></td>
+<td>You have to <strong>procure, install and integrate</strong> hardware, software and networking. That means <strong>delays and higher costs</strong></td>
+</tr>
+<tr>
+<td><strong>Training and ramping to production</strong></td>
+<td>It takes lots of <strong>data, compute and expertise</strong> to train accurate models. Because models keep being updated, <strong>ramping production to meet business demand</strong> is hard</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-introduction-to-ai-in-the-cloud-2-what-ai-in-the-cloud-means">2. What "AI in the Cloud" Means</h3>
+<ul>
+<li><strong>AI in the cloud</strong> is the <strong>integration of AI technologies with cloud computing infrastructure</strong>. It gives businesses <strong>scalable compute and ready-made ML services</strong>.</li>
+</ul>
+<h4 id="lesson-introduction-to-ai-in-the-cloud-five-benefits">Five benefits</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>What it gives you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Computational power</strong></td>
+<td>Access to huge compute <strong>without buying lots of on-premises hardware</strong></td>
+</tr>
+<tr>
+<td><strong>Scalability and flexibility</strong></td>
+<td><strong>Adjust resources dynamically</strong> with demand, so capacity is used efficiently</td>
+</tr>
+<tr>
+<td><strong>Accessible ML services</strong></td>
+<td><strong>Pre-built AI services</strong> such as <strong>speech recognition and NLP</strong> that developers can plug in</td>
+</tr>
+<tr>
+<td><strong>Data management and integration</strong></td>
+<td>Tools to <strong>manage, store and process</strong> data for better insights and decisions</td>
+</tr>
+<tr>
+<td><strong>Cost-effectiveness and collaboration</strong></td>
+<td><strong>No upfront investment, pay as you go.</strong> Teams share models and datasets in real time</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-introduction-to-ai-in-the-cloud-3-how-ai-and-cloud-computing-reinforce-each-other">3. How AI and Cloud Computing Reinforce Each Other</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>What the combination delivers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>High-performance computing</strong></td>
+<td>ML needs powerful <strong>CPUs and GPUs</strong>. <strong>Public, private or hybrid</strong> clouds supply them, chosen by <strong>security and compliance</strong> needs</td>
+</tr>
+<tr>
+<td><strong>Automation</strong></td>
+<td>Automates <strong>data analysis, management, security and decision-making</strong>, which raises efficiency and cuts cost</td>
+</tr>
+<tr>
+<td><strong>Advanced cloud services</strong></td>
+<td><strong>Serverless computing, batch processing and container orchestration</strong> for integrating and scaling ML apps</td>
+</tr>
+<tr>
+<td><strong>Data-driven insights</strong></td>
+<td>ML gives <strong>impartial interpretation</strong> of large <strong>structured, unstructured or raw</strong> datasets</td>
+</tr>
+<tr>
+<td><strong>Global accessibility</strong></td>
+<td>AI services reachable <strong>from anywhere with an internet connection</strong></td>
+</tr>
+<tr>
+<td><strong>Accelerated innovation</strong></td>
+<td><strong>Rapid development, testing and deployment</strong> of models encourages experimentation</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-introduction-to-ai-in-the-cloud-key-terms">Key Terms</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/"><strong>AI in the cloud</strong></a>: AI technologies running on cloud computing infrastructure, giving scalable compute and ML services.</li>
+<li><strong>Public / private / hybrid cloud</strong>: the cloud types that can supply AI compute, chosen by security and compliance needs.</li>
+<li><strong>Pay as you go</strong>: paying only for the cloud resources you use, with no upfront investment.</li>
+<li><strong>Serverless computing</strong>: running code without managing servers, one of the cloud services that support ML.</li>
+</ul>
+<h3 id="lesson-introduction-to-ai-in-the-cloud-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>The three infrastructure challenges are design complexity, deployment time, and training and ramping to production.</strong></li>
+<li><strong>The five cloud benefits are compute power, scalability, accessible ML services, data management, and cost and collaboration.</strong></li>
+<li>The cloud <strong>removes upfront investment</strong> (pay as you go) and gives access to <strong>pre-built services like speech recognition and NLP</strong>.</li>
+<li>Cloud services that support ML: <strong>serverless, batch processing, container orchestration</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-introduction-to-ai-in-the-cloud-nvidia-documentation">NVIDIA Documentation</h3>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 11, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/">NVIDIA Cloud Computing Solutions</a>: NVIDIA GPUs and software across cloud providers.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-cloud/">NVIDIA DGX Cloud</a>: NVIDIA's AI platform delivered in the cloud.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/">NVIDIA AI Enterprise</a>: the software platform that runs in the cloud or on-prem.</li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-ai-use-cases-in-the-cloud">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 2 of 4</span>AI Use Cases in the Cloud</h2>
+<h3 id="lesson-ai-use-cases-in-the-cloud-1-managing-ai-workloads-and-infrastructure-in-the-cloud">1. Managing AI Workloads and Infrastructure in the Cloud</h3>
+<p>Good workload and infrastructure management is <strong>critical for efficiency, scalability and performance</strong> in the cloud.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cloud-based model deployment management</strong></td>
+<td>Deploy ML models <strong>at scale</strong>, <strong>automate deployment</strong>, and <strong>manage model versions and updates</strong></td>
+</tr>
+<tr>
+<td><strong>Cloud-native management and orchestration</strong></td>
+<td>Cloud-native tools: <strong>containerization, service meshes, serverless computing</strong>, for scalability, agility and <strong>high availability</strong></td>
+</tr>
+<tr>
+<td><strong>Cloud-based cluster management</strong></td>
+<td>Deploy, manage and scale <strong>containerized apps across distributed cloud environments</strong></td>
+</tr>
+<tr>
+<td><strong>Infrastructure acceleration libraries</strong></td>
+<td><strong>Pre-built components</strong> (for containers and serverless) for fast deployment. They improve <strong>utilization</strong>, cut <strong>latency</strong> and increase <strong>scalability</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-ai-use-cases-in-the-cloud-2-the-ai-development-workflow-in-the-cloud">2. The AI Development Workflow in the Cloud</h3>
+<ul>
+<li>Developing and training AI is <strong>notoriously resource-intensive</strong>, which makes the <strong>cloud an ideal place for AI development</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data preparation</strong></td>
+<td>Turn <strong>raw data</strong> into a form that suits ML models</td>
+</tr>
+<tr>
+<td><strong>Model training</strong></td>
+<td>Teach the model to <strong>interpret and learn from data</strong> so it performs a task accurately</td>
+</tr>
+<tr>
+<td><strong>Simulate and test</strong></td>
+<td><strong>Iteratively improve accuracy</strong> and <strong>reduce error</strong></td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>Make the model <strong>available to other systems</strong> so they can <strong>send data and get predictions back</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>The same tools from Unit 5 (AI Software Ecosystem) work in the cloud.</strong></li>
+</ul>
+<hr />
+<h3 id="lesson-ai-use-cases-in-the-cloud-3-common-ai-use-cases-for-the-cloud">3. Common AI Use Cases for the Cloud</h3>
+<p>Chosen for the cloud because of its <strong>scalability, flexibility and cost-effectiveness</strong>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLMs</strong></td>
+<td>Accelerate <strong>NLP</strong>, automate communication, improve customer interactions</td>
+</tr>
+<tr>
+<td><strong>Speech AI</strong></td>
+<td><strong>Chatbots and virtual assistants</strong> for customer support. <strong>Speech recognition</strong> to <strong>transcribe audio and video</strong></td>
+</tr>
+<tr>
+<td><strong>Recommendation engines</strong></td>
+<td><strong>Personalize</strong> customer experiences</td>
+</tr>
+<tr>
+<td><strong>Fraud detection and prevention</strong></td>
+<td>Spot and stop fraud <strong>in real time</strong></td>
+</tr>
+<tr>
+<td><strong>Sentiment analysis</strong></td>
+<td>Use NLP and ML to <strong>measure emotional tone and opinions</strong> in text</td>
+</tr>
+<tr>
+<td><strong>Supply chain optimization</strong></td>
+<td><strong>Demand forecasting, inventory management, route planning</strong></td>
+</tr>
+<tr>
+<td><strong>Predictive maintenance</strong></td>
+<td><strong>Predict equipment failures</strong> to prevent unplanned downtime</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-ai-use-cases-in-the-cloud-key-terms">Key Terms</h3>
+<ul>
+<li><strong>Service mesh</strong>: a cloud-native layer that manages communication between services.</li>
+<li><strong>Model version management</strong>: tracking and updating deployed model versions.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/large-language-models/"><strong>Large language model (LLM)</strong></a>: a model for NLP tasks, a top cloud use case.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/speech-ai/"><strong>Speech AI</strong></a>: chatbots, virtual assistants and speech recognition.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/recommendation-system/"><strong>Recommendation engine</strong></a>: personalizes what each customer sees.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/sentiment-analysis/"><strong>Sentiment analysis</strong></a>: measuring emotional tone and opinion in text.</li>
+<li><strong>Predictive maintenance</strong>: forecasting equipment failures before they happen.</li>
+</ul>
+<h3 id="lesson-ai-use-cases-in-the-cloud-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>The cloud AI workflow is data preparation → model training → simulate and test → deployment.</strong></li>
+<li><strong>Simulate and test</strong> is where you <strong>iterate to reduce error</strong>. <strong>Deployment</strong> makes the model available to return predictions.</li>
+<li><strong>Cloud-native management = containers, service meshes, serverless.</strong></li>
+<li>Know the use-case list: <strong>LLMs, speech AI, recommenders, fraud detection, sentiment analysis, supply chain, predictive maintenance.</strong></li>
+</ul>
+<hr />
+<h3 id="lesson-ai-use-cases-in-the-cloud-nvidia-documentation">NVIDIA Documentation</h3>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 11, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/large-language-models/">What Are Large Language Models?</a>: NVIDIA glossary.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/speech-ai/">What Is Speech AI?</a>: NVIDIA glossary.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/recommendation-system/">What Is a Recommendation System?</a>: NVIDIA glossary.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/glossary/sentiment-analysis/">What Is Sentiment Analysis?</a>: NVIDIA glossary.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/">NVIDIA Cloud Computing Solutions</a>: running these workloads on NVIDIA GPUs in the cloud.</li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-ai-in-the-cloud-considerations">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 3 of 4</span>AI in the Cloud Considerations</h2>
+<h3 id="lesson-ai-in-the-cloud-considerations-1-the-ai-maturity-model">1. The AI Maturity Model</h3>
+<p>A framework for <strong>assessing how mature an organization's AI capabilities are</strong>. Knowing your stage guides your <strong>cloud strategy</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What it looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Awareness</strong></td>
+<td>Just <strong>exploring AI</strong>. Early conversations and experiments. <strong>No formal strategy or investment</strong></td>
+</tr>
+<tr>
+<td><strong>2. Active AI experimentation</strong></td>
+<td>Experimenting in a <strong>data science context</strong>, with a <strong>small team</strong> of data scientists and engineers. AI <strong>isn't pervasive</strong> yet</td>
+</tr>
+<tr>
+<td><strong>3. Operational AI in production</strong></td>
+<td>AI <strong>in production</strong>, automating processes and improving decisions. <strong>Best practices established</strong></td>
+</tr>
+<tr>
+<td><strong>4. Systemic AI</strong></td>
+<td>AI is <strong>fully part of the digital strategy</strong> and a <strong>core component of every new digital project</strong>. A defined <strong>AI roadmap</strong></td>
+</tr>
+<tr>
+<td><strong>5. Transformational AI</strong></td>
+<td>AI is <strong>in the organization's DNA</strong>. A strong AI culture, and AI is in <strong>every part of the business</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-ai-in-the-cloud-considerations-2-starting-on-premises">2. Starting On-Premises</h3>
+<ul>
+<li><strong>Owning hardware doesn't mean you're mature.</strong> An on-prem organization can still be at an early stage.</li>
+<li>On-prem usually means one of two decisions:<ul>
+<li><strong>TCO favors ownership.</strong> The ongoing cost of reserved cloud instances was weighed against the fixed cost of a system. This is the <strong>CapEx vs. OpEx</strong> trade-off.</li>
+<li><strong>Data must stay inside your own data center.</strong></li>
+</ul>
+</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>On-prem benefit</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data sovereignty and compliance</strong></td>
+<td>You control your data and meet regulations</td>
+</tr>
+<tr>
+<td><strong>Fastest iteration speed</strong></td>
+<td>Spin resources up and down quickly to speed up development cycles</td>
+</tr>
+<tr>
+<td><strong>Predictable costs</strong></td>
+<td>Costs <strong>scale linearly with usage</strong>, which makes budgeting easier</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-ai-in-the-cloud-considerations-3-starting-in-the-cloud">3. Starting in the Cloud</h3>
+<ul>
+<li>Many organizations are <strong>cloud-first or cloud-only</strong>.</li>
+<li><strong>Elastic scale:</strong> resources grow and shrink with <strong>changing (temporal) needs</strong>.</li>
+<li><strong>Minimal barriers to entry:</strong> <strong>every cloud provider offers NVIDIA GPU instances</strong>, and you can turn them <strong>on and off like a faucet</strong>.</li>
+<li><strong>Best fit for early-stage organizations:</strong> they're still experimenting, <strong>training runs are short, models are small and datasets are limited</strong>.</li>
+<li><strong>As they mature</strong>, models and datasets grow, needs become constant, and <strong>cloud operating expenses rise</strong>. Many customers are already at this <strong>inflection point</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-ai-in-the-cloud-considerations-4-cloud-or-on-prem-the-numbers">4. Cloud or On-Prem? The Numbers</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance boost from <strong>specialized AI infrastructure</strong> vs. cloud, when <strong>data is local and compute is in the cloud</strong></td>
+<td><strong>2–6×</strong></td>
+</tr>
+<tr>
+<td>Extra latency from distance between data and cloud</td>
+<td><strong>+1 ms per 60 miles</strong>, which raises the cost of <strong>data gravity</strong></td>
+</tr>
+<tr>
+<td>Large-enterprise IT decision makers who think <strong>on-prem security is stronger</strong> than cloud</td>
+<td><strong>62%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="lesson-ai-in-the-cloud-considerations-the-answer-is-hybrid">The answer is hybrid</h4>
+<ul>
+<li>It's <strong>not one or the other</strong>. Use both, depending on <strong>where you are in your AI journey</strong>.</li>
+<li><strong>Start in the cloud:</strong> small experiments with cloud-hosted training, to <strong>build skills</strong> on a small budget.</li>
+<li><strong>Inflection point:</strong> as datasets grow, <strong>data gravity</strong> bites, developers spend more time <strong>grooming each training run to avoid failure</strong>, and <strong>iteration slows</strong>. That's when you may move production-scale work <strong>on-prem</strong>.</li>
+</ul>
+<h4 id="lesson-ai-in-the-cloud-considerations-a-common-hybrid-pattern">A common hybrid pattern</h4>
+<ul>
+<li><strong>On-prem: training, customization and optimization.</strong><ul>
+<li><strong>Full control</strong> of the training environment (hardware, software, data).</li>
+<li><strong>Data sensitivity and compliance:</strong> data stays inside your own network.</li>
+<li><strong>Data gravity alignment:</strong> compute sits next to the data, which <strong>reduces latency</strong>.</li>
+</ul>
+</li>
+<li><strong>Cloud: production inference.</strong> Cloud <strong>scale and flexibility</strong> handle <strong>varying inference loads</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-ai-in-the-cloud-considerations-5-key-considerations-recap">5. Key Considerations Recap</h3>
+<ul>
+<li>Strategies vary: <strong>cloud-first</strong>, <strong>"own the base, rent the spike"</strong>, or <strong>multi-cloud hybrid</strong>.</li>
+<li>Some AI workloads must stay <strong>on-prem or in specific cloud regions</strong> because of <strong>real-time performance, data residency or data sovereignty</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Consideration</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data locality</strong></td>
+<td>Move <strong>compute closer to the data</strong> to cut network congestion and improve performance</td>
+</tr>
+<tr>
+<td><strong>Data sovereignty</strong></td>
+<td>Follow <strong>country-specific rules</strong> on where data from a location must be <strong>stored and processed</strong></td>
+</tr>
+<tr>
+<td><strong>Hybrid IT strategies</strong></td>
+<td>Hybrid and multi-cloud, using <strong>best-of-breed</strong> options for POCs, training and deployment at scale</td>
+</tr>
+<tr>
+<td><strong>Real-time performance</strong></td>
+<td>Apps that must respond in <strong>real time</strong>, or give real-time analytics on <strong>sensor data</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-ai-in-the-cloud-considerations-key-terms">Key Terms</h3>
+<ul>
+<li><strong>AI maturity model</strong>: 5 stages, awareness → active experimentation → operational → systemic → transformational.</li>
+<li><strong>TCO</strong>: total cost of ownership, used to compare owning systems with renting cloud instances.</li>
+<li><strong>CapEx vs. OpEx</strong>: buying hardware up front vs. paying ongoing operating costs (cloud).</li>
+<li><strong>Data gravity</strong>: large datasets pull compute toward them. Distance adds latency (about 1 ms per 60 miles) and cost.</li>
+<li><strong>Data sovereignty</strong>: country rules on where data must be stored and processed.</li>
+<li><strong>Data locality</strong>: putting compute close to the data.</li>
+<li><strong>"Own the base, rent the spike"</strong>: own capacity for steady demand, and use the cloud for peaks.</li>
+<li><strong>Inflection point</strong>: where growing cloud costs and data gravity make on-prem more attractive.</li>
+</ul>
+<h3 id="lesson-ai-in-the-cloud-considerations-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>Know the five maturity stages in order:</strong> Awareness, Active Experimentation, Operational, Systemic, Transformational.</li>
+<li><strong>On-prem benefits:</strong> data sovereignty and compliance, fastest iteration, predictable costs that scale linearly.</li>
+<li><strong>Cloud benefits:</strong> elastic scale, low barrier to entry (NVIDIA GPUs at every CSP). Best for <strong>early-stage</strong> experimentation.</li>
+<li><strong>Common hybrid pattern: train on-prem, run inference in the cloud.</strong></li>
+<li><strong>Numbers:</strong> 2–6× performance with specialized infrastructure, <strong>1 ms of latency per 60 miles</strong>, 62% trust on-prem security more.</li>
+<li><strong>Four considerations:</strong> data locality, data sovereignty, hybrid IT, real-time performance.</li>
+</ul>
+<hr />
+<h3 id="lesson-ai-in-the-cloud-considerations-nvidia-documentation">NVIDIA Documentation</h3>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 11, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/">NVIDIA Cloud Computing Solutions</a>: NVIDIA GPU instances across cloud providers.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-cloud/">NVIDIA DGX Cloud</a>: NVIDIA's AI platform in the cloud.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/dgx-platform/">NVIDIA DGX Platform</a>: on-premises AI infrastructure.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/">NVIDIA AI Enterprise</a>: the same software stack on-prem and in the cloud, for hybrid deployments.</li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-supported-cloud-providers-and-consumption-models">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 4 of 4</span>Supported Cloud Providers and Consumption Models</h2>
+<h3 id="lesson-supported-cloud-providers-and-consumption-models-1-nvidia-works-with-all-major-csps">1. NVIDIA Works With All Major CSPs</h3>
+<p>NVIDIA partners with the leading <strong>cloud service providers (CSPs)</strong>, so you can deploy AI on the provider you choose:</p>
+<ul>
+<li><strong>Amazon Web Services (AWS)</strong></li>
+<li><strong>Microsoft Azure</strong></li>
+<li><strong>Google Cloud Platform (GCP)</strong></li>
+<li><strong>Oracle Cloud Infrastructure (OCI)</strong></li>
+</ul>
+<p>The ecosystem <strong>keeps growing</strong>, so you can <strong>scale AI workloads across different clouds</strong> with flexibility, reliability and performance.</p>
+<hr />
+<h3 id="lesson-supported-cloud-providers-and-consumption-models-2-consumption-models-who-manages-what">2. Consumption Models: Who Manages What</h3>
+<ul>
+<li><strong>The models differ in how responsibility is split between the customer and the CSP.</strong></li>
+<li><strong>On-premises</strong> is the baseline. The customer manages <strong>the whole stack</strong>: data center, network, storage, physical servers, virtualization, OS, scaling, application code and data configuration.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>The CSP manages</th>
+<th>The customer manages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>On-premises</strong></td>
+<td>Nothing</td>
+<td><strong>Everything</strong></td>
+</tr>
+<tr>
+<td><strong>IaaS</strong> (Infrastructure as a Service)</td>
+<td><strong>On-demand infrastructure</strong></td>
+<td>Everything <strong>above the infrastructure</strong></td>
+</tr>
+<tr>
+<td><strong>PaaS</strong> (Platform as a Service)</td>
+<td>Builds on IaaS: <strong>hardware and software</strong></td>
+<td><strong>Their code</strong> (developers focus on coding)</td>
+</tr>
+<tr>
+<td><strong>SaaS</strong> (Software as a Service)</td>
+<td><strong>The complete application</strong> and all hosting</td>
+<td>Using the app</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>First step for AI in the cloud:</strong> understand your company's <strong>current cloud strategy</strong>, including its <strong>enterprise cloud contracts</strong> and the services it already uses (e.g. IaaS or PaaS).</li>
+</ul>
+<hr />
+<h3 id="lesson-supported-cloud-providers-and-consumption-models-3-cloud-marketplaces">3. Cloud Marketplaces</h3>
+<p>A <strong>cloud marketplace</strong> is a <strong>one-stop shop</strong> for cloud services from many providers. It's one of the most popular ways to get started.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>One-stop shop</strong></td>
+<td><strong>Compare and choose</strong> services from many providers</td>
+</tr>
+<tr>
+<td><strong>Easy discovery</strong></td>
+<td>A <strong>central place</strong> to find the right services</td>
+</tr>
+<tr>
+<td><strong>Streamlined procurement</strong></td>
+<td>Buy and deploy quickly, <strong>without a long procurement process</strong></td>
+</tr>
+<tr>
+<td><strong>Cost savings</strong></td>
+<td><strong>Transparent pricing</strong> and cost comparison across providers</td>
+</tr>
+<tr>
+<td><strong>Increased agility</strong></td>
+<td><strong>Scale up or down</strong> quickly as business needs change</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-supported-cloud-providers-and-consumption-models-key-terms">Key Terms</h3>
+<ul>
+<li><strong>CSP</strong>: cloud service provider (AWS, Azure, GCP, OCI).</li>
+<li><strong>IaaS</strong>: the CSP runs the infrastructure, and the customer handles everything above it.</li>
+<li><strong>PaaS</strong>: the CSP runs the hardware and software platform, and developers just write code.</li>
+<li><strong>SaaS</strong>: the CSP delivers the complete application.</li>
+<li><strong>Cloud marketplace</strong>: a one-stop shop to discover, compare and buy cloud services.</li>
+</ul>
+<h3 id="lesson-supported-cloud-providers-and-consumption-models-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>The four major CSPs NVIDIA supports are AWS, Azure, GCP and OCI.</strong></li>
+<li><strong>Responsibility moves to the CSP as you go On-prem → IaaS → PaaS → SaaS.</strong></li>
+<li><strong>PaaS = focus on code. SaaS = complete application. IaaS = infrastructure only.</strong></li>
+<li><strong>Marketplace benefits:</strong> one-stop shop, easy discovery, streamlined procurement, cost savings, agility.</li>
+<li><strong>The first step is to understand the company's current cloud strategy and contracts.</strong></li>
+</ul>
+<hr />
+<h3 id="lesson-supported-cloud-providers-and-consumption-models-nvidia-documentation">NVIDIA Documentation</h3>
+<p>Official NVIDIA pages for this lesson's main concepts (links checked November 11, 2026).</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/">NVIDIA Cloud Computing Solutions</a>: overview of NVIDIA across CSPs.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/amazon-web-services/">NVIDIA on AWS</a>: GPU-accelerated AWS.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/microsoft-azure/">NVIDIA on Microsoft Azure</a>: GPU-accelerated Azure.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/google-cloud-platform/">NVIDIA on Google Cloud</a>: GPU-accelerated GCP.</li>
+<li><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/gpu-cloud-computing/oracle-cloud-infrastructure/">NVIDIA on Oracle Cloud Infrastructure</a>: GPU-accelerated OCI.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/ai-enterprise/deployment/cloud/latest/index.html">NVIDIA AI Enterprise Cloud Deployment Guide</a>: deploying NVIDIA AI Enterprise on CSPs, including through marketplaces.</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-11-reference-architectures.html"><span>← Unit 11</span>Reference Architectures</a>
