@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 7 of 14</p>
       <h1>Compute Platforms for AI</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the unit's 4 course transcripts, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../essential-ai-knowledge.html">Topic 1 · Essential AI Knowledge</a> <a class="chip" href="../ai-infrastructure.html">Topic 2 · AI Infrastructure</a></p>
     </section>
     <section>
@@ -41,8 +41,570 @@
       </ul>
     </section>
     <section>
-      <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <h2>Notes <span class="count">4 lessons</span></h2>
+      <nav class="toc toc-lessons" aria-label="On this page"><ul><li class="toc-lesson"><a href="#lesson-data-center-platform"><span class="lesson-num">Lesson 1</span>Data Center Platform</a><ul><li><a href="#lesson-data-center-platform-what-unit-7-as-a-whole-should-teach-you">What Unit 7 as a whole should teach you</a></li><li><a href="#lesson-data-center-platform-1-accelerated-computing-is-a-full-stack-data-center-scale-problem">1. Accelerated Computing Is a Full-Stack, Data-Center-Scale Problem</a></li><li><a href="#lesson-data-center-platform-2-the-three-pillars-cpu-gpu-dpu">2. The Three Pillars: CPU + GPU + DPU</a></li><li><a href="#lesson-data-center-platform-3-ways-to-get-ai-compute">3. Ways to Get AI Compute</a></li><li><a href="#lesson-data-center-platform-4-from-idea-to-production">4. From Idea to Production</a></li><li><a href="#lesson-data-center-platform-5-where-accelerated-computing-runs">5. Where Accelerated Computing Runs</a></li><li><a href="#lesson-data-center-platform-key-terms">Key Terms</a></li><li><a href="#lesson-data-center-platform-exam-tips">Exam Tips</a></li></ul></li><li class="toc-lesson"><a href="#lesson-gpus-and-cpus-for-ai"><span class="lesson-num">Lesson 2</span>GPUs and CPUs for AI</a><ul><li><a href="#lesson-gpus-and-cpus-for-ai-1-quick-recap">1. Quick Recap</a></li><li><a href="#lesson-gpus-and-cpus-for-ai-2-nvidia-architectures-at-a-glance">2. NVIDIA Architectures at a Glance</a></li><li><a href="#lesson-gpus-and-cpus-for-ai-3-gpu-products">3. GPU Products</a></li><li><a href="#lesson-gpus-and-cpus-for-ai-4-grace-cpu-and-the-superchips">4. Grace CPU and the Superchips</a></li><li><a href="#lesson-gpus-and-cpus-for-ai-key-terms">Key Terms</a></li><li><a href="#lesson-gpus-and-cpus-for-ai-exam-tips">Exam Tips</a></li></ul></li><li class="toc-lesson"><a href="#lesson-multi-gpu-systems"><span class="lesson-num">Lesson 3</span>Multi-GPU Systems</a><ul><li><a href="#lesson-multi-gpu-systems-1-scale-up-vs-scale-out">1. Scale Up vs. Scale Out</a></li><li><a href="#lesson-multi-gpu-systems-2-how-gpus-talk-inside-a-server">2. How GPUs Talk Inside a Server</a></li><li><a href="#lesson-multi-gpu-systems-3-dgx-h100-spec-sheet">3. DGX H100 Spec Sheet</a></li><li><a href="#lesson-multi-gpu-systems-4-the-wider-dgx-and-blackwell-portfolio">4. The Wider DGX and Blackwell Portfolio</a></li><li><a href="#lesson-multi-gpu-systems-key-terms">Key Terms</a></li><li><a href="#lesson-multi-gpu-systems-exam-tips">Exam Tips</a></li></ul></li><li class="toc-lesson"><a href="#lesson-introduction-to-dpus"><span class="lesson-num">Lesson 4</span>Introduction to DPUs</a><ul><li><a href="#lesson-introduction-to-dpus-1-what-a-dpu-is">1. What a DPU Is</a></li><li><a href="#lesson-introduction-to-dpus-2-nvidia-bluefield-3">2. NVIDIA BlueField-3</a></li><li><a href="#lesson-introduction-to-dpus-3-nvidia-doca">3. NVIDIA DOCA</a></li><li><a href="#lesson-introduction-to-dpus-4-nvidia-certified-systems">4. NVIDIA-Certified Systems</a></li><li><a href="#lesson-introduction-to-dpus-key-terms">Key Terms</a></li><li><a href="#lesson-introduction-to-dpus-exam-tips">Exam Tips</a></li></ul></li></ul></nav>
+      <article class="prose lesson" id="lesson-data-center-platform">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 1 of 4</span>Data Center Platform</h2>
+<h3 id="lesson-data-center-platform-what-unit-7-as-a-whole-should-teach-you">What Unit 7 as a whole should teach you</h3>
+<ol>
+<li>The key components and features of the <strong>NVIDIA data center platform</strong>.</li>
+<li><strong>GPU and CPU requirements</strong> for AI data centers, the products, and their use cases.</li>
+<li>The purpose and capabilities of <strong>multi-GPU systems</strong>.</li>
+<li><strong>Multi-node GPU interconnect</strong> technology.</li>
+<li>The role of <strong>DPUs and DOCA</strong>.</li>
+<li>The benefits of <strong>NVIDIA-Certified Systems</strong>.</li>
+</ol>
+<hr />
+<h3 id="lesson-data-center-platform-1-accelerated-computing-is-a-full-stack-data-center-scale-problem">1. Accelerated Computing Is a Full-Stack, Data-Center-Scale Problem</h3>
+<ul>
+<li><strong>Full-stack:</strong> you have to optimize and integrate <strong>every layer</strong> (hardware, system software, libraries, frameworks) to get top performance.</li>
+<li><strong>Data-center scale:</strong> <strong>"The data center is the new unit of computing."</strong> Applications span the whole data center, so every component must be optimized.</li>
+</ul>
+<h4 id="lesson-data-center-platform-the-nvidia-platform-stack-bottom-to-top">The NVIDIA platform stack (bottom to top)</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hardware</strong></td>
+<td><strong>GPUs, CPUs, DPUs</strong>, which are built into servers</td>
+</tr>
+<tr>
+<td><strong>Programming models</strong></td>
+<td><strong>CUDA</strong> for GPUs, <strong>DOCA</strong> for DPUs</td>
+</tr>
+<tr>
+<td><strong>Acceleration libraries</strong></td>
+<td>E.g. <strong>CUDA-X</strong>, which gives developers acceleration transparently across hardware</td>
+</tr>
+<tr>
+<td><strong>Application frameworks</strong></td>
+<td>Built for specific domains: <strong>Riva</strong> (conversational AI), <strong>DRIVE</strong> (autonomous vehicles), <strong>Merlin</strong> (recommenders) and more</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-data-center-platform-2-the-three-pillars-cpu-gpu-dpu">2. The Three Pillars: CPU + GPU + DPU</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU</strong></td>
+<td><strong>Accelerated computing</strong>: parallel processing at huge scale for graphics and AI</td>
+</tr>
+<tr>
+<td><strong>CPU</strong></td>
+<td><strong>General application processing</strong>, especially <strong>single-threaded</strong> work it does well</td>
+</tr>
+<tr>
+<td><strong>DPU</strong></td>
+<td><strong>Data-intensive infrastructure work</strong>: <strong>communications processing, compression, encryption</strong>. It keeps the data center efficient</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Together, <strong>GPU + CPU + DPU</strong> make up the <strong>new unit of computing</strong>.</li>
+<li>Just as every smartphone has graphics and AI processors, <strong>every server and workstation will have accelerators</strong>. Many will also have <strong>DPUs</strong> to speed up the <strong>network, storage and security</strong> services at the heart of cloud-native computing.</li>
+</ul>
+<hr />
+<h3 id="lesson-data-center-platform-3-ways-to-get-ai-compute">3. Ways to Get AI Compute</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it offers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cloud service providers (CSPs)</strong></td>
+<td>Infrastructure <strong>without managing or maintaining it</strong>. High-density compute and virtual workstations <strong>anytime, anywhere, with no physical data center</strong>. Covered in a later unit</td>
+</tr>
+<tr>
+<td><strong>OEM systems</strong></td>
+<td>Systems from <strong>established, certified vendors</strong> built from standard components, giving <strong>flexibility</strong></td>
+</tr>
+<tr>
+<td><strong>NVIDIA DGX</strong></td>
+<td><strong>Purpose-built</strong> with optimized compute, networking and storage, plus <strong>access to NVIDIA's expertise</strong> for deployment and maintenance</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="lesson-data-center-platform-4-from-idea-to-production">4. From Idea to Production</h3>
+<ul>
+<li>An AI application goes from <strong>ideation to a trained model in production</strong> through several phases.</li>
+<li>The team includes <strong>data scientists, data engineers, business analysts, DevOps and application developers</strong>.</li>
+</ul>
+<h3 id="lesson-data-center-platform-5-where-accelerated-computing-runs">5. Where Accelerated Computing Runs</h3>
+<ul>
+<li><strong>Cloud:</strong> virtual desktops, apps, workstations and <strong>optimized containers</strong>, so data scientists can run GPU-accelerated AI from their desks.</li>
+<li><strong>Data center:</strong> breakthrough performance at any scale <strong>with fewer servers</strong>, giving <strong>faster insights and much lower cost</strong>. <strong>Sensitive data stays secure.</strong></li>
+<li><strong>Edge:</strong> needs a scalable, accelerated platform for <strong>real-time decisions at the point of action</strong>: stores, factories, hospitals, smart cities. <strong>NVIDIA Jetson</strong> is the <strong>edge platform</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-data-center-platform-key-terms">Key Terms</h3>
+<ul>
+<li><strong>Full-stack acceleration</strong>: optimizing hardware, software and frameworks together.</li>
+<li><strong>Data center as the unit of computing</strong>: applications span the whole data center.</li>
+<li><strong>CUDA / DOCA</strong>: programming models for GPUs / DPUs.</li>
+<li><strong>CUDA-X</strong>: NVIDIA's GPU acceleration libraries.</li>
+<li><strong>Riva / DRIVE / Merlin</strong>: domain frameworks for conversational AI / autonomous vehicles / recommenders.</li>
+<li><strong>Jetson</strong>: NVIDIA's platform for edge AI.</li>
+</ul>
+<h3 id="lesson-data-center-platform-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>The three pillars are CPU (general, single-thread), GPU (parallel acceleration) and DPU (infrastructure: networking, security, storage).</strong></li>
+<li><strong>CUDA is for GPUs. DOCA is for DPUs.</strong></li>
+<li><strong>The data center is the new unit of computing</strong>, which is why acceleration is full-stack.</li>
+<li><strong>The three ways to consume AI compute are cloud, OEM and DGX.</strong></li>
+<li><strong>Jetson is for the edge.</strong></li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-gpus-and-cpus-for-ai">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 2 of 4</span>GPUs and CPUs for AI</h2>
+<h3 id="lesson-gpus-and-cpus-for-ai-1-quick-recap">1. Quick Recap</h3>
+<ul>
+<li><strong>CPUs</strong> run <strong>complex instruction sets</strong> on a few, increasingly multi-core processors. <strong>GPUs</strong> run <strong>simple instruction sets</strong> across <strong>many cores</strong> at the same time. They work <strong>together</strong>.</li>
+<li><strong>GPU architecture</strong> covers the compute units, memory, caches, rendering pipelines and interconnects.</li>
+</ul>
+<h3 id="lesson-gpus-and-cpus-for-ai-2-nvidia-architectures-at-a-glance">2. NVIDIA Architectures at a Glance</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>Type</th>
+<th>Built for</th>
+<th>Named after</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Blackwell</strong></td>
+<td>GPU (latest)</td>
+<td><strong>Large-scale generative AI</strong>: training and inference for the <strong>largest LLMs</strong></td>
+<td><strong>David Blackwell</strong>, a mathematician and statistician (probability, game theory, information theory). He independently developed <strong>dynamic programming</strong> and the <strong>Rao–Blackwell theorem</strong></td>
+</tr>
+<tr>
+<td><strong>Hopper</strong></td>
+<td>GPU (prior flagship)</td>
+<td>Large-scale <strong>AI, HPC and data analytics</strong>, e.g. conversational AI</td>
+<td><strong>Grace Hopper</strong>, one of the first programmers of the <strong>Harvard Mark I</strong>. She invented one of the first <strong>linkers</strong></td>
+</tr>
+<tr>
+<td><strong>Ada Lovelace</strong></td>
+<td>GPU</td>
+<td><strong>Gaming, AI-powered graphics, ray tracing</strong>, plus data center workloads (L40S)</td>
+<td><strong>Ada Lovelace</strong>, whose notes on Babbage's <strong>Analytical Engine</strong> are considered the <strong>first computer program</strong></td>
+</tr>
+<tr>
+<td><strong>Grace</strong></td>
+<td><strong>CPU</strong> (Arm)</td>
+<td><strong>HPC and data centers</strong>. Combines <strong>Arm CPU architecture</strong> with NVIDIA AI and parallel-computing expertise</td>
+<td>Grace Hopper</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Multi-Instance GPU (MIG)</strong> on <strong>Blackwell and Hopper</strong> splits one GPU into <strong>up to 7 fully isolated instances</strong>, each with its <strong>own high-bandwidth memory, cache and compute cores</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-gpus-and-cpus-for-ai-3-gpu-products">3. GPU Products</h3>
+<h4 id="lesson-gpus-and-cpus-for-ai-b200-blackwell">B200 (Blackwell)</h4>
+<ul>
+<li><strong>208 billion transistors</strong> plus HBM. Described as the <strong>world's largest, most powerful accelerator</strong>.</li>
+<li><strong>Second-generation Transformer Engine</strong>: custom Blackwell <strong>Tensor Cores</strong> + <strong>TensorRT-LLM</strong> + <strong>NeMo</strong>. It speeds up training and inference for <strong>LLMs and mixture-of-experts (MoE)</strong> models.</li>
+<li><strong>Confidential Computing</strong> protects data and models <strong>without a performance penalty</strong>.</li>
+<li><strong>Fifth-generation NVLink</strong> scales <strong>up to 576 GPUs</strong>, for <strong>trillion and multi-trillion-parameter models</strong>.</li>
+<li><strong>Decompression engine</strong> plus access to <strong>Grace CPU memory</strong> speeds up whole <strong>database query pipelines</strong> for data analytics.</li>
+<li><strong>RAS engine</strong> (reliability, availability, serviceability) spots faults early to <strong>minimize downtime</strong>.</li>
+</ul>
+<h4 id="lesson-gpus-and-cpus-for-ai-h100-hopper">H100 (Hopper)</h4>
+<ul>
+<li><strong>80 billion transistors</strong> and a <strong>Transformer Engine</strong> for LLMs.</li>
+<li><strong>Confidential Computing</strong>: processes sensitive data in an <strong>encrypted, isolated environment</strong>, which matters especially in the <strong>cloud</strong>.</li>
+<li><strong>900 GB/s GPU-to-GPU</strong> interconnect.</li>
+<li><strong>MIG</strong> lets multiple users or apps share one GPU securely.</li>
+<li>Example use: training neural networks for <strong>self-driving cars</strong>.</li>
+</ul>
+<h4 id="lesson-gpus-and-cpus-for-ai-l40s-ada-lovelace">L40S (Ada Lovelace)</h4>
+<ul>
+<li>For <strong>generative AI and LLM inference and training, 3D graphics, rendering and video</strong>.</li>
+<li><strong>Fourth-generation Tensor Cores</strong>, the specialized units that speed up DL training and inference.</li>
+<li><strong>Advanced video acceleration</strong>. Ada GPUs deliver <strong>up to 2× the power efficiency</strong> of the previous generation.</li>
+</ul>
+<hr />
+<h3 id="lesson-gpus-and-cpus-for-ai-4-grace-cpu-and-the-superchips">4. Grace CPU and the Superchips</h3>
+<ul>
+<li><strong>NVIDIA Grace</strong> is NVIDIA's <strong>first data center CPU</strong>. It's <strong>Arm-based</strong> and built for <strong>HPC</strong>, and also suits <strong>cloud and hyperscale</strong> because it's <strong>energy-efficient and scalable</strong>.</li>
+<li>It's ideal for <strong>memory- and bandwidth-hungry</strong> workloads: <strong>genomics, computational fluid dynamics, quantum chemistry</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Superchip</th>
+<th>Combination</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Grace Hopper (GH200)</strong></td>
+<td>Grace CPU + <strong>H100 GPU</strong> over <strong>NVLink-C2C</strong> (chip-to-chip)</td>
+<td>The <strong>most versatile platform for scale-out</strong>. <strong>Coherent CPU↔GPU memory</strong>, a large <strong>unified memory model</strong>. It shines when <strong>CPU performance and memory bandwidth</strong> matter: <strong>recommenders, graph databases, scientific computing</strong></td>
+</tr>
+<tr>
+<td><strong>Grace Blackwell (GB200)</strong></td>
+<td>Grace CPU + <strong>two B200 GPUs</strong> over NVLink-C2C at <strong>900 GB/s bidirectional</strong></td>
+<td><strong>Coherent unified memory</strong> that <strong>simplifies programming</strong> for <strong>trillion-parameter LLMs</strong>, multimodal transformers, large simulations and 3D generative models</td>
+</tr>
+<tr>
+<td><strong>Grace CPU Superchip</strong></td>
+<td><strong>Two Grace CPUs</strong> (CPU-only)</td>
+<td>CPU apps where <strong>performance, energy efficiency and density</strong> matter: scientific computing, cloud, analytics, enterprise, hyperscale. It packs the performance of a <strong>flagship two-socket x86-64 server into one superchip</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-gpus-and-cpus-for-ai-key-terms">Key Terms</h3>
+<ul>
+<li><strong>MIG (Multi-Instance GPU)</strong>: splits one GPU into up to 7 isolated instances.</li>
+<li><strong>Transformer Engine</strong>: hardware and software in Hopper and Blackwell that speed up transformer models.</li>
+<li><strong>Tensor Cores</strong>: specialized units for deep learning math.</li>
+<li><strong>Confidential Computing</strong>: processing data in an encrypted, isolated environment on the GPU.</li>
+<li><strong>NVLink-C2C</strong>: a coherent chip-to-chip link between Grace and the GPU.</li>
+<li><strong>Superchip</strong>: CPU and GPU (or CPU and CPU) packaged together with NVLink-C2C.</li>
+<li><strong>MoE (mixture of experts)</strong>: a model architecture the Blackwell Transformer Engine speeds up.</li>
+</ul>
+<h3 id="lesson-gpus-and-cpus-for-ai-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>Architecture to product:</strong> Blackwell → <strong>B200</strong>, Hopper → <strong>H100</strong>, Ada Lovelace → <strong>L40S</strong>, Grace → the <strong>Arm CPU</strong>.</li>
+<li><strong>Know the numbers:</strong> B200 has <strong>208B transistors</strong>, <strong>5th-gen NVLink</strong>, scales to <strong>576 GPUs</strong>. H100 has <strong>80B transistors</strong> and <strong>900 GB/s</strong> GPU-to-GPU. <strong>MIG gives up to 7 instances.</strong></li>
+<li><strong>Both H100 and B200 have Confidential Computing.</strong></li>
+<li><strong>GH200 = Grace + H100. GB200 = Grace + 2× B200.</strong> Both use <strong>NVLink-C2C</strong> for <strong>coherent unified memory</strong>.</li>
+<li><strong>Grace targets HPC, memory-bound workloads and energy-efficient hyperscale.</strong></li>
+<li><strong>L40S fits mixed workloads:</strong> generative AI plus graphics, rendering and video.</li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-multi-gpu-systems">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 3 of 4</span>Multi-GPU Systems</h2>
+<h3 id="lesson-multi-gpu-systems-1-scale-up-vs-scale-out">1. Scale Up vs. Scale Out</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Scale up = multi-GPU</strong></th>
+<th><strong>Scale out = multi-node</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What you add</td>
+<td><strong>More GPUs in one node</strong></td>
+<td><strong>More nodes</strong> in the system</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>One node with many GPUs + a <strong>high-speed GPU interconnect</strong></td>
+<td>Many nodes, each with its own processing, <strong>connected by a network</strong></td>
+</tr>
+<tr>
+<td>Data distribution</td>
+<td>Across GPUs</td>
+<td>Across nodes</td>
+</tr>
+<tr>
+<td>Load balancing</td>
+<td>Between GPUs</td>
+<td>Between nodes</td>
+</tr>
+<tr>
+<td>Fault tolerance</td>
+<td><strong>Lower</strong>: one failed GPU can affect the whole system</td>
+<td><strong>Higher</strong>: one failed node doesn't take down the system</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-multi-gpu-systems-2-how-gpus-talk-inside-a-server">2. How GPUs Talk Inside a Server</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>What it does</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PCIe</strong></td>
+<td>The traditional server interconnect</td>
+<td><strong>Becomes a bottleneck</strong> as workloads grow and GPUs get faster</td>
+</tr>
+<tr>
+<td><strong>NVLink</strong></td>
+<td>Connects GPUs <strong>much faster than PCIe</strong> so they can <strong>share memory</strong> at high speed</td>
+<td>In <strong>all-to-all</strong> communication, some GPU pairs <strong>still fall back to slower PCIe</strong></td>
+</tr>
+<tr>
+<td><strong>NVSwitch</strong></td>
+<td><strong>Any GPU can talk directly to any other GPU with no bottleneck.</strong> Every GPU connects over NVLink to all the NVSwitch fabrics</td>
+<td>It's the answer for <strong>scaling beyond 8 GPUs</strong> and for <strong>all-to-all</strong> traffic</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>All-to-all operations</strong> happen when every GPU needs to talk to every other GPU at once, e.g. distributing data. They're <strong>common in AI and HPC</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-multi-gpu-systems-3-dgx-h100-spec-sheet">3. DGX H100 Spec Sheet</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPUs</td>
+<td><strong>8× H100</strong></td>
+</tr>
+<tr>
+<td>GPU interconnect</td>
+<td><strong>NVSwitch</strong>: <strong>4× fourth-generation NVLink switches</strong></td>
+</tr>
+<tr>
+<td>Networking</td>
+<td><strong>10× ConnectX-7</strong> network interfaces at <strong>400 Gb/s</strong> each, <strong>up to 1 TB/s peak bidirectional</strong></td>
+</tr>
+<tr>
+<td>CPUs</td>
+<td><strong>2× Intel Xeon Platinum 8480C</strong> = <strong>112 cores</strong></td>
+</tr>
+<tr>
+<td>System memory</td>
+<td><strong>2 TB</strong></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td><strong>30 TB NVMe SSD</strong>, using <strong>8× U.2 NVMe drives as a data cache</strong></td>
+</tr>
+<tr>
+<td>AI performance</td>
+<td><strong>32 petaFLOPS</strong> (32 quadrillion FLOPS)</td>
+</tr>
+<tr>
+<td>OS</td>
+<td><strong>DGX OS</strong>, a customized <strong>Ubuntu Linux</strong> with system-specific optimizations, drivers, and diagnostic and monitoring tools. <strong>Pre-installed, tested and supported. Turnkey</strong></td>
+</tr>
+<tr>
+<td>Size</td>
+<td><strong>8 rack units (8U)</strong>, fits a standard <strong>19-inch rack</strong>. Heavy enough to <strong>need a mechanical lift</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="lesson-multi-gpu-systems-physical-layout">Physical layout</h4>
+<ul>
+<li><strong>Front:</strong><ul>
+<li>the gold bezel</li>
+<li><strong>12 dual-fan modules</strong></li>
+<li><strong>8 U.2 NVMe drives</strong></li>
+<li>a <strong>front console board</strong> (VGA and USB for a <strong>crash cart</strong>)</li>
+<li>the <strong>power distribution board</strong></li>
+<li>a <strong>midplane</strong> linking the motherboard tray, the GPU tray and the front components</li>
+</ul>
+</li>
+<li><strong>Rear:</strong> the <strong>GPU tray on top</strong>, the <strong>motherboard tray below</strong>, and the <strong>power supplies</strong>.</li>
+<li>It's a <strong>modular</strong> design.</li>
+</ul>
+<hr />
+<h3 id="lesson-multi-gpu-systems-4-the-wider-dgx-and-blackwell-portfolio">4. The Wider DGX and Blackwell Portfolio</h3>
+<ul>
+<li><strong>DGX systems</strong> are <strong>multi-GPU AI supercomputers</strong>: top GPUs, ultra-fast interconnects and an integrated software stack. The family runs from <strong>H100 and H200</strong> to <strong>Blackwell</strong>, across <strong>cloud and on-prem</strong>.</li>
+<li><strong>GB300 NVL72:</strong><ul>
+<li>a <strong>fully liquid-cooled, rack-scale</strong> system</li>
+<li><strong>36 Arm-based Grace CPUs + 72 Blackwell Ultra GPUs</strong>, linked by <strong>fifth-generation NVLink</strong> into one platform</li>
+<li><strong>purpose-built for test-time scaling inference and AI reasoning</strong></li>
+<li>also runs <strong>diffusion-based real-time video generation</strong> from world foundation models such as <strong>NVIDIA Cosmos</strong>, for physical AI</li>
+</ul>
+</li>
+<li><strong>RTX PRO 6000 Blackwell Server Edition:</strong><ul>
+<li><strong>96 GB of GDDR7</strong></li>
+<li>handles <strong>agentic AI, physical AI, scientific computing, rendering, 3D graphics and video</strong></li>
+<li><strong>RTX PRO servers</strong> built on it bring Blackwell performance and efficiency to <strong>AI factories and every enterprise workload</strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="lesson-multi-gpu-systems-key-terms">Key Terms</h3>
+<ul>
+<li><strong>Scale up / scale out</strong>: more GPUs per node / more nodes.</li>
+<li><strong>NVLink</strong>: NVIDIA's high-speed GPU-to-GPU link, much faster than PCIe.</li>
+<li><strong>NVSwitch</strong>: a switch fabric giving full-bandwidth <strong>any-to-any</strong> GPU communication.</li>
+<li><strong>All-to-all</strong>: every GPU exchanging data with every other GPU at the same time.</li>
+<li><strong>ConnectX-7</strong>: the 400 Gb/s network adapter in DGX H100.</li>
+<li><strong>DGX OS</strong>: NVIDIA's optimized, supported Ubuntu for DGX.</li>
+<li><strong>NVL72</strong>: a rack-scale system with 72 GPUs linked by NVLink.</li>
+</ul>
+<h3 id="lesson-multi-gpu-systems-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>Scale up means multi-GPU. Scale out means multi-node. Multi-node has better fault tolerance.</strong></li>
+<li><strong>PCIe bottlenecks. NVLink is faster. NVSwitch removes all-to-all bottlenecks and scales past 8 GPUs.</strong></li>
+<li>Memorize the <strong>DGX H100</strong> specs: <strong>8× H100, 4 NVSwitches, 10× ConnectX-7 at 400 Gb/s, 2× Xeon (112 cores), 2 TB RAM, 30 TB NVMe, 32 PFLOPS, 8U, DGX OS (Ubuntu)</strong>.</li>
+<li><strong>GB300 NVL72 = 36 Grace + 72 Blackwell Ultra, liquid-cooled</strong>, built for <strong>reasoning and test-time scaling</strong>.</li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-introduction-to-dpus">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 4 of 4</span>Introduction to DPUs</h2>
+<h3 id="lesson-introduction-to-dpus-1-what-a-dpu-is">1. What a DPU Is</h3>
+<ul>
+<li>The <strong>third pillar</strong> of the data center, alongside the CPU and GPU.</li>
+<li>A <strong>data center infrastructure on a chip</strong>. It enables <strong>software-defined, hardware-accelerated</strong> IT infrastructure.</li>
+<li><strong>Why it's needed:</strong> running infrastructure services on the host CPU <strong>steals CPU cores</strong> and <strong>hurts application performance</strong>, sometimes severely.</li>
+</ul>
+<h4 id="lesson-introduction-to-dpus-the-dpu-mission-offload-accelerate-isolate">The DPU mission: offload, accelerate, isolate</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Offload</strong></td>
+<td>Takes infrastructure tasks <strong>off the server CPU</strong>, freeing it for <strong>applications</strong> (the "money-making" work)</td>
+</tr>
+<tr>
+<td><strong>Accelerate</strong></td>
+<td>Runs those functions <strong>faster than the CPU</strong> using <strong>dedicated hardware accelerators</strong>, which speeds up network traffic and apps</td>
+</tr>
+<tr>
+<td><strong>Isolate</strong></td>
+<td>Moves critical <strong>data plane and control plane</strong> functions into a <strong>separate domain on the DPU</strong>, protecting them <strong>even if the host CPU or its software is compromised</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>A DPU has <strong>specialized accelerators for networking, security and storage</strong>. They're <strong>more efficient and use less power</strong> than CPU cores.</li>
+<li>It also suits compute-heavy jobs where <strong>space is tight</strong>, such as the <strong>far edge</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-introduction-to-dpus-2-nvidia-bluefield-3">2. NVIDIA BlueField-3</h3>
+<ul>
+<li>The <strong>third-generation</strong> NVIDIA DPU and infrastructure compute platform, <strong>from cloud to core to edge</strong>.</li>
+<li>Connectivity: <strong>400 Gb/s Ethernet</strong> or <strong>NDR 400 Gb/s InfiniBand</strong>.</li>
+<li>It offloads, accelerates and isolates <strong>software-defined networking, storage, security and management</strong>.</li>
+</ul>
+<h4 id="lesson-introduction-to-dpus-bluefield-use-cases">BlueField use cases</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>How BlueField helps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cloud / CSPs</strong></td>
+<td>The <strong>largest CSPs</strong> use it for efficiency and scale. Runs in <strong>bare-metal and virtualized clouds</strong>, and <strong>Kubernetes clusters</strong> (often on bare metal). <strong>Secures bare-metal clouds</strong></td>
+</tr>
+<tr>
+<td><strong>Cybersecurity</strong></td>
+<td><strong>Next-generation firewalls (NGFW)</strong>, <strong>micro-segmentation</strong>. Enables <strong>zero trust everywhere</strong>, pushing security <strong>to the edge of every server</strong>, not just the perimeter</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td><strong>NVMe over Fabrics (NVMe-oF)</strong>, <strong>GPUDirect Storage</strong>, data integrity, decompression, deduplication. <strong>Remote storage performance rivals direct-attached storage</strong></td>
+</tr>
+<tr>
+<td><strong>HPC/AI, telco, enterprise storage, CDN</strong></td>
+<td>Faster performance and new functions</td>
+</tr>
+<tr>
+<td><strong>Video streaming</strong></td>
+<td><strong>Offloads streaming</strong> from the CPU, saving CPU cycles</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="lesson-introduction-to-dpus-3-nvidia-doca">3. NVIDIA DOCA</h3>
+<ul>
+<li><strong>The open cloud SDK and acceleration framework for BlueField DPUs.</strong> It does for DPUs what <strong>CUDA</strong> does for GPUs.</li>
+<li>It uses <strong>industry-standard APIs</strong> to <strong>quickly build</strong> networking, storage and infrastructure services on BlueField. It supports <strong>BlueField-3</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-introduction-to-dpus-4-nvidia-certified-systems">4. NVIDIA-Certified Systems</h3>
+<ul>
+<li><strong>What they are:</strong> <strong>NVIDIA GPUs + NVIDIA networking</strong> in servers from <strong>leading vendors</strong>. They follow <strong>NVIDIA design best practices</strong> and <strong>pass certification tests</strong> for <strong>performance, manageability, scalability and security</strong>.</li>
+<li><strong>Why:</strong> enterprises can <strong>confidently pick optimized hardware</strong> with <strong>enterprise-grade support</strong>, from small setups to <strong>at-scale</strong> deployments.</li>
+<li><strong>Security at every layer</strong>: <strong>platform, network and application</strong>. Applies in the data center, at the edge, and on laptops and desktops.</li>
+</ul>
+<h4 id="lesson-introduction-to-dpus-validated-capabilities">Validated capabilities</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU acceleration</strong></td>
+<td>Record-setting ML, DL and analytics, plus fast video processing and rendering</td>
+</tr>
+<tr>
+<td><strong>High-speed interconnects</strong></td>
+<td>Move data <strong>directly to GPUs</strong> quickly</td>
+</tr>
+<tr>
+<td><strong>Encryption offload for TLS and IPsec</strong></td>
+<td><strong>Secures data in motion</strong> without losing throughput</td>
+</tr>
+<tr>
+<td><strong>Key management + secure boot</strong></td>
+<td><strong>Host-level security</strong></td>
+</tr>
+<tr>
+<td><strong>Accelerated GPU↔server data transfer</strong></td>
+<td>Efficient <strong>multi-node</strong> processing for the biggest jobs, such as <strong>large model training</strong></td>
+</tr>
+<tr>
+<td><strong>Multi-Instance GPU (MIG)</strong></td>
+<td><strong>Splits one GPU</strong> into independent instances for flexible use <strong>within a host</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-introduction-to-dpus-key-terms">Key Terms</h3>
+<ul>
+<li><strong>DPU</strong>: data processing unit, an infrastructure-on-a-chip that offloads, accelerates and isolates.</li>
+<li><strong>Data plane / control plane</strong>: packet handling / management logic. Both can run isolated on the DPU.</li>
+<li><strong>BlueField-3</strong>: NVIDIA's third-generation DPU, with 400 Gb/s Ethernet or NDR InfiniBand.</li>
+<li><strong>DOCA</strong>: the SDK for programming BlueField DPUs.</li>
+<li><strong>NVMe-oF</strong>: NVMe over Fabrics, network access to NVMe storage.</li>
+<li><strong>GPUDirect Storage</strong>: a direct path between storage and GPU memory.</li>
+<li><strong>Zero trust</strong>: security enforced at every server, not just the perimeter.</li>
+<li><strong>NVIDIA-Certified System</strong>: a partner server validated with NVIDIA GPUs and networking.</li>
+</ul>
+<h3 id="lesson-introduction-to-dpus-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>The DPU mission is offload, accelerate, isolate.</strong> Know what each word means.</li>
+<li><strong>DPUs free CPU cores</strong> for applications and <strong>protect infrastructure if the host is compromised</strong>.</li>
+<li><strong>DOCA is for DPUs as CUDA is for GPUs.</strong></li>
+<li><strong>BlueField-3 runs at 400 Gb/s (Ethernet or NDR InfiniBand).</strong> Use cases: CSP and bare-metal clouds, <strong>zero trust / NGFW / micro-segmentation</strong>, <strong>NVMe-oF and GPUDirect Storage</strong>, video streaming.</li>
+<li><strong>Certified systems = NVIDIA GPUs and networking on partner servers, tested for performance, manageability, scalability and security.</strong></li>
+<li><strong>Certified security features:</strong> TLS and IPsec offload, secure boot, key management.</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-06-data-center-and-cloud-computing.html"><span>← Unit 6</span>Data Center and Cloud Computing</a>

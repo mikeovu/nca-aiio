@@ -232,6 +232,15 @@ section + section { margin-top: 40px; }
 .prose table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
 .prose th, .prose td { padding: 9px 12px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); }
 .prose thead th { border-top: 0; background: var(--hover); font-weight: 650; white-space: nowrap; }
+.prose h4 { margin: 22px 0 8px; font-size: 15.5px; }
+.prose h3 { scroll-margin-top: 140px; }
+.lesson + .lesson { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.lesson-title { display: grid; gap: 4px; margin: 0 0 20px; font-size: 26px; line-height: 1.2; scroll-margin-top: 140px; }
+.lesson { scroll-margin-top: 140px; }
+.lesson-num { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--green-ink); }
+.toc-lessons > ul { columns: auto; display: grid; gap: 14px; }
+.toc-lessons .toc-lesson > a { display: grid; gap: 1px; font-weight: 650; color: var(--ink); }
+.toc-lessons .toc-lesson ul { margin: 6px 0 0; padding: 0 0 0 12px; list-style: none; border-left: 2px solid var(--line); columns: 2 240px; }
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 48px; }
 .pager a {
   display: grid;

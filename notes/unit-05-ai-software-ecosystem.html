@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 5 of 14</p>
       <h1>AI Software Ecosystem</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../essential-ai-knowledge.html">Topic 1 · Essential AI Knowledge</a> <a class="chip" href="../ai-operations.html">Topic 3 · AI Operations</a></p>
     </section>
     <section>
@@ -42,7 +42,263 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-virtual-gpu-vgpu">1. Virtual GPU (vGPU)</a></li><li><a href="#2-deep-learning-recap">2. Deep Learning Recap</a></li><li><a href="#3-the-ai-workflow-and-its-tools">3. The AI Workflow and Its Tools</a></li><li><a href="#4-frameworks">4. Frameworks</a></li><li><a href="#5-the-deep-learning-software-stack-bottom-to-top">5. The Deep Learning Software Stack (bottom to top)</a></li><li><a href="#6-two-ways-to-build-an-ai-platform">6. Two Ways to Build an AI Platform</a></li><li><a href="#7-ngc-catalog">7. NGC Catalog</a></li><li><a href="#8-nvidia-ai-enterprise">8. NVIDIA AI Enterprise</a></li><li><a href="#9-workloads-vs-workflows-and-blueprints">9. Workloads vs. Workflows, and Blueprints</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <article class="prose">
+<h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
+<ol>
+<li>Describe <strong>vGPU</strong> as the foundation the AI ecosystem sits on.</li>
+<li>Describe the NVIDIA <strong>deep learning software stack</strong> and the <strong>CUDA-X</strong> ecosystem.</li>
+<li>Define the steps of the AI workflow and the tools for each one.</li>
+<li>Define <strong>frameworks</strong> and name open-source, third-party and NVIDIA examples.</li>
+<li>Describe the benefits of <strong>NGC and the Enterprise Catalog</strong> for building a DIY AI platform.</li>
+<li>Describe the benefits and use cases of <strong>NVIDIA AI Enterprise</strong> and NVIDIA <strong>AI workflows</strong>.</li>
+</ol>
+<hr />
+<h2 id="1-virtual-gpu-vgpu">1. Virtual GPU (vGPU)</h2>
+<h3 id="why-it-exists">Why it exists</h3>
+<ul>
+<li>With remote and hybrid work, <strong>user experience plus security</strong> is a top IT priority.</li>
+<li><strong>Old VDI's #1 failure was user experience.</strong> Early virtual desktops had <strong>no GPU</strong>, so the <strong>host CPU</strong> did all the capture, encoding and rendering.</li>
+<li><strong>NVIDIA vGPU</strong> virtualizes a GPU and <strong>shares it across multiple VMs</strong>. That makes existing VDI faster and enables new use cases.</li>
+</ul>
+<h3 id="vgpu-products">vGPU products</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Who it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>vPC (Virtual PC) / vApps (Virtual Apps)</strong></td>
+<td><strong>Knowledge and business workers</strong>: office apps, browsers, HD video</td>
+</tr>
+<tr>
+<td><strong>RTX vWS (Virtual Workstation)</strong></td>
+<td><strong>Creative and technical professionals</strong>: CAD and design (Revit, Maya), GIS (ArcGIS Pro), oil and gas (Petrel), finance (Bloomberg), healthcare (Epic), manufacturing (CATIA, Siemens NX, SOLIDWORKS)</td>
+</tr>
+</tbody>
+</table></div>
+<p>It runs <strong>on-prem and in the cloud</strong>.</p>
+<h3 id="how-it-works-vmware-esxi-example">How it works (VMware ESXi example)</h3>
+<ol>
+<li>A server with a GPU runs the <strong>ESXi hypervisor</strong>.</li>
+<li>Install the <strong>NVIDIA vGPU Manager</strong> (the <strong>VIB</strong>) on the host. You can then <strong>assign vGPU profiles to individual VMs</strong>.</li>
+<li>Install <strong>NVIDIA drivers in each guest OS</strong>. They're the <strong>same drivers used on non-virtualized systems</strong>.
+- <strong>Many VMs can share one GPU</strong>, or <strong>several GPUs can be combined for one VM</strong>.
+- Offloading work from the CPU means <strong>more users per server</strong>.</li>
+</ol>
+<h3 id="benefits-beyond-sharing">Benefits beyond sharing</h3>
+<ul>
+<li><strong>Close to bare-metal performance</strong> for compute, with minimal overhead.</li>
+<li><strong>Management integrations</strong> (e.g. VMware) and familiar monitoring tools give insight into GPU usage.</li>
+<li><strong>Live migration</strong> of GPU workloads with no interruption, for <strong>business continuity and load balancing</strong>.</li>
+<li><strong>Flexible allocation</strong> gives better utilization.</li>
+<li><strong>Security</strong>: data stays in the data center.</li>
+<li>vGPU software is <strong>included in NVIDIA AI Enterprise</strong>.</li>
+</ul>
+<hr />
+<h2 id="2-deep-learning-recap">2. Deep Learning Recap</h2>
+<ul>
+<li><strong>DL is a subclass of ML.</strong> It trains neural networks on <strong>very large (terabyte-scale) datasets</strong>.</li>
+<li><strong>Labeled data</strong> (e.g. images tagged "car" or "truck") teaches the network. <strong>Errors on the training data</strong> are used to improve it step by step.</li>
+<li>Once trained, the model is deployed on <strong>new, unlabeled data</strong> and classifies similar items in new situations.</li>
+</ul>
+<h2 id="3-the-ai-workflow-and-its-tools">3. The AI Workflow and Its Tools</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Purpose</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data prep</strong></td>
+<td>Make raw data usable</td>
+<td><strong>RAPIDS</strong>, <strong>RAPIDS Accelerator for Apache Spark</strong></td>
+</tr>
+<tr>
+<td><strong>Training</strong></td>
+<td>Teach the model</td>
+<td><strong>PyTorch</strong>, <strong>TensorFlow</strong>, <strong>NVIDIA TAO Toolkit</strong></td>
+</tr>
+<tr>
+<td><strong>Optimization</strong></td>
+<td>Refine for deployment</td>
+<td><strong>TensorRT</strong></td>
+</tr>
+<tr>
+<td><strong>Deployment / inference</strong></td>
+<td>Serve predictions</td>
+<td><strong>Triton Inference Server</strong>: simple, scalable deployment of models in production</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="4-frameworks">4. Frameworks</h2>
+<ul>
+<li><strong>Frameworks</strong> are <strong>higher-level building blocks</strong> (an interface, library or tool) that make it easier for data scientists and domain experts to <strong>design, train and validate</strong> models.</li>
+<li>Examples:<ul>
+<li><strong>Scikit-learn</strong>: a free Python library for classification, regression and clustering. Works with NumPy and SciPy.</li>
+<li><strong>PyTorch, TensorFlow</strong>: open-source ML libraries.</li>
+<li><strong>NVIDIA Isaac Lab</strong>: built on <strong>Isaac Sim</strong>, for robot training with <strong>reinforcement and imitation learning</strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-the-deep-learning-software-stack-bottom-to-top">5. The Deep Learning Software Stack (bottom to top)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hardware</strong></td>
+<td>A workstation or server with one or more GPUs</td>
+</tr>
+<tr>
+<td><strong>OS + NVIDIA driver</strong></td>
+<td>The driver lets frameworks use the GPU</td>
+</tr>
+<tr>
+<td><strong>NVIDIA container runtime</strong></td>
+<td>Runs GPU-enabled Docker containers</td>
+</tr>
+<tr>
+<td><strong>Containers from NGC</strong></td>
+<td>Frameworks packaged with <strong>all the libraries</strong> they need for GPU acceleration</td>
+</tr>
+<tr>
+<td><strong>CUDA Toolkit</strong></td>
+<td>NVIDIA's <strong>parallel programming model</strong>, with optimizations for DL, ML and HPC on GPUs (the base of <strong>CUDA-X</strong> libraries)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Containers are the preferred way to develop.</strong> NGC hosts <strong>over 100 containers</strong> for GPU-accelerated apps, tools and frameworks, portable across <strong>cloud, data center and edge</strong>.</li>
+</ul>
+<hr />
+<h2 id="6-two-ways-to-build-an-ai-platform">6. Two Ways to Build an AI Platform</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>DIY (open source)</strong></th>
+<th><strong>NVIDIA AI Enterprise</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Community-maintained</td>
+<td>NVIDIA-supported, built on open-source practices</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>No dedicated QA or verification</td>
+<td><strong>Tested and certified</strong> on <strong>past, current and future GPUs</strong></td>
+</tr>
+<tr>
+<td>GPU support</td>
+<td>Often <strong>only the current GPU architecture</strong></td>
+<td>Past, current and future</td>
+</tr>
+<tr>
+<td>Support</td>
+<td><strong>Self-service only</strong></td>
+<td><strong>NVIDIA Enterprise Support</strong></td>
+</tr>
+<tr>
+<td>Good for</td>
+<td>Experimenting</td>
+<td><strong>Mission-critical production</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>The software for both approaches comes from <strong>NGC and the Enterprise Catalog</strong>.</p>
+<hr />
+<h2 id="7-ngc-catalog">7. NGC Catalog</h2>
+<ul>
+<li><strong>Why it's needed:</strong> software stacks vary by use case (AI vs. HPC vs. genomics vs. visualization) and by platform (on-prem or cloud, bare metal, container, VM or microservice).</li>
+<li><strong>What's in it:</strong><ul>
+<li><strong>Containers</strong> for AI, HPC, data science and visualization, from NVIDIA and partners. Each packages an app and its dependencies, and runs on-prem, in the cloud or at the edge.</li>
+<li><strong>Pre-trained models</strong> for computer vision, NLP, recommenders and more, which you can <strong>fine-tune with your own data</strong>. Examples:<ul>
+<li>general-purpose: <strong>ResNet-50, U-Net</strong></li>
+<li>application-specific: people and vehicle detection, pose and gaze estimation</li>
+<li>conversational AI: speech recognition, text-to-speech, translation</li>
+<li>They plug into SDKs such as <strong>Riva</strong> (speech) and <strong>DeepStream</strong> (video analytics).</li>
+</ul>
+</li>
+<li><strong>Model resumes</strong> show the training dataset, epochs, batch size and <strong>accuracy</strong>, to help you pick the right model.</li>
+<li><strong>Helm charts</strong> for consistent deployment.</li>
+<li><strong>Collections</strong> bundle the building blocks for an application.</li>
+</ul>
+</li>
+</ul>
+<h3 id="ngc-containers">NGC containers</h3>
+<ul>
+<li>A <strong>container</strong> packages an app and <strong>all its dependencies</strong>, independent of the host OS. It gives <strong>consistent runs</strong> and <strong>reproducible research</strong>.</li>
+<li>NGC images are <strong>scanned for vulnerabilities and tested</strong>. Some are backed by NVIDIA AI Enterprise support.</li>
+<li>They support <strong>multi-GPU and multi-node</strong> workloads.</li>
+<li>They run on <strong>Docker, CRI-O, containerd and Singularity</strong>, on <strong>bare metal, VMs and Kubernetes</strong>.</li>
+<li>DL containers such as TensorFlow and PyTorch are <strong>updated monthly</strong>.</li>
+</ul>
+<hr />
+<h2 id="8-nvidia-ai-enterprise">8. NVIDIA AI Enterprise</h2>
+<ul>
+<li>A <strong>suite of NVIDIA software</strong> that's <strong>portable across cloud, data center and edge</strong>. It's built for <strong>performance, security and stability</strong> in development and production. It's the <strong>easiest on-ramp</strong>.</li>
+<li><strong>Two types of software:</strong><ul>
+<li><strong>Application software</strong>: for building <strong>AI agents, generative AI</strong> and other AI workflows. Includes <strong>NVIDIA NIM</strong> and <strong>NVIDIA NeMo</strong>.</li>
+<li><strong>Infrastructure software</strong>: <strong>GPU and networking drivers</strong> and <strong>Kubernetes operators</strong> that manage accelerators for AI, data science and HPC.</li>
+</ul>
+</li>
+<li>Use only the parts you need. It's <strong>integrated with leading partner platforms</strong> and supports the <strong>full lifecycle of AI agents</strong>: training, optimization and deployment.</li>
+</ul>
+<h2 id="9-workloads-vs-workflows-and-blueprints">9. Workloads vs. Workflows, and Blueprints</h2>
+<ul>
+<li><strong>Workload</strong>: something customers <strong>already run</strong>. NVIDIA frameworks and libraries accelerate it on GPUs.</li>
+<li><strong>AI workflow</strong>: a <strong>pre-packaged, tested, documented, customizable</strong> solution for a specific use case, for teams that don't know how to start. Available on <strong>NGC and the Enterprise Catalog</strong> and vetted by NVIDIA.<ul>
+<li>It includes <strong>frameworks, pre-trained models, training and inference pipelines, Jupyter notebooks and Helm charts</strong>.</li>
+</ul>
+</li>
+<li><strong>NVIDIA Blueprints</strong> are <strong>reference AI workflows</strong> pre-trained for specific use cases and customizable by developers. They include:<ul>
+<li>reference code built on NVIDIA AI Enterprise (<strong>NIM microservices + NeMo</strong>)</li>
+<li>deployment tools and documentation</li>
+<li>a <strong>reference architecture</strong> covering API definitions and how the microservices interoperate</li>
+</ul>
+</li>
+<li><strong>Why:</strong> most enterprises struggle with the <strong>complexity of getting to production</strong>. Workflows give a jump-start, plus <strong>NVIDIA Enterprise Support</strong> when needed.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>vGPU</strong>: a GPU virtualized and shared across VMs (vPC/vApps for knowledge workers, RTX vWS for professionals).</li>
+<li><strong>vGPU Manager (VIB)</strong>: the host software that assigns <strong>vGPU profiles</strong> to VMs.</li>
+<li><strong>Framework</strong>: a high-level library or tool for building models (PyTorch, TensorFlow, scikit-learn).</li>
+<li><strong>CUDA / CUDA-X</strong>: NVIDIA's parallel programming model and its acceleration libraries.</li>
+<li><strong>NGC</strong>: NVIDIA's catalog of GPU-optimized containers, pre-trained models, Helm charts and collections.</li>
+<li><strong>Model resume</strong>: the training details and accuracy card for an NGC model.</li>
+<li><strong>NVIDIA AI Enterprise</strong>: a supported, certified software suite (application + infrastructure software).</li>
+<li><strong>NIM / NeMo</strong>: inference microservices / a framework for building and customizing generative AI.</li>
+<li><strong>AI workflow / Blueprint</strong>: a pre-packaged reference solution for a specific use case.</li>
+<li><strong>TAO Toolkit</strong>: NVIDIA's toolkit for training and fine-tuning models. <strong>Riva / DeepStream</strong>: SDKs for speech / video analytics.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>Old VDI was slow because the CPU did the graphics.</strong> <strong>vGPU</strong> fixes that by sharing a GPU across VMs.</li>
+<li>Know the <strong>vGPU setup</strong>: hypervisor → <strong>vGPU Manager (VIB)</strong> on the host → <strong>vGPU profile</strong> per VM → <strong>NVIDIA driver in the guest</strong>.</li>
+<li>vGPU supports <strong>live migration</strong> and gets <strong>near bare-metal performance</strong>.</li>
+<li><strong>Tool by step:</strong> RAPIDS (prep), PyTorch/TensorFlow/TAO (train), TensorRT (optimize), Triton (serve).</li>
+<li><strong>NGC = containers + pre-trained models (with model resumes) + Helm charts + collections.</strong></li>
+<li><strong>NVIDIA AI Enterprise vs. DIY:</strong> enterprise support, testing and certification, and <strong>past, current and future GPU</strong> support.</li>
+<li><strong>AI Enterprise has two kinds of software:</strong> application (NIM, NeMo) and infrastructure (drivers, K8s operators).</li>
+<li><strong>A workload already exists and gets accelerated. A workflow is a pre-built recipe. Blueprints are reference workflows.</strong></li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-04-accelerating-ai-with-gpus.html"><span>← Unit 4</span>Accelerating AI with GPUs</a>

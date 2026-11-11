@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 11 of 14</p>
       <h1>Reference Architectures</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../ai-infrastructure.html">Topic 2 · AI Infrastructure</a></p>
     </section>
     <section>
@@ -42,7 +42,155 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#1-what-a-reference-architecture-is">1. What a Reference Architecture Is</a></li><li><a href="#2-dgx-basepod">2. DGX BasePOD</a></li><li><a href="#3-dgx-superpod">3. DGX SuperPOD</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <article class="prose">
+<h2 id="1-what-a-reference-architecture-is">1. What a Reference Architecture Is</h2>
+<ul>
+<li>Dense computing environments have many parts: <strong>compute servers, network fabrics, storage and management servers</strong>. <strong>Designing them for maximum performance is hard.</strong></li>
+<li>A <strong>reference architecture</strong> is a <strong>design document</strong> that shows a <strong>recommended, best-practice implementation</strong> of a system. You use it as a <strong>foundation</strong> to build from.</li>
+</ul>
+<h3 id="benefits">Benefits</h3>
+<ol>
+<li>Shows <strong>how a specific design solves problems</strong>.</li>
+<li>Gives a <strong>foundation you can tailor</strong> to your organization.</li>
+<li><strong>Cuts design and planning cost and time</strong>, so you get to a solution faster.</li>
+<li><strong>Improves quality and reliability</strong> by <strong>reducing complexity</strong>.</li>
+</ol>
+<h3 id="nvidia-reference-architectures">NVIDIA reference architectures</h3>
+<ul>
+<li><strong>DGX BasePOD</strong></li>
+<li><strong>DGX SuperPOD</strong></li>
+<li><strong>DGX GH200</strong></li>
+<li><strong>NVIDIA AI Enterprise</strong></li>
+<li><strong>Cloudera Data Platform</strong></li>
+</ul>
+<p>The last two <strong>aren't tied to specific NVIDIA servers</strong>. They cover <strong>node configurations, network topology and deployment topology</strong>.</p>
+<hr />
+<h2 id="2-dgx-basepod">2. DGX BasePOD</h2>
+<ul>
+<li><strong>The integrated infrastructure and software to deploy and run AI workloads.</strong> It combines:<ul>
+<li><strong>NVIDIA DGX systems</strong> (compute)</li>
+<li><strong>NVIDIA networking</strong></li>
+<li><strong>NVIDIA Base Command</strong> software, the "glue"</li>
+<li><strong>NVIDIA AI Enterprise</strong> software and MLOps offerings</li>
+<li><strong>partner storage</strong></li>
+</ul>
+</li>
+<li>Scale: <strong>up to 8 DGX systems</strong> (<strong>B200, H200 or H100</strong>).</li>
+<li><strong>The idea:</strong> it turns world-leading components into a <strong>cohesive, full-stack solution</strong>.</li>
+</ul>
+<h3 id="dgx-systems-in-basepod">DGX systems in BasePOD</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>GPUs</th>
+<th>FP8 performance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DGX B200</strong></td>
+<td><strong>8× Blackwell</strong></td>
+<td><strong>72 petaFLOPS</strong></td>
+</tr>
+<tr>
+<td><strong>DGX H200 / DGX H100</strong></td>
+<td><strong>8× Hopper</strong></td>
+<td><strong>32 petaFLOPS</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Every DGX has a <strong>1 GbE port for out-of-band management</strong> through the <strong>BMC (baseboard management controller)</strong>. The BMC allows <strong>remote management even when the system is powered off</strong>.</li>
+<li><strong>Network adapters:</strong><ul>
+<li><strong>H200 and H100</strong> use <strong>ConnectX-7</strong>.</li>
+<li><strong>B200</strong> uses <strong>ConnectX-7 and BlueField-3</strong>.</li>
+<li>Adapters can run as <strong>InfiniBand or Ethernet</strong>.</li>
+</ul>
+</li>
+<li><strong>Usual split:</strong> <strong>InfiniBand for the compute network</strong>. <strong>Ethernet for storage, in-band management and out-of-band management.</strong></li>
+</ul>
+<h3 id="switches">Switches</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Switch</th>
+<th>Type</th>
+<th>Speed</th>
+<th>Role in BasePOD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>QM9700</strong></td>
+<td>InfiniBand</td>
+<td><strong>NDR = 400 Gb/s</strong> (or 200 Gb/s)</td>
+<td>Compute fabric for DGX H100 (400G) or DGX A100 (200G)</td>
+</tr>
+<tr>
+<td><strong>QM8700</strong></td>
+<td>InfiniBand</td>
+<td><strong>HDR = 200 Gb/s</strong></td>
+<td>Compute fabric with <strong>DGX A100</strong></td>
+</tr>
+<tr>
+<td><strong>SN5600</strong></td>
+<td>Ethernet</td>
+<td><strong>10–800 GbE</strong></td>
+<td><strong>GPU-to-GPU</strong> fabrics</td>
+</tr>
+<tr>
+<td><strong>SN4600</strong></td>
+<td>Ethernet</td>
+<td><strong>1–200 GbE</strong></td>
+<td><strong>In-band management</strong>, and can carry <strong>storage</strong></td>
+</tr>
+<tr>
+<td><strong>SN2201</strong></td>
+<td>Ethernet</td>
+<td><strong>1–100 GbE</strong></td>
+<td><strong>Out-of-band management</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Remember:</strong> <strong>NDR stands for "Next Data Rate" (400 Gb/s). HDR stands for "High Data Rate" (200 Gb/s).</strong></p>
+<h3 id="example-basepod-with-up-to-8-nodes-on-ndr400-infiniband">Example: BasePOD with up to 8 nodes on NDR400 InfiniBand</h3>
+<p>Applies to <strong>DGX H100, H200 and B200</strong>. It has <strong>three networks</strong>:</p>
+<ol>
+<li>An <strong>InfiniBand compute network</strong>, using ConnectX-7.</li>
+<li>An <strong>Ethernet fabric for storage and in-band management</strong>, using <strong>SN4600C</strong> switches.</li>
+<li>An <strong>out-of-band management network</strong>.</li>
+</ol>
+<hr />
+<h2 id="3-dgx-superpod">3. DGX SuperPOD</h2>
+<ul>
+<li><strong>Next-generation AI supercomputing infrastructure for AI factories</strong>, built on <strong>DGX H100, H200, B200, B300 and GB200</strong>.</li>
+<li>Combines DGX systems, <strong>InfiniBand and Ethernet</strong> networking, <strong>management nodes</strong>, storage and optimized software.</li>
+<li><strong>Built from scalable units (SUs):</strong> each SU is a set number of DGX systems, depending on model and configuration. You add SUs to grow <strong>up to thousands of GPUs</strong>. It's <strong>modular and scalable</strong>.</li>
+<li><strong>Deployed in customer data centers and at cloud service providers</strong> worldwide.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Reference architecture</strong>: a documented, best-practice system design to build from.</li>
+<li><strong>DGX BasePOD</strong>: up to 8 DGX systems + NVIDIA networking + Base Command + AI Enterprise + partner storage.</li>
+<li><strong>DGX SuperPOD</strong>: AI-factory-scale infrastructure built from <strong>scalable units</strong>.</li>
+<li><strong>Scalable unit (SU)</strong>: the modular building block of a SuperPOD.</li>
+<li><strong>Base Command</strong>: NVIDIA's software that ties BasePOD together and manages it.</li>
+<li><strong>BMC</strong>: baseboard management controller, out-of-band management that works even when the system is off.</li>
+<li><strong>NDR / HDR</strong>: InfiniBand speeds, 400 / 200 Gb/s.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>Reference architecture benefits:</strong> solves problems, can be tailored, saves time and cost, improves quality by reducing complexity.</li>
+<li><strong>BasePOD = up to 8 DGX (B200, H200, H100) + networking + Base Command + AI Enterprise + partner storage.</strong></li>
+<li><strong>SuperPOD = AI factory scale, built from scalable units, up to thousands of GPUs.</strong></li>
+<li><strong>DGX B200 does 72 PF FP8. DGX H100 and H200 do 32 PF FP8.</strong> Each has <strong>8 GPUs</strong>.</li>
+<li><strong>InfiniBand carries compute traffic. Ethernet carries storage and management.</strong> Out-of-band management goes through the <strong>BMC's 1 GbE port</strong>.</li>
+<li><strong>Match switch to role:</strong> QM9700 (NDR IB compute), QM8700 (HDR IB, A100), SN5600 (GPU fabric Ethernet), SN4600 (in-band and storage), SN2201 (out-of-band).</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-10-energy-efficient-computing.html"><span>← Unit 10</span>Energy-Efficient Computing</a>

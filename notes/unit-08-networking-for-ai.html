@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 8 of 14</p>
       <h1>Networking for AI</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the unit's 3 course transcripts, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../ai-infrastructure.html">Topic 2 · AI Infrastructure</a> <a class="chip" href="../ai-operations.html">Topic 3 · AI Operations</a></p>
     </section>
     <section>
@@ -41,8 +41,423 @@
       </ul>
     </section>
     <section>
-      <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <h2>Notes <span class="count">3 lessons</span></h2>
+      <nav class="toc toc-lessons" aria-label="On this page"><ul><li class="toc-lesson"><a href="#lesson-networking-for-ai"><span class="lesson-num">Lesson 1</span>Networking for AI</a><ul><li><a href="#lesson-networking-for-ai-1-the-four-networks-in-an-ai-data-center">1. The Four Networks in an AI Data Center</a></li><li><a href="#lesson-networking-for-ai-2-why-ai-needs-a-special-network">2. Why AI Needs a Special Network</a></li><li><a href="#lesson-networking-for-ai-3-traditional-vs-ai-optimized-network">3. Traditional vs. AI-Optimized Network</a></li><li><a href="#lesson-networking-for-ai-4-ai-factories-vs-ai-clouds">4. AI Factories vs. AI Clouds</a></li><li><a href="#lesson-networking-for-ai-key-terms">Key Terms</a></li><li><a href="#lesson-networking-for-ai-exam-tips">Exam Tips</a></li></ul></li><li class="toc-lesson"><a href="#lesson-infiniband-and-ethernet"><span class="lesson-num">Lesson 2</span>InfiniBand and Ethernet</a><ul><li><a href="#lesson-infiniband-and-ethernet-1-infiniband">1. InfiniBand</a></li><li><a href="#lesson-infiniband-and-ethernet-2-ethernet">2. Ethernet</a></li><li><a href="#lesson-infiniband-and-ethernet-3-gpudirect-rdma">3. GPUDirect RDMA</a></li><li><a href="#lesson-infiniband-and-ethernet-key-terms">Key Terms</a></li><li><a href="#lesson-infiniband-and-ethernet-exam-tips">Exam Tips</a></li></ul></li><li class="toc-lesson"><a href="#lesson-nvidia-networking-portfolio"><span class="lesson-num">Lesson 3</span>NVIDIA Networking Portfolio</a><ul><li><a href="#lesson-nvidia-networking-portfolio-1-the-network-is-the-foundation">1. The Network Is the Foundation</a></li><li><a href="#lesson-nvidia-networking-portfolio-2-spectrum-x-ethernet-built-for-ai">2. Spectrum-X: Ethernet Built for AI</a></li><li><a href="#lesson-nvidia-networking-portfolio-3-quantum-x800-infiniband-for-trillion-parameter-ai">3. Quantum-X800: InfiniBand for Trillion-Parameter AI</a></li><li><a href="#lesson-nvidia-networking-portfolio-4-co-packaged-optics-silicon-photonics">4. Co-Packaged Optics (Silicon Photonics)</a></li><li><a href="#lesson-nvidia-networking-portfolio-key-terms">Key Terms</a></li><li><a href="#lesson-nvidia-networking-portfolio-exam-tips">Exam Tips</a></li></ul></li></ul></nav>
+      <article class="prose lesson" id="lesson-networking-for-ai">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 1 of 3</span>Networking for AI</h2>
+<h3 id="lesson-networking-for-ai-1-the-four-networks-in-an-ai-data-center">1. The Four Networks in an AI Data Center</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Network</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compute network</strong></td>
+<td><strong>Minimizes bottlenecks and maximizes performance</strong> for AI workloads (GPU-to-GPU traffic between jobs). Adds <strong>redundancy</strong> for hardware failures and keeps <strong>costs down</strong></td>
+</tr>
+<tr>
+<td><strong>Storage network</strong></td>
+<td><strong>High-throughput access to shared storage.</strong> Benefits from high bandwidth and advanced <strong>fabric management</strong></td>
+</tr>
+<tr>
+<td><strong>In-band management network</strong></td>
+<td>Connects to the <strong>management nodes</strong>. It's the main network for <strong>everything except job traffic and high-speed storage</strong>: <strong>SSH, DNS, job scheduling</strong>, the <strong>NFS home file system</strong>, and external services (<strong>NGC registry</strong>, code repos, data sources)</td>
+</tr>
+<tr>
+<td><strong>Out-of-band (OOB) management network</strong></td>
+<td><strong>Remote management even when servers are offline</strong> or unreachable in-band: <strong>remote power control, remote serial console, temperature and power sensors</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Why keep management separate?</strong> So management traffic <strong>doesn't interfere</strong> with cluster services or user jobs.</p>
+<hr />
+<h3 id="lesson-networking-for-ai-2-why-ai-needs-a-special-network">2. Why AI Needs a Special Network</h3>
+<ul>
+<li><strong>GPU utilization must stay as high as possible.</strong> GPUs have so many processing elements that they need <strong>constant feeding</strong> with data.</li>
+<li><strong>Moving data in and out of the GPU is expensive</strong> in time.</li>
+<li>Models and datasets keep growing, and <strong>many models run across multiple GPU nodes</strong>, so data must move between GPUs.</li>
+<li><strong>Performance comes from the interplay of data management, GPU utilization and network configuration</strong>, not hardware alone.</li>
+<li>Inside a server, the <strong>CPU, memory and storage</strong> must also keep up so the <strong>GPU doesn't sit idle</strong>.</li>
+</ul>
+<h4 id="lesson-networking-for-ai-network-factors-that-affect-performance">Network factors that affect performance</h4>
+<ol>
+<li><strong>Network topology</strong></li>
+<li><strong>Bandwidth and latency</strong></li>
+<li><strong>Network protocols</strong></li>
+<li><strong>Data transfer techniques</strong></li>
+<li><strong>Management methods</strong></li>
+</ol>
+<hr />
+<h3 id="lesson-networking-for-ai-3-traditional-vs-ai-optimized-network">3. Traditional vs. AI-Optimized Network</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Traditional / cloud ("north-south")</strong></th>
+<th><strong>AI-optimized ("east-west", GPU-to-GPU)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carries</td>
+<td>Storage, control traffic. A legacy network</td>
+<td><strong>GPU-to-GPU</strong> traffic and high-speed storage</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td><strong>TCP</strong></td>
+<td><strong>RDMA</strong></td>
+</tr>
+<tr>
+<td>Loss</td>
+<td>Can be lossy</td>
+<td><strong>Lossless</strong> (needed for RDMA)</td>
+</tr>
+<tr>
+<td>Jitter</td>
+<td><strong>Tolerates high jitter</strong></td>
+<td><strong>Must avoid jitter</strong></td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Not critical</td>
+<td><strong>Low latency</strong></td>
+</tr>
+<tr>
+<td>Applications</td>
+<td><strong>Many independent apps</strong> with no dependencies</td>
+<td>Like <strong>HPC</strong>: <strong>nodes depend on each other</strong></td>
+</tr>
+<tr>
+<td>What limits it</td>
+<td>Individual app performance</td>
+<td><strong>The slowest element sets the speed of the whole cluster</strong>: a slow CPU, high jitter or high <strong>tail latency</strong></td>
+</tr>
+<tr>
+<td>Key metric</td>
+<td>—</td>
+<td><strong>How long an AI training job takes from start to finish</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-networking-for-ai-4-ai-factories-vs-ai-clouds">4. AI Factories vs. AI Clouds</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>AI factory</strong></th>
+<th><strong>AI cloud</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Used for</td>
+<td>The <strong>largest training jobs</strong>: building and refining <strong>huge foundation models at extreme scale</strong></td>
+<td><strong>Hyperscale, multi-tenant</strong> services running <strong>many smaller jobs</strong></td>
+</tr>
+<tr>
+<td>Tenants and jobs</td>
+<td><strong>One tenant</strong>, <strong>one or a few jobs</strong> at a time</td>
+<td><strong>Many users</strong>, many jobs</td>
+</tr>
+<tr>
+<td>Network</td>
+<td><strong>NVLink + InfiniBand with in-network computing</strong></td>
+<td>Traditionally <strong>Ethernet</strong></td>
+</tr>
+<tr>
+<td>What's changing</td>
+<td>—</td>
+<td>AI clouds now <strong>sometimes need to run large generative AI workloads</strong>, and <strong>traditional Ethernet is too slow</strong> for them. That's the reason for AI-optimized Ethernet (Spectrum-X, covered later in this unit)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-networking-for-ai-key-terms">Key Terms</h3>
+<ul>
+<li><strong>Compute / storage / in-band / out-of-band networks</strong>: the four networks in an AI data center.</li>
+<li><strong>Out-of-band (OOB)</strong>: management access that works even when the server OS is down (power, console, sensors).</li>
+<li><strong>North-south vs. east-west</strong>: traffic in and out of the data center vs. server-to-server traffic inside it.</li>
+<li><strong>RDMA</strong>: remote direct memory access, which needs a lossless network.</li>
+<li><strong>Jitter / tail latency</strong>: variation in delay / the slowest responses. Both slow down an entire AI cluster.</li>
+<li><strong>AI factory vs. AI cloud</strong>: a single tenant running giant jobs vs. many tenants running smaller jobs.</li>
+</ul>
+<h3 id="lesson-networking-for-ai-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>Know the four networks:</strong> compute, storage, <strong>in-band</strong> (SSH, DNS, scheduling, NFS home, NGC) and <strong>out-of-band</strong> (power, serial console, sensors, works when the server is offline).</li>
+<li><strong>Traditional networks use TCP and tolerate jitter. AI networks use RDMA, are lossless and low-jitter.</strong></li>
+<li><strong>In an AI cluster, the slowest node or link sets the pace.</strong> The key metric is <strong>job completion time</strong>.</li>
+<li><strong>AI factories run on NVLink + InfiniBand. AI clouds run on Ethernet</strong>, which now needs to be AI-optimized.</li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-infiniband-and-ethernet">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 2 of 3</span>InfiniBand and Ethernet</h2>
+<h3 id="lesson-infiniband-and-ethernet-1-infiniband">1. InfiniBand</h3>
+<ul>
+<li>A networking technology built for <strong>high throughput and low latency</strong> with <strong>minimal processing overhead</strong>.</li>
+<li>The spec is maintained by the <strong>InfiniBand Trade Association (IBTA)</strong>. It covers everything <strong>from the hardware layer to the application layer</strong>.</li>
+<li>It connects <strong>compute and storage</strong> at high speed and includes <strong>intelligent offload features</strong>.</li>
+<li><strong>A favorite of traditional HPC</strong> (scientific simulations on parallel clusters), also used in cloud data centers and GPU AI.</li>
+<li><strong>The most deployed high-speed interconnect for large-scale ML</strong>, for both training and inference.</li>
+</ul>
+<h4 id="lesson-infiniband-and-ethernet-rdma-infinibands-key-feature">RDMA: InfiniBand's key feature</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DMA</strong> (direct memory access)</td>
+<td>A device, such as a GPU or network adapter, reads and writes <strong>host memory directly without the CPU</strong></td>
+</tr>
+<tr>
+<td><strong>RDMA</strong> (remote DMA)</td>
+<td>Accesses <strong>memory on a remote system</strong> without interrupting <strong>that system's CPU</strong></td>
+</tr>
+<tr>
+<td><strong>HCA</strong> (host channel adapter)</td>
+<td>An InfiniBand network adapter. It has <strong>hardware offload</strong> and <strong>bypasses the TCP/IP stack</strong> completely, for faster data movement with less CPU overhead</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>RDMA benefits:</strong></p>
+<ul>
+<li><strong>Efficient data transfer</strong>: <strong>OS bypass</strong> gives the fastest possible access to remote data.</li>
+<li><strong>Efficient computing</strong>: <strong>lowers power, cooling and space</strong> needs.</li>
+<li>Supports <strong>message passing, sockets and storage protocols</strong>.</li>
+<li>Supported by <strong>all major operating systems</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-infiniband-and-ethernet-2-ethernet">2. Ethernet</h3>
+<ul>
+<li><strong>Introduced in 1979</strong> and standardized as <strong>IEEE</strong> standards in the 1980s. It defines how devices <strong>format and send data on a LAN</strong>.</li>
+<li><strong>The dominant LAN technology</strong>, because it keeps <strong>getting faster while staying backward compatible</strong>: <strong>10 Mb/s → 100 Mb/s (mid-1990s) → up to 400 Gb/s</strong> today.</li>
+<li><strong>Ethernet is general-purpose</strong>, covering home, corporate LAN and data center. <strong>InfiniBand has one goal: the highest-performance data center interconnect.</strong></li>
+</ul>
+<h4 id="lesson-infiniband-and-ethernet-roce-rdma-over-converged-ethernet">RoCE (RDMA over Converged Ethernet)</h4>
+<ul>
+<li>Brings <strong>RDMA to Ethernet networks</strong>.</li>
+<li>It takes the <strong>InfiniBand packet header</strong> and <strong>wraps it in a UDP header</strong> carried over Ethernet.<ul>
+<li><strong>UDP</strong> is simple, flexible and <strong>compatible with legacy hardware</strong>.</li>
+<li>UDP encapsulation lets RoCE <strong>cross Layer 3 (routed) networks</strong>.</li>
+</ul>
+</li>
+<li>RoCE is <strong>open source</strong> and a <strong>formal IBTA standard</strong>. It's increasingly important for <strong>AI, storage and big data</strong>, although <strong>InfiniBand's native RDMA is still leaner</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-infiniband-and-ethernet-3-gpudirect-rdma">3. GPUDirect RDMA</h3>
+<ul>
+<li>A <strong>direct, peer-to-peer data path</strong> between <strong>GPU memory</strong> and <strong>NVIDIA network adapters</strong>, so GPUs in <strong>different servers</strong> can talk directly.</li>
+<li><strong>Minimizes CPU use</strong> and avoids <strong>buffer copies through system memory</strong>.</li>
+<li>NVIDIA adapters <strong>combine data and send smart interrupts</strong>, using <strong>close to 0% of CPU cycles</strong>.</li>
+</ul>
+<h4 id="lesson-infiniband-and-ethernet-packet-flow">Packet flow</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th><strong>Without GPUDirect RDMA</strong></th>
+<th><strong>With GPUDirect RDMA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The HCA receives packets from the remote node</td>
+<td>The HCA receives packets</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Packets cross <strong>PCIe</strong> and are <strong>copied to system memory</strong></td>
+<td>Packets go <strong>straight to GPU memory</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>The <strong>CPU handles them</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Copied again over PCIe to GPU memory</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What it saves:</strong> <strong>whole copy operations</strong>, <strong>PCIe transactions</strong> and <strong>CPU usage</strong>, and it <strong>lowers end-to-end latency</strong>.</p>
+<hr />
+<h3 id="lesson-infiniband-and-ethernet-key-terms">Key Terms</h3>
+<ul>
+<li><strong>InfiniBand (IB)</strong>: a low-latency, high-throughput interconnect standardized by the IBTA.</li>
+<li><strong>HCA</strong>: host channel adapter, the InfiniBand NIC.</li>
+<li><strong>DMA / RDMA</strong>: direct memory access, local / remote, without the CPU.</li>
+<li><strong>OS bypass</strong>: data moves without going through the kernel's TCP/IP stack.</li>
+<li><strong>RoCE</strong>: RDMA over Converged Ethernet, an IB header wrapped in UDP over Ethernet.</li>
+<li><strong>GPUDirect RDMA</strong>: the NIC reads and writes GPU memory directly, skipping system memory and the CPU.</li>
+</ul>
+<h3 id="lesson-infiniband-and-ethernet-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>InfiniBand is the most deployed interconnect for large-scale ML.</strong> Its spec comes from the <strong>IBTA</strong>.</li>
+<li><strong>RDMA lets one system access another's memory without involving its CPU.</strong> HCAs <strong>bypass TCP/IP</strong>.</li>
+<li><strong>RoCE = an InfiniBand header in UDP over Ethernet.</strong> It can be <strong>routed across Layer 3</strong>.</li>
+<li><strong>GPUDirect RDMA skips the copy into system memory and the CPU</strong>, giving lower latency and less CPU and PCIe load.</li>
+<li><strong>Ethernet is general-purpose and backward compatible (up to 400 Gb/s). InfiniBand is purpose-built for top performance.</strong></li>
+</ul>
+      </article>
+      <article class="prose lesson" id="lesson-nvidia-networking-portfolio">
+        <h2 class="lesson-title"><span class="lesson-num">Lesson 3 of 3</span>NVIDIA Networking Portfolio</h2>
+<h3 id="lesson-nvidia-networking-portfolio-1-the-network-is-the-foundation">1. The Network Is the Foundation</h3>
+<ul>
+<li><strong>"The data center is the new unit of compute"</strong>, and the <strong>network</strong> is what makes it work as one system.</li>
+<li><strong>Agentic AI and reasoning models</strong> are <strong>data- and latency-sensitive</strong>, not just compute-heavy. They span <strong>thousands of GPUs across racks and rows</strong>.</li>
+<li>NVIDIA offers <strong>end-to-end InfiniBand and Ethernet</strong> solutions.</li>
+</ul>
+<h4 id="lesson-nvidia-networking-portfolio-where-each-technology-fits">Where each technology fits</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Role</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NVLink</strong></td>
+<td><strong>Scale up</strong>: GPUs in a server, or in tightly coupled servers, behave like <strong>one large memory and compute pool</strong>. Essential for <strong>model parallelism</strong></td>
+<td>Inside the node or rack</td>
+</tr>
+<tr>
+<td><strong>InfiniBand (Quantum)</strong> and <strong>Spectrum-X Ethernet</strong></td>
+<td><strong>Scale out</strong>: the high-speed <strong>east-west compute fabric</strong> between nodes, for multi-node training and inference</td>
+<td><strong>East-west</strong></td>
+</tr>
+<tr>
+<td><strong>BlueField DPU</strong></td>
+<td><strong>Secures and accelerates north-south traffic</strong>: user access, control planes, storage fabrics. Offloads networking, security and storage from the CPU</td>
+<td><strong>North-south</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-nvidia-networking-portfolio-2-spectrum-x-ethernet-built-for-ai">2. Spectrum-X: Ethernet Built for AI</h3>
+<ul>
+<li><strong>The first Ethernet platform designed specifically for AI clouds.</strong> It delivers <strong>near-perfect bandwidth and very low latency</strong>.</li>
+<li><strong>The secret is NVIDIA's RoCE extensions</strong>, which go beyond standard RoCE:</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RoCE Adaptive Routing</strong></td>
+<td><strong>Fine-grained, dynamic load balancing.</strong> It <strong>reroutes RDMA traffic</strong> around congestion, choosing paths from live <strong>switch state (queue occupancy, port utilization)</strong></td>
+</tr>
+<tr>
+<td><strong>RoCE Congestion Control</strong></td>
+<td><strong>Limits the injection rate</strong> of flows at congested ports. This means <strong>fewer packet drops</strong> on lossy networks, <strong>less congestion spreading</strong> on lossless ones, <strong>less buffer use, lower latency and better burst tolerance</strong>. It also provides <strong>performance isolation</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>These extensions need the Spectrum-4 switch AND the BlueField-3 DPU working together.</strong> They're unique to NVIDIA.</li>
+<li>It's <strong>tuned and validated across the full NVIDIA stack</strong>, but it's still <strong>standards-based Ethernet</strong>, <strong>interoperable with any Ethernet device</strong>.</li>
+</ul>
+<hr />
+<h3 id="lesson-nvidia-networking-portfolio-3-quantum-x800-infiniband-for-trillion-parameter-ai">3. Quantum-X800: InfiniBand for Trillion-Parameter AI</h3>
+<ul>
+<li>The <strong>next generation of Quantum InfiniBand</strong>. It's the <strong>highest-performance end-to-end 800 Gb/s networking</strong>.</li>
+<li><strong>Components:</strong><ul>
+<li>the <strong>Quantum-X800 InfiniBand switch</strong></li>
+<li>the <strong>ConnectX-8 SuperNIC</strong></li>
+<li><strong>LinkX</strong> cables and transceivers</li>
+</ul>
+</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Key specs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quantum-X800 switch</strong></td>
+<td><strong>144 ports × 800 Gb/s.</strong> <strong>SHARPv4</strong> in-network computing, adaptive routing, <strong>telemetry-based congestion control</strong>, performance isolation, and a dedicated port for <strong>UFM (Unified Fabric Manager)</strong></td>
+</tr>
+<tr>
+<td><strong>ConnectX-8 SuperNIC</strong></td>
+<td><strong>Up to 800 Gb/s</strong> over <strong>InfiniBand and Ethernet</strong>. <strong>PCIe Gen6, up to 48 lanes</strong>, which allows <strong>PCIe switching</strong> inside GPU systems</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-nvidia-networking-portfolio-4-co-packaged-optics-silicon-photonics">4. Co-Packaged Optics (Silicon Photonics)</h3>
+<ul>
+<li><strong>Replaces pluggable transceivers</strong> with <strong>silicon photonics in the same package as the switch ASIC</strong>.</li>
+<li>Compared with traditional networks:<ul>
+<li><strong>3.5× better power efficiency</strong></li>
+<li><strong>10× higher network resiliency</strong></li>
+<li><strong>1.3× faster time to deploy</strong></li>
+</ul>
+</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Switch</th>
+<th>Specs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quantum-X Photonics (Quantum 3450-LD)</strong></td>
+<td><strong>115 Tb/s</strong> InfiniBand, <strong>144 × 800 Gb/s</strong> ports, <strong>liquid-cooled</strong>. Connects <strong>over 10,000 GPUs</strong> in a <strong>non-blocking two-level fat-tree</strong> at 800 Gb/s</td>
+</tr>
+<tr>
+<td><strong>Spectrum-X Photonics SN6810</strong></td>
+<td><strong>128 × 800 Gb/s</strong> Ethernet</td>
+</tr>
+<tr>
+<td><strong>Spectrum-X Photonics SN6800</strong></td>
+<td><strong>512 × 800 Gb/s</strong> Ethernet</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="lesson-nvidia-networking-portfolio-key-terms">Key Terms</h3>
+<ul>
+<li><strong>Scale up vs. scale out</strong>: NVLink inside a node or rack vs. InfiniBand or Ethernet between nodes.</li>
+<li><strong>East-west / north-south</strong>: server-to-server traffic / traffic in and out of the data center.</li>
+<li><strong>Spectrum-X</strong>: NVIDIA's AI Ethernet platform (Spectrum-4 switch + BlueField-3).</li>
+<li><strong>RoCE Adaptive Routing / Congestion Control</strong>: NVIDIA's dynamic load balancing / injection-rate limiting.</li>
+<li><strong>Quantum-X800</strong>: NVIDIA's 800 Gb/s InfiniBand platform.</li>
+<li><strong>SHARP</strong>: in-network computing that runs collective operations inside the switch.</li>
+<li><strong>UFM</strong>: Unified Fabric Manager, which manages InfiniBand fabrics.</li>
+<li><strong>SuperNIC</strong>: ConnectX-8, an 800 Gb/s NIC for IB or Ethernet.</li>
+<li><strong>Co-packaged optics</strong>: optics built into the switch package instead of pluggable modules.</li>
+<li><strong>Fat-tree</strong>: a non-blocking multi-level switch topology.</li>
+</ul>
+<h3 id="lesson-nvidia-networking-portfolio-exam-tips">Exam Tips</h3>
+<ul>
+<li><strong>NVLink scales up. InfiniBand and Spectrum-X scale out (east-west). BlueField handles north-south.</strong></li>
+<li><strong>Spectrum-X needs Spectrum-4 + BlueField-3</strong> for <strong>RoCE Adaptive Routing and Congestion Control</strong>, and it's still standard, interoperable Ethernet.</li>
+<li><strong>Adaptive routing balances load dynamically using switch queue and port state. Congestion control limits injection rate at hot ports.</strong></li>
+<li><strong>Quantum-X800 = 144 × 800 Gb/s + SHARPv4 + UFM.</strong> The <strong>ConnectX-8 SuperNIC</strong> does 800 Gb/s on IB <em>or</em> Ethernet over <strong>PCIe Gen6</strong>.</li>
+<li><strong>Co-packaged optics give 3.5× power efficiency, 10× resiliency and 1.3× faster deployment.</strong></li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-07-compute-platforms-for-ai.html"><span>← Unit 7</span>Compute Platforms for AI</a>

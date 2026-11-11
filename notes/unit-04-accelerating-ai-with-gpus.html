@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 4 of 14</p>
       <h1>Accelerating AI with GPUs</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../essential-ai-knowledge.html">Topic 1 · Essential AI Knowledge</a> <a class="chip" href="../ai-infrastructure.html">Topic 2 · AI Infrastructure</a></p>
     </section>
     <section>
@@ -42,7 +42,212 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-gpu-history-in-brief">1. GPU History in Brief</a></li><li><a href="#2-gpu-architecture">2. GPU Architecture</a></li><li><a href="#3-why-gpu-computing-took-off">3. Why GPU Computing Took Off</a></li><li><a href="#4-cpu-vs-gpu">4. CPU vs. GPU</a></li><li><a href="#5-gpu-server-systems">5. GPU Server Systems</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <article class="prose">
+<h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
+<ol>
+<li>Recall milestones in GPU history and how GPU technology evolved.</li>
+<li>Explain the core components of GPU architecture and what they do.</li>
+<li>Compare CPU and GPU architecture: strengths and limits of each.</li>
+<li>Apply knowledge of GPU server systems to plan, configure and deploy GPUs.</li>
+<li>Evaluate NVIDIA's AI GPU families for specific AI and DL use cases.</li>
+</ol>
+<blockquote>
+<p>The agenda mentions the last three NVIDIA GPU architecture generations, but the transcript doesn't cover them in detail. Use the unit summary PDF for those.</p>
+</blockquote>
+<hr />
+<h2 id="1-gpu-history-in-brief">1. GPU History in Brief</h2>
+<ul>
+<li>A <strong>GPU</strong> (graphics processing unit) is a specialized circuit that <strong>rapidly manipulates memory to speed up building images</strong> in a frame buffer for display.</li>
+<li>A <strong>pixel</strong> is the smallest displayable unit of an image, with a <strong>position, color and brightness</strong>. Every pixel has to be processed fast enough that the eye sees no lag.</li>
+<li><strong>Higher screen resolution</strong> means more pixel density, which needs more processing power. <strong>The GPU does that pixel processing.</strong></li>
+<li><strong>Timeline:</strong><ul>
+<li><strong>1970s</strong>: computer graphics begin to evolve</li>
+<li><strong>1980s</strong>: separate <strong>graphics display processors</strong></li>
+<li><strong>1990s</strong>: <strong>separate, swappable graphics boards and cards</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-gpu-architecture">2. GPU Architecture</h2>
+<ul>
+<li><strong>Thousands of GPU cores</strong>, the parts that process data. Having many cores is what makes <strong>parallel processing</strong> possible.</li>
+<li><strong>On-board cache memory</strong> for fast, reliable data access.</li>
+<li><strong>High-speed GPU memory</strong>, closest to the cores. It's built for the GPU and <strong>can be shared with other GPUs</strong>.</li>
+</ul>
+<h2 id="3-why-gpu-computing-took-off">3. Why GPU Computing Took Off</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Driver</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Model growth</strong></td>
+<td>State-of-the-art model size grew by <strong>3 orders of magnitude in 3 years</strong>. That needs GPU compute, which CPUs can't supply, plus mature frameworks and tools</td>
+</tr>
+<tr>
+<td><strong>Full-stack NVIDIA</strong></td>
+<td>Architecture and platforms, <strong>CUDA</strong>, frameworks, <strong>Triton</strong> and <strong>NGC</strong>. Ongoing <strong>co-optimization of hardware and software</strong> keeps adding performance</td>
+</tr>
+<tr>
+<td><strong>Faster adoption</strong></td>
+<td>Time to 100M users: <strong>WhatsApp took 49 months, ChatGPT took 2 months</strong></td>
+</tr>
+<tr>
+<td><strong>Energy and power limits</strong></td>
+<td>Data centers use <strong>over 200 TWh a year</strong>, about <strong>2% of global energy</strong>, projected to reach <strong>5% by 2030</strong>. They're <strong>power-limited</strong> and take <strong>years to build</strong>, so operators must get more from what they have. <strong>Accelerated computing</strong> is the way to do that</td>
+</tr>
+<tr>
+<td><strong>"Moore's Law is dead"</strong> (Jensen Huang, since 2017)</td>
+<td>Growth in transistor density is slowing, a <strong>physics limit</strong> on miniaturization. <strong>CPUs can't keep up</strong>, so accelerated computing needs a <strong>full-stack approach</strong> (hardware, software, frameworks)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Proof point:</strong> the NVIDIA AI platform with <strong>H100</strong> set time-to-train records. LLM training went from <strong>days to hours</strong>, and for the largest LLMs from <strong>a month to a week</strong>.</li>
+<li><strong>Grace Hopper GH200</strong> is covered in Unit 7.</li>
+</ul>
+<hr />
+<h2 id="4-cpu-vs-gpu">4. CPU vs. GPU</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>CPU</strong></th>
+<th><strong>GPU</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instruction sets</td>
+<td><strong>Complex</strong></td>
+<td><strong>Simple</strong></td>
+</tr>
+<tr>
+<td>Cores</td>
+<td>Multi-core, <strong>up to 128</strong>, with <strong>fast clock speeds</strong></td>
+<td><strong>Over 10,000</strong> on the latest cards</td>
+</tr>
+<tr>
+<td>Designed for</td>
+<td>Running <strong>many different applications at once</strong>, each with 1 or a few <strong>time-sliced threads</strong></td>
+<td><strong>Highly parallel</strong> tasks, the same operation on millions of items (rooted in rendering pixels)</td>
+</tr>
+<tr>
+<td>Latency strategy</td>
+<td><strong>Minimizes latency</strong> with <strong>large caches + complex control logic</strong> (prefetching)</td>
+<td><strong>Hides latency with computation</strong>: gives the GPU more threads than it has cores and switches between them</td>
+</tr>
+<tr>
+<td>Silicon spent on</td>
+<td>Much of it on <strong>data movement</strong></td>
+<td>Mostly <strong>computation</strong></td>
+</tr>
+<tr>
+<td>Performance per watt</td>
+<td><strong>Relatively low</strong>, because energy goes to moving data</td>
+<td><strong>Very efficient</strong></td>
+</tr>
+<tr>
+<td>Main memory</td>
+<td><strong>Large but low bandwidth</strong></td>
+<td><strong>Smaller but very high bandwidth</strong>, e.g. <strong>H100: 80 GB at about 2 TB/s</strong>, roughly <strong>10× CPU memory</strong></td>
+</tr>
+<tr>
+<td>Weak spot</td>
+<td><strong>Cache misses</strong> hurt performance</td>
+<td>Needs <strong>lots of concurrent work</strong> to hide latency</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-the-gpu-hides-latency">How the GPU hides latency</h3>
+<ol>
+<li>The scheduler starts a thread on an operation, e.g. an addition.</li>
+<li>If the data isn't ready, the thread <strong>fetches it from memory and stalls</strong>.</li>
+<li>The scheduler <strong>switches to another thread</strong>, building a pipeline of instructions across many threads.</li>
+<li>When the first thread's data arrives, it carries on.
+- A <strong>large register file</strong> holds the state of every thread, so <strong>switching costs nothing</strong>, even every clock cycle.
+- <strong>The more work you give a GPU, the better it hides latency.</strong> On a CPU you usually run 1–2 threads per core instead.
+- Many applications are <strong>bandwidth-bound rather than compute-bound</strong>, so the GPU's memory bandwidth alone gives big speedups.</li>
+</ol>
+<h3 id="how-acceleration-works">How acceleration works</h3>
+<ul>
+<li>Applications have <strong>sequential parts</strong> and <strong>parallel parts</strong>. The parallel parts may be small, but they're usually the <strong>most compute-intensive</strong>. Offloading them to the GPU can give <strong>orders-of-magnitude speedups</strong>.</li>
+<li><strong>CPU ↔ GPU data flow.</strong> The CPU and GPU each have <strong>their own memory</strong>:<ol>
+<li>Copy the data from <strong>CPU memory to GPU memory</strong>, usually over the <strong>PCIe bus</strong>.</li>
+<li>Copy the <strong>code</strong> (kernel) to the GPU and launch it. It runs using the GPU's cache layers.</li>
+<li>Copy the <strong>results back to CPU memory</strong>.</li>
+</ol>
+</li>
+<li><strong>NVLink</strong> is a faster alternative interconnect, covered in a later unit.</li>
+</ul>
+<hr />
+<h2 id="5-gpu-server-systems">5. GPU Server Systems</h2>
+<ul>
+<li>A <strong>GPU server</strong> is built to speed up <strong>deep learning, scientific simulation and data analytics</strong> with thousands of parallel cores.</li>
+<li><strong>GPU form factors:</strong> <strong>PCIe</strong> (most common), <strong>SXM</strong> and <strong>MXM</strong>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DGX H100</strong></td>
+<td>A <strong>fully integrated hardware + software</strong> solution, the basis for an AI center of excellence</td>
+</tr>
+<tr>
+<td><strong>HGX H100</strong></td>
+<td><strong>H100 Tensor Core GPUs + high-speed interconnects</strong> that partners build "the world's most powerful servers" on</td>
+</tr>
+<tr>
+<td><strong>H100 PCIe</strong></td>
+<td>The <strong>highest PCIe-card memory bandwidth</strong>: <strong>over 2,000 GB/s</strong></td>
+</tr>
+<tr>
+<td><strong>MGX</strong></td>
+<td>A <strong>modular reference design</strong> for many use cases, from remote visualization to edge supercomputing. It <strong>improves ROI and shortens time to market</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Ecosystem:</strong> Cisco, Dell, HPE, IBM, Lenovo and others sell GPU servers with <strong>2–16 GPUs each</strong>, which can be <strong>interconnected into multi-server systems</strong>. <strong>Every major cloud provider</strong> offers NVIDIA GPUs.</li>
+</ul>
+<h3 id="where-gpus-are-used">Where GPUs are used</h3>
+<ul>
+<li><strong>Compute-intensive:</strong> AI training and inference, data analytics, <strong>HPC</strong>.</li>
+<li><strong>General purpose:</strong> visualization, rendering, virtual workstations, deep learning.</li>
+<li><strong>High-density virtualization:</strong> virtual desktops and workstations.</li>
+<li><strong>Enterprise edge</strong> (controlled environments) and <strong>industrial edge</strong> (rugged environments).</li>
+<li><strong>Desktop and mobile workstations:</strong> design, content creation, data science, software development.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>GPU</strong>: a highly parallel processor, originally for graphics, now the engine of accelerated computing.</li>
+<li><strong>Core</strong>: the processing element. CPUs have a few powerful ones. GPUs have thousands of simple ones.</li>
+<li><strong>Latency hiding</strong>: oversubscribing threads so the GPU computes while other threads wait on memory.</li>
+<li><strong>Register file</strong>: on-chip storage for thread state. It's what lets the GPU switch threads at no cost.</li>
+<li><strong>Bandwidth-bound</strong>: limited by how fast data moves, not by math throughput.</li>
+<li><strong>PCIe / SXM / MXM</strong>: GPU form factors. <strong>NVLink</strong> is NVIDIA's high-speed GPU interconnect.</li>
+<li><strong>DGX / HGX / MGX</strong>: an integrated system / a platform for partner servers / a modular reference design.</li>
+<li><strong>Moore's Law slowing</strong>: the reason accelerated computing is needed.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>CPU means low latency (big caches, complex control). GPU means high throughput (hides latency with many threads).</strong></li>
+<li><strong>GPUs have better performance per watt</strong> because their silicon goes to computation, not data movement.</li>
+<li><strong>GPU memory is smaller but much faster.</strong> Know <strong>H100: 80 GB at about 2 TB/s</strong>.</li>
+<li><strong>Offload flow:</strong> CPU→GPU copy over <strong>PCIe</strong>, run the kernel, copy results back. <strong>NVLink</strong> is the faster path.</li>
+<li><strong>Data centers are about 2% of global energy, heading to 5% by 2030.</strong> They're power-limited, so accelerated computing is the answer.</li>
+<li>Know the system names: <strong>DGX</strong> (turnkey), <strong>HGX</strong> (partner building block), <strong>MGX</strong> (modular), <strong>H100 PCIe</strong>.</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-03-generative-ai-and-beyond.html"><span>← Unit 3</span>Generative AI and Beyond</a>

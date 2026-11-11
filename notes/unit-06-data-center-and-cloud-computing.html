@@ -31,7 +31,7 @@
     <section class="hero">
       <p class="eyebrow">Unit 6 of 14</p>
       <h1>Data Center and Cloud Computing</h1>
-      <p class="lede">The unit summary PDF from the course. Notes for this unit are coming.</p>
+      <p class="lede">Condensed notes from the course transcript, written around the exam, plus the unit summary PDF.</p>
       <p class="chips"><a class="chip" href="../ai-infrastructure.html">Topic 2 · AI Infrastructure</a></p>
     </section>
     <section>
@@ -42,7 +42,146 @@
     </section>
     <section>
       <h2>Notes</h2>
-      <p class="empty">Notes for this unit haven't been written yet. Use the summary PDF above for now.</p>
+      <nav class="toc" aria-label="On this page"><ul><li><a href="#what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</a></li><li><a href="#1-recap-of-earlier-units">1. Recap of Earlier Units</a></li><li><a href="#2-what-a-data-center-is">2. What a Data Center Is</a></li><li><a href="#3-ai-data-center-infrastructure-6-aspects">3. AI Data Center Infrastructure (6 aspects)</a></li><li><a href="#4-operating-an-ai-data-center">4. Operating an AI Data Center</a></li><li><a href="#key-terms">Key Terms</a></li><li><a href="#exam-tips">Exam Tips</a></li></ul></nav>
+      <article class="prose">
+<h2 id="what-you-should-be-able-to-do-after-this-unit">What you should be able to do after this unit</h2>
+<ol>
+<li>Summarize the AI principles from earlier units.</li>
+<li>Outline where AI workloads are hosted: <strong>data centers and the cloud</strong>.</li>
+<li>List the <strong>components of an AI data center</strong>.</li>
+<li>Describe what's needed to <strong>manage and monitor</strong> an AI data center.</li>
+</ol>
+<blockquote>
+<p>This unit is a <strong>map of Section 2 (AI Infrastructure) and Section 3 (AI Operations)</strong>. Each topic here gets its own unit later: compute (7), networking (8), storage (9), energy (10), reference architectures (11), cloud (12), management (13), orchestration (14).</p>
+</blockquote>
+<hr />
+<h2 id="1-recap-of-earlier-units">1. Recap of Earlier Units</h2>
+<ul>
+<li>AI has evolved through <strong>ML → DL → generative AI</strong>, each unlocking new capabilities. Generative AI creates stories, emails, music, images and video.</li>
+<li><strong>Accelerated computing (GPUs)</strong> became essential as <strong>CPU scaling hit its limits</strong>.</li>
+<li>The <strong>software stack</strong> connects hardware and AI algorithms for performance and efficiency.</li>
+</ul>
+<h2 id="2-what-a-data-center-is">2. What a Data Center Is</h2>
+<ul>
+<li>A <strong>physical or cloud facility</strong> that hosts essential business applications and data.</li>
+<li><strong>Three component groups:</strong> <strong>compute, storage and networking</strong>, plus <strong>power and cooling</strong>.</li>
+<li><strong>Traditional data centers may fall short for AI</strong> because AI is <strong>data-intensive and compute-intensive</strong>:<ul>
+<li>massive datasets need <strong>high-performance, high-speed storage</strong></li>
+<li>heavy computation runs on <strong>multiple accelerated systems</strong></li>
+<li>compute, storage and <strong>management nodes</strong> are networked into a <strong>cluster</strong></li>
+<li>the network must be <strong>high-performance and low-latency</strong> so it <strong>isn't the bottleneck</strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="3-ai-data-center-infrastructure-6-aspects">3. AI Data Center Infrastructure (6 aspects)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Key points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compute</strong></td>
+<td>Training and inference need lots of power. <strong>Accelerated systems</strong> (powerful CPUs, memory, GPUs) process data spread across interconnected nodes. <strong>GPU servers come from your OEM of choice</strong></td>
+</tr>
+<tr>
+<td><strong>Networking</strong></td>
+<td>AI jobs are <strong>distributed across hundreds to thousands of nodes</strong>. <strong>Distributed computing</strong> means many interconnected nodes working on one task over a <strong>high-speed, low-latency network</strong>. <strong>"The network defines the data center"</strong> and is the <strong>backbone</strong> of AI infrastructure</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>GPUs need <strong>high, sustained data delivery</strong> from storage. <strong>Sequential read is the most common storage access pattern in neural network training</strong> (per this unit; Unit 9 adds that records are read in <strong>random order</strong> across epochs). Consider <strong>capacity, performance, network hardware and transfer protocols</strong></td>
+</tr>
+<tr>
+<td><strong>Power, cooling and energy efficiency</strong></td>
+<td>More compute means more power and heat. Poor cooling means <strong>shorter equipment life, worse performance and more load on cooling</strong>. <strong>Accelerated computing is the most cost-effective path to energy efficiency</strong> because it does more work per unit of energy. <strong>Direct liquid cooling</strong> improves heat transfer, needs less airflow, cools targeted spots and enables <strong>waste-heat reuse</strong></td>
+</tr>
+<tr>
+<td><strong>Reference architectures</strong></td>
+<td>Documents with a <strong>recommended, best-of-breed design</strong> for implementing a system (compute servers, network fabrics, storage, management servers). Use them as a <strong>foundation</strong> for your own design</td>
+</tr>
+<tr>
+<td><strong>Cloud</strong></td>
+<td>Cloud GPU services are a <strong>flexible, accessible alternative</strong> to building and maintaining on-prem AI infrastructure</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-operating-an-ai-data-center">4. Operating an AI Data Center</h2>
+<h3 id="who-faces-which-challenge">Who faces which challenge</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Challenge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IT admins</strong>: <em>infrastructure provisioning</em></td>
+<td>Diverse, often <strong>container-based</strong> data science workloads that differ from traditional enterprise IT. They must manage <strong>GPU acceleration and high-speed networking</strong></td>
+</tr>
+<tr>
+<td><strong>Data scientists</strong>: <em>workload management</em></td>
+<td>Need <strong>centralized compute</strong> beyond their laptops but <strong>lack the IT knowledge</strong> to use it themselves. Need <strong>scalable access</strong> as they move from experiments to larger tests</td>
+</tr>
+<tr>
+<td><strong>Line-of-business owners</strong>: <em>resource monitoring</em></td>
+<td>Must ensure <strong>optimal use of compute</strong>, using accurate <strong>usage data</strong> to make business decisions</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="container-orchestration-vs-job-scheduling">Container orchestration vs. job scheduling</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Container orchestration</strong></th>
+<th><strong>Scheduling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What</td>
+<td><strong>Automates container operations</strong>: provisioning, deployment, management, <strong>scaling, load balancing</strong></td>
+<td><strong>Assigns workloads to available compute resources</strong></td>
+</tr>
+<tr>
+<td>Does</td>
+<td>Handles tasks based on the environment's needs</td>
+<td><strong>Launches and monitors jobs, manages the job queue</strong>, makes sure jobs get the resources they need</td>
+</tr>
+<tr>
+<td>Together</td>
+<td>A <strong>separate scheduler can work alongside an orchestrator</strong> for advanced scheduling</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Data center</strong>: a physical or cloud facility built from compute, storage and networking, plus power and cooling.</li>
+<li><strong>Cluster</strong>: compute, storage and management nodes networked together.</li>
+<li><strong>Distributed computing</strong>: many interconnected nodes working together on one job.</li>
+<li><strong>Reference architecture</strong>: a documented, recommended best-practice design.</li>
+<li><strong>Direct liquid cooling</strong>: cooling with liquid at the heat source. It's more efficient than air.</li>
+<li><strong>Container orchestration</strong>: automated deployment, scaling and load balancing of containers.</li>
+<li><strong>Job scheduling</strong>: assigning jobs in a queue to available resources.</li>
+</ul>
+<h2 id="exam-tips">Exam Tips</h2>
+<ul>
+<li><strong>The 3 pillars of a data center are compute, storage and networking</strong>, with power and cooling supporting them.</li>
+<li><strong>The network is the backbone.</strong> It must be high-bandwidth and low-latency so it doesn't bottleneck GPUs.</li>
+<li><strong>Accelerated computing is the most cost-effective way to gain energy efficiency.</strong></li>
+<li><strong>Liquid cooling benefits:</strong> better heat transfer, less airflow, targeted cooling, waste-heat reuse.</li>
+<li><strong>Match each role to its challenge:</strong> IT admins (provisioning), data scientists (workload management), line-of-business owners (resource monitoring).</li>
+<li><strong>Orchestration manages containers. Scheduling assigns jobs to resources.</strong> They're often used together.</li>
+</ul>
+      </article>
     </section>
     <nav class="pager" aria-label="Units">
       <a class="prev" href="unit-05-ai-software-ecosystem.html"><span>← Unit 5</span>AI Software Ecosystem</a>

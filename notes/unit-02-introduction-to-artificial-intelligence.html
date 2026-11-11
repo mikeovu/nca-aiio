@@ -222,29 +222,39 @@
 <ul>
 <li><strong>Input layer</strong>, then <strong>hidden layers</strong>, then <strong>output layer</strong>. Connections show which nodes pass results to which.</li>
 <li>It's called <strong>"deep"</strong> because it has <strong>many hidden layers</strong>.</li>
-<li>The <strong>design of the network</strong> decides what task it suits. Image classification models look very different from speech recognition models. They differ in:</li>
+<li>The <strong>design of the network</strong> decides what task it suits. Image classification models look very different from speech recognition models. They differ in:<ul>
 <li>number of layers</li>
 <li>nodes per layer</li>
 <li>the algorithm in each node</li>
 <li>how nodes are connected</li>
+</ul>
+</li>
 <li>Pre-built models exist for classification, object recognition, segmentation and more. They often need <strong>modifying to reach high accuracy</strong> on a specific dataset.</li>
 </ul>
 <h3 id="deep-learning-workflow-cats-vs-dogs-example">Deep learning workflow (cats vs. dogs example)</h3>
 <ol>
 <li><strong>Build a training dataset</strong>: several thousand <strong>labeled</strong> images. It must be <strong>representative</strong>, covering many breeds, poses and environments.</li>
-<li><strong>Pick an untrained DNN</strong> for the task (detection, classification or segmentation) and data type (image, text, audio or video). For images this would be a <strong>CNN such as AlexNet</strong>.
-   - AlexNet's nodes run <strong>simple, generalized algorithms</strong>. That is the <strong>key advantage of DL over earlier ML</strong>, which needed specialists to hand-build custom feature extractors for each dataset and task.</li>
-<li><strong>Train it with a deep learning framework.</strong> The framework feeds the images through the network.
-   - Each output node reports a confidence score. Sorted from most to least confident, these scores make up the <strong>confidence vector</strong>.
-   - The framework compares the guess with the <strong>label</strong>. A <strong>correct</strong> guess <strong>strengthens the weights</strong> of the connections that led to it. A <strong>wrong</strong> guess <strong>reduces</strong> those weights.
-   - After <strong>one pass</strong> through the dataset, the model is right only a bit more than half the time, barely better than a coin flip. It needs <strong>many more rounds</strong> to become accurate.</li>
-<li><strong>Limits and retraining</strong>: if the model sees a raccoon, it gives cat and dog similar confidence. To add a raccoon class:
-   - add a <strong>third output node</strong> (change the topology)
-   - add thousands of raccoon images
-   - <strong>retrain</strong></li>
-<li><strong>Optimize for inference</strong>: a trained model no longer needs the flexibility it had during training. Two common optimizations are:
-   - <strong>layer fusion</strong>, which reduces memory and communication overhead
-   - <strong>pruning</strong> nodes that contribute little</li>
+<li><strong>Pick an untrained DNN</strong> for the task (detection, classification or segmentation) and data type (image, text, audio or video). For images this would be a <strong>CNN such as AlexNet</strong>.<ul>
+<li>AlexNet's nodes run <strong>simple, generalized algorithms</strong>. That is the <strong>key advantage of DL over earlier ML</strong>, which needed specialists to hand-build custom feature extractors for each dataset and task.</li>
+</ul>
+</li>
+<li><strong>Train it with a deep learning framework.</strong> The framework feeds the images through the network.<ul>
+<li>Each output node reports a confidence score. Sorted from most to least confident, these scores make up the <strong>confidence vector</strong>.</li>
+<li>The framework compares the guess with the <strong>label</strong>. A <strong>correct</strong> guess <strong>strengthens the weights</strong> of the connections that led to it. A <strong>wrong</strong> guess <strong>reduces</strong> those weights.</li>
+<li>After <strong>one pass</strong> through the dataset, the model is right only a bit more than half the time, barely better than a coin flip. It needs <strong>many more rounds</strong> to become accurate.</li>
+</ul>
+</li>
+<li><strong>Limits and retraining</strong>: if the model sees a raccoon, it gives cat and dog similar confidence. To add a raccoon class:<ul>
+<li>add a <strong>third output node</strong> (change the topology)</li>
+<li>add thousands of raccoon images</li>
+<li><strong>retrain</strong></li>
+</ul>
+</li>
+<li><strong>Optimize for inference</strong>: a trained model no longer needs the flexibility it had during training. Two common optimizations are:<ul>
+<li><strong>layer fusion</strong>, which reduces memory and communication overhead</li>
+<li><strong>pruning</strong> nodes that contribute little</li>
+</ul>
+</li>
 <li><strong>Deploy</strong> the model in an application, where it infers on images it hasn't seen before.</li>
 </ol>
 <h3 id="training-vs-inference">Training vs. inference</h3>
@@ -321,10 +331,12 @@
 <li><strong>For practitioners</strong>: top-tier development tools, frameworks and <strong>pre-trained models</strong>.</li>
 <li><strong>For IT</strong>: management and <strong>orchestration</strong> with performance, <strong>high availability</strong> and <strong>security</strong>.</li>
 <li><strong>Covers the full pipeline</strong>: data prep, then training, then inference, then scaling.</li>
-<li><strong>Faster time to production</strong> with AI workflows and pre-trained models for specific business outcomes:</li>
+<li><strong>Faster time to production</strong> with AI workflows and pre-trained models for specific business outcomes:<ul>
 <li>intelligent virtual assistants</li>
 <li><strong>digital fingerprinting</strong> (real-time cybersecurity threat detection)</li>
 <li>recommender systems for retail</li>
+</ul>
+</li>
 <li><strong>Optimized and certified to deploy anywhere</strong>: public cloud, data center and edge. This <strong>lowers the risk of moving from pilot to production</strong> when environments differ.</li>
 </ul>
 <hr />
